@@ -1,12 +1,14 @@
 @extends('default')
 
 @section('header')
-Sample Menu
+Transaction List
 @stop
 
 @section('user_info')
-Firstname Lastname <br/>
-Processor <br/>
+<!-- user info -->
+<p>First Lastname</p>
+<!-- job title -->
+<a href="#"><i class="fa fa-circle text-success"></i> Processor</a>
 @stop
 
 @section('sidebar')
@@ -17,6 +19,7 @@ Processor <br/>
       <a href="#"><i class="fa fa-fw fa-plus-square"></i>Create Transaction</a>
   </li>
 @stop
+
 
 @section('content')
 <div class="panel panel-green">
