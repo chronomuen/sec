@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('login', 'PagesController@login');
+Route::get('{user_type}_index', 'PagesController@index');
+Route::get('/', 'PagesController@index');
