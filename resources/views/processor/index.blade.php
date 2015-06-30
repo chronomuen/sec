@@ -22,7 +22,7 @@ Transaction List
 
 
 @section('content')
-<div class="panel panel-green">
+<div class="panel panel-primary">
     <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
     <a href="#" class="list-group-item">Morbi leo risus</a>
     <a href="#" class="list-group-item">Porta ac consectetur ac</a>
