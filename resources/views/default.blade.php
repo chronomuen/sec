@@ -53,6 +53,10 @@
                 <ul class="nav navbar-nav side-nav">
                   <li class="details_pane">
                         @yield('user_info')
+                        <?php
+                          date_default_timezone_set("Asia/Manila");
+                          echo date("F d, Y");
+                        ?>
                   </li>
                     @yield('sidebar')
                 </ul>
