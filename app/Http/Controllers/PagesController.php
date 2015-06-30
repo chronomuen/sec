@@ -16,7 +16,7 @@ class PagesController extends Controller
      */
     public function index($user)
     {
-        return view($user.'index');
+        return view($user.'.index');
     }
 
     public function login()
