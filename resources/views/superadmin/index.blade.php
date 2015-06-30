@@ -21,6 +21,9 @@ Transaction List
   <li>
       <a href="#"><i class="fa fa-fw fa-exchange"></i>Assign Transactions</a>
   </li>
+  <li>
+      <a href="#"><i class="fa fa-fw fa-group"></i>Manage Users</a>
+  </li>
 @stop
 
 
