@@ -1,0 +1,45 @@
+.logo {
+  position: fixed;
+  left: 9px;
+  margin-left: 0px;
+  width: 210px;
+}
+
+.logo img{
+  width: 100%;
+  height: auto;
+}
+
+.app_name {
+  position: fixed;
+  top: 37px;
+  left: 15px;
+  font-size: 200%;
+  color: #FFFFFF;
+}
+
+.details_pane {
+  position: fixed;
+  left: 20px;
+  color: #999;
+  font-size: 110%;
+}
+
+.jumbotron_admin {
+  background-color:#EBF5FF;
+  padding: 30px 15px;
+  margin-bottom: 30px;
+}
+
+.jumbotron_admin_font {
+  color: #0A141F;
+  font-size: 110%;
+}
+
+.th_audit {
+   background-color: white;
+}
+
+.label-as-badge {
+    border-radius: 1em;
+}
