@@ -1,101 +1,97 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-	<title>Transaction Tracker</title>
-
-	<!-- Own CSS -->
-	<link href="/css/style.css" rel="stylesheet">
-
-	<!-- Bootstrap Core CSS -->
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- Custom CSS -->
-	<link href="/css/sb-admin.css" rel="stylesheet">
-
-	<!-- Morris Charts CSS -->
-	<link href="/css/plugins/morris.css" rel="stylesheet">
-
-	<!-- Custom Fonts -->
-	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-</head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>SEC Transaction Tracker</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- Bootstrap 3.3.4 -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Own CSS -->
+	   <link href="/css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
+	   <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Theme style -->
+    <link href="/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="/css/skins/skin-blue.min.css" rel="stylesheet" type="text/css" />
+    <!-- iCheck -->
 
 
-<body>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="wrapper">
 
-    <div id="wrapper">
+      <header class="main-header">
+        <!-- Logo -->
+        <div class="logo">
+          SEC Transaction Tracker
+        </div>
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="home">
-                  <div class="app_name">
-                    SEC Transaction Tracker
-                  </div>
-                </a>
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                @yield('navbar_options')
-                <li>
-                  <a href="logout"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
-                </li>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- navbar options -->
+              @yield('navbar_options')
+              <li>
+                <a href="#"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
+              </li>
             </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                  <li class="details_pane">
-                        @yield('user_info')
-                        <?php
-                          date_default_timezone_set("Asia/Manila");
-                          echo date("F d, Y");
-                        ?>
-                  </li>
-                    @yield('sidebar')
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+          </div>
         </nav>
+      </header>
 
-
-    <div id="page-wrapper">
-      <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    @yield('header')
-                </h1>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="/images/sec_logo.png" class="img-circle"/>
             </div>
-        </div>
+            <div class="pull-left info">
+              @yield('user_info')
+            </div>
+          </div>
 
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">NAVIGATION</li>
+            @yield('sidebar')
 
-	   @yield('content')
+        </section>
+        <!-- /.sidebar -->
+      </aside>
 
-        </div>
-    </div>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            @yield('header')
+          </h1>
+        </section>
 
-    </div>
-    <!-- /#wrapper -->
+        <!-- Main content -->
+        <section class="content">
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+
+    </div><!-- ./wrapper -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
-
-</body>
-
+  </body>
 </html>
