@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-	<title>Transaction Tracker</title>
+	<title>SEC Transaction Tracker</title>
 
 	<!-- Own CSS -->
 	<link href="/css/style.css" rel="stylesheet">
