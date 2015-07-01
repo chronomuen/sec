@@ -6,10 +6,10 @@
 <div>
 	<div style="float:left">Assign Stages</div>
 
-	<div>
+	<div style="padding-left:712px">
 		<form action="#" method="get">
-			<div class="input-group" style="padding-left:550px">
-				<input class="form-control" id="system-search" name="q" placeholder="Search for" required>
+			<div class="input-group">
+				<input class="form-control" id="system-search" name="q" placeholder="Filter" required>
 				<span class="input-group-btn">
 					<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 				</span>
@@ -32,38 +32,87 @@
     	 <table class="table table-list-search">
                     <thead>
                         <tr>
-                            <th>Entry</th>
-                            <th>Entry</th>
-                            <th>Entry</th>
-                            <th>Entry</th>
-                            <th>Entry</th>
-                            <th>Entry</th>
+                            <th><center>Processor</center></th>
+                            <th><center>Department</center></th>
+                            <th><center>Stages</center></th>
+                            <th><center>Search Stage</center></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Sample</td>
-                            <td>Filter</td>
-                            <td>12-11-2011 11:11</td>
-                            <td>OK</td>
-                            <td>123</td>
-                            <td>Do some other</td>
+                            <td>Z, Jay</td>
+                            <td>Rap Department</td>
+                            <td>
+								<select id="select" class="form-control">
+									<option disabled selected> -- show stages -- </option>
+									<option>stage1</option>
+									<option>stage2</option>
+									<option>stage3</option>
+									<option>stage4</option>
+									<option>stage5</option>
+								</select>
+							</td>
+                            <td>
+								<div style="width:150px">
+									<input class="form-control" id="system-add" name="q" placeholder="Add Stage">
+									<span class="input-group-btn">
+										<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+									</span>
+								</div>
+							</td>
                         </tr>
                         <tr>
-                            <td>Try</td>
-                            <td>It</td>
-                            <td>11-20-2013 08:56</td>
-                            <td>It</td>
-                            <td>Works</td>
-                            <td>Do some FILTERME</td>
+                            <td>Gaga, Lady</td>
+                            <td>Pop Department</td>
+                            <td>
+								<select id="select" class="form-control">
+									<option disabled selected> -- show stages -- </option>
+									<option>stage1</option>
+									<option>stage2</option>
+									<option>stage3</option>
+									<option>stage4</option>
+									<option>stage5</option>
+								</select>
+							</td>
+                            <td>
+								<span>	
+									<div style="width:150px">
+										<input class="form-control" id="system-add" name="q" placeholder="Add Stage">
+									</div>
+								</span>
+								<span class="input-group-btn" style="float:right">
+									<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+								</span>
+								
+							</td>
+							
                         </tr>
                         <tr>
-                            <td>§</td>
-                            <td>$</td>
-                            <td>%</td>
-                            <td>&</td>
-                            <td>/</td>
-                            <td>!</td>
+                            <td>9, Gloc</td>
+                            <td>OPM Department</td>
+                            <td>
+								<select id="select" class="form-control">
+									<option disabled selected> -- show stages -- </option>
+									<option>stage1</option>
+									<option>stage2</option>
+									<option>stage3</option>
+									<option>stage4</option>
+									<option>stage5</option>
+								</select>
+							</td>
+                            
+							<td>
+								<div style="width:150px">
+								
+									<input class="form-control" id="system-add" name="q" placeholder="Add Stage">
+								
+									
+									<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+									
+								
+								</div>
+								
+							</td>
                         </tr>
                     </tbody>
                 </table>   
