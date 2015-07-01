@@ -1,6 +1,4 @@
 <!-- Form input fields -->
-    
-
           <div class="row">
             <label>Customer's Name</label>
             <input class="form-control" placeholder="e.g. Juan dela Cruz">
@@ -31,6 +29,6 @@
               <option>Stage 4</option>
               <option>Stage 5</option>
             </select>
-        </div>
+          </div>
 
 <!-- /Form input fields-->

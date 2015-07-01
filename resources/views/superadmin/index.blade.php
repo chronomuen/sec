@@ -1,6 +1,6 @@
 @extends('default')
 <!-- User Sidebar -->
-@include('admin/_sidebar')
+@include('superadmin/_sidebar')
 
 @section('header')
 Transaction List
