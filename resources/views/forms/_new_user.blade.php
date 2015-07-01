@@ -1,6 +1,6 @@
-<div class="container">
+
     <div class="row clearfix">
-    	<div class="col-md-12 table-responsive">
+    	<div class="table-responsive">
 			<table class="table table-bordered table-hover table-sortable" id="tab_logic">
 				<thead>
 					<tr >
@@ -23,10 +23,18 @@
 				<tbody>
     				<tr id='addr0' data-id="0" class="hidden">
 						<td data-name="name">
-						    <input type="text" name='name0'  placeholder='Name' class="form-control"/>
+              <div width="1">
+						    <input type="text" name='name0'  placeholder='Name'/>
+                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
 						</td>
 						<td data-name="mail">
-						    <input type="text" name='mail0' placeholder='Email' class="form-control"/>
+              <div width="1">
+                <input class="form-control" id="system-search" name="q" placeholder="Search for" required>
+            		<span class="input-group-btn inline">
+            			<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+            		</span>
+              </div>
 						</td>
 						<td data-name="desc">
 						    <textarea name="desc0" placeholder="Description" class="form-control"></textarea>
@@ -48,4 +56,3 @@
 		</div>
 	</div>
 	<a id="add_row" class="btn btn-default pull-right">Add Row</a>
-</div>
