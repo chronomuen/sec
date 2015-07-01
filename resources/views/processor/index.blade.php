@@ -1,46 +1,15 @@
 @extends('default')
+<!-- User Sidebar -->
+@include('processor/_sidebar')
 
 @section('header')
-<div style="display:inline-block">
-	<div style="float:left">Transaction List</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-9">
-				<div id="custom-search-input">
-					<div class="input-group col-md-14">
-						<input type="text" class="form-control input-lg" placeholder="Search" />
-						<span class="input-group-btn">
-							<button class="btn btn-info btn-lg" type="button">
-								<i class="glyphicon glyphicon-search"></i>
-							</button>
-						</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-@stop
-
-@section('user_info')
-<!-- user info -->
-<p>First Lastname</p>
-<!-- job title -->
-<a href="#"><i class="fa fa-circle text-success"></i> Processor</a>
-@stop
-
-@section('sidebar')
-  <li class="active">
-      <a href="processor_index"><i class="fa fa-fw fa-reorder"></i>View Transactions</a>
-  </li>
-  <li>
-      <a href="#"><i class="fa fa-fw fa-plus-square"></i>Create Transaction</a>
-  </li>
+Transaction List
 @stop
 
 @section('javascript')
 <script src="/js/department.js" type="text/javascript"></script>
 @stop
+
 @section('content')
 <div id="transactions" class="panel panel-primary">
     <a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction1</a>
@@ -77,17 +46,17 @@
 			</select>
 		</div>
 		<p>
-		Proceed to 
+		Proceed to
 		<b>
 		<class id="department">
-			
+
 		</class>
 		</b>
 		at room something something database.
 		</p>
-		
-		
-		
+
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

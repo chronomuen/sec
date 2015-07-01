@@ -13,7 +13,7 @@
       <a href="superadmin_new_transaction"><i class="fa fa-fw fa-plus-square"></i>Create Transaction</a>
   </li>
   <li>
-      <a href="#"><i class="fa fa-fw fa-exchange"></i>Assign Transactions</a>
+      <a href="#"><i class="fa fa-fw fa-exchange"></i>Assign Stages</a>
   </li>
   <li class="treeview">
     <a href="#">
