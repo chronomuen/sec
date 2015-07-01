@@ -14,9 +14,12 @@
 }
 
 .jumbotron_admin {
-  background-color:#CCEBF5;
+  background-color:#FFFFFF;
   padding: 30px 15px;
   margin-bottom: 30px;
+  border-color: #001A66;
+  border-width: 1px;
+  border-style:solid;
 }
 
 .jumbotron_admin_font {
