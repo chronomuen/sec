@@ -6,17 +6,13 @@
 Create New User
 @stop
 
-@section('javascript')
-<script src="/js/superadmin.js" type="text/javascript"></script>
-@stop
-
 @section('content')
 <div class="container">
   <div class="row">
     <div class="col-lg-11">
       <div class="panel">
         <div class="panel-body">
-          <div class="col-lg-6">
+          <div class="col-lg-11">
             <div class="form-group">
               @include('forms/_new_user')
               <div class="row" >
@@ -31,4 +27,8 @@ Create New User
   </div>
 </div>
 
+@stop
+
+@section('javascript')
+<script src="/js/superadmin.js" type="text/javascript"></script>
 @stop
