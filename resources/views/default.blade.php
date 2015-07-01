@@ -16,6 +16,7 @@
          folder instead of downloading all of them to reduce the load. -->
     <link href="/css/skins/skin-blue.min.css" rel="stylesheet" type="text/css" />
     <!-- iCheck -->
+	<link href="/css/search.css" rel="stylesheet" type="text/css"/>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -97,5 +98,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+	
+	@yield('javascript')
   </body>
 </html>
