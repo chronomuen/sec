@@ -91,14 +91,15 @@
     </div><!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Own javascript -->
-    <script src="js/app.js"></script>
+    <script src="/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-	
-	@yield('javascript')
+
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- theme js -->
+    <script src="/js/app.min.js" type="text/javascript"></script>
+
+	   @yield('javascript')
   </body>
 </html>
