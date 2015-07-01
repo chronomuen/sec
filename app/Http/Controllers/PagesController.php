@@ -19,6 +19,11 @@ class PagesController extends Controller
         return view($user_type.'.index');
     }
 
+    public function page($user_type, $page)
+    {
+        return view($user_type.'.'.$page);
+    }
+
     public function login()
     {
         return view('pages.login');
