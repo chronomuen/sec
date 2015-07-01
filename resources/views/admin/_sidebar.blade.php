@@ -13,6 +13,6 @@
       <a href="admin_new_transaction"><i class="fa fa-fw fa-plus-square"></i>Create Transaction</a>
   </li>
   <li>
-      <a href="admin_new_transaction"><i class="fa fa-fw fa-exchange"></i>Assign Stages</a>
+    <a href="admin_assign_stages"><i class="fa fa-fw fa-exchange"></i>Assign Stages</a>
   </li>
 @stop
