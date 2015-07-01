@@ -12,4 +12,7 @@
   <li>
       <a href="admin_new_transaction"><i class="fa fa-fw fa-plus-square"></i>Create Transaction</a>
   </li>
+  <li>
+      <a href="admin_new_transaction"><i class="fa fa-fw fa-plus-square"></i>Assign Stages</a>
+  </li>
 @stop
