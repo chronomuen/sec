@@ -7,7 +7,7 @@
 	<div style="float: left">Transaction List</div>
 
 	 <div class="input-group" style="padding-left:550px">
-	 <div></div>
+	
 		<input class="form-control" id="system-search" name="q" placeholder="Search for" required>
 		<span class="input-group-btn">
 			<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
