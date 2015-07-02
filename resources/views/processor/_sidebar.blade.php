@@ -7,9 +7,9 @@
 
 @section('sidebar')
   <li>
-      <a href="processor_index"><i class="fa fa-fw fa-reorder"></i>View Transactions</a>
+      <a href="/processor"><i class="fa fa-fw fa-reorder"></i>View Transactions</a>
   </li>
   <li>
-      <a href="processor_new_transaction"><i class="fa fa-fw fa-plus-square"></i>Create Transaction</a>
+      <a href="/processor/create_transaction"><i class="fa fa-fw fa-plus-square"></i>Create Transaction</a>
   </li>
 @stop

@@ -11,6 +11,23 @@
 |
 */
 
-Route::get('login', 'PagesController@login');
-Route::get('{user_type}_{page}', 'PagesController@page');
-Route::get('/', 'PagesController@index');
+//Route::get('login', 'PagesController@login');
+//Route::get('{user_type}_{page}', 'PagesController@page');
+//Route::get('/', 'PagesController@index');
+
+
+
+Route::get('superadmin/create_user', 'SuperAdminController@create_user');
+Route::get('superadmin/create_transaction', 'SuperAdminController@create_transaction');
+Route::get('superadmin/assign_stages', 'SuperAdminController@assign_stages');
+
+Route::get('processor/create_transaction', 'ProcessorController@create_transaction');
+
+Route::get('admin/create_user', 'AdminController@create_user');
+Route::get('admin/create_transaction', 'AdminController@create_transaction');
+Route::get('admin/assign_stages', 'AdminController@assign_stages');
+
+Route::resource('superadmin', 'SuperAdminController');
+Route::resource('admin', 'AdminController');
+Route::resource('processor', 'ProcessorController');
+Route::resource('customer', 'CustomerController');

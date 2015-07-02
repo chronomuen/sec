@@ -27,7 +27,6 @@
 
 <div class="container">
 	<div class="row">
-        
 		<div class="col-md-9">
     	 <table class="table table-list-search">
                     <thead>
@@ -53,7 +52,7 @@
 								</select>
 							</td>
                             <td>
-								<span style="float:left">	
+								<span style="float:left">
 									<div style="width:150px">
 										<input class="form-control" id="system-add" name="q" placeholder="Add Stage">
 									</div>
@@ -77,7 +76,7 @@
 								</select>
 							</td>
                             <td>
-								<span style="float:left">	
+								<span style="float:left">
 									<div style="width:150px">
 										<input class="form-control" id="system-add" name="q" placeholder="Add Stage">
 									</div>
@@ -85,9 +84,9 @@
 								<span class="input-group-btn" style="inline">
 									<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
 								</span>
-								
+
 							</td>
-							
+
                         </tr>
                         <tr>
                             <td>9, Gloc</td>
@@ -102,9 +101,9 @@
 									<option disabled>stage5</option>
 								</select>
 							</td>
-                            
+
 							<td>
-								<span style="float:left">	
+								<span style="float:left">
 									<div style="width:150px">
 										<input class="form-control" id="system-add" name="q" placeholder="Add Stage">
 									</div>
@@ -112,14 +111,14 @@
 								<span class="input-group-btn" style="inline">
 									<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
 								</span>
-								
+
 							</td>
                         </tr>
                     </tbody>
-                </table>   
+                </table>
 		</div>
 	</div>
 </div>
 
- 
+
 @stop
