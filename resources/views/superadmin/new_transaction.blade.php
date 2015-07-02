@@ -14,13 +14,11 @@ Create New Transaction
         <div class="panel-body">
           <div class="col-lg-6">
             <div class="form-group">
-              {!! Form::open([
-                  'route' => 'superadmin.store'
-              ]) !!}
+              
               @include('forms/_new_transaction')
               <div class="row" >
                 <br/>
-                {!! Form::submit('Create Transaction', ['class' => 'btn btn-default']) !!}
+                {!! Form::submit('Create Transaction', ['class' => 'btn btn-default', 'data-toggle' => 'modal', 'data-target' => '#openModal']) !!}
 					<!-- Modal -->
 					<div id="openModal" class="modal fade" role="dialog">
 					  <div class="modal-dialog">
@@ -29,7 +27,7 @@ Create New Transaction
 						<div class="modal-content">
 						  <div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Modal Header</h4>
+							<h4 class="modal-title">Transaction</h4>
 						  </div>
 						  <div class="modal-body">
 							<p>Successfully created transaction </p>
@@ -41,7 +39,7 @@ Create New Transaction
 
 					  </div>
 					</div>
-                {!! Form::close() !!}
+               
             </div>
           </div>
         </div>
