@@ -6,32 +6,84 @@
 <div>
 	<div style="float: left">Transaction List</div>
 
-	 <div class="input-group" style="padding-left:550px">
-	
-		<input class="form-control" id="system-search" name="q" placeholder="Search for" required>
-		<span class="input-group-btn">
-			<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-		</span>
+	 <div style="padding-left:710px">
+		<form action="#" method="get">
+			<div class="input-group">
+				<input class="form-control" id="system-search" name="q" placeholder="Search for">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+				</span>
+			</div>
+		</form>
 	</div>
 </div>
 @stop
 
 @section('javascript')
 <script src="/js/department.js" type="text/javascript"></script>
+<script src="/js/match.js" type="text/javascript"></script>
 @stop
 
 @section('content')
-<div id="transactions" class="panel panel-primary">
-    <a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction1</a>
-    <a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction2</a>
-    <a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction3</a>
-    <a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction4</a>
-    <a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction5</a>
-    <a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction6</a>
-    <a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction7</a>
-    <a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction8</a>
-    <a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction9</a>
-    <a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction10</a>
+<div id="transactions" class="container">
+	<div class="row">
+		<div class="panel" style="width:1000px">
+			<table class="table table-list-search">
+				<tbody>
+					<tr>
+						<td>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction1</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction2</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction3</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction4</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction5</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction6</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction7</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction8</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction9</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction10</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
 
 <!-- Modal -->
