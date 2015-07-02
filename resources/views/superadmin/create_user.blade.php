@@ -1,9 +1,9 @@
 @extends('default')
 <!-- User Sidebar -->
-@include('processor/_sidebar')
+@include('superadmin/_sidebar')
 
 @section('header')
-Create New Transaction
+Create New User
 @stop
 
 @section('content')
@@ -15,14 +15,15 @@ Create New Transaction
           <div class="col-lg-6">
             <div class="form-group">
               {!! Form::open([
-                  'route' => 'processor.store'
+                  'route' => 'superadmin.store'
               ]) !!}
-              @include('forms/_new_transaction')
+              @include('forms/_new_user')
               <div class="row" >
                 <br/>
-                {!! Form::submit('Create Transaction', ['class' => 'btn btn-default']) !!}
+                {!! Form::submit('Create User', ['class' => 'btn btn-default']) !!}
 
                 {!! Form::close() !!}
+              </div>
             </div>
           </div>
         </div>

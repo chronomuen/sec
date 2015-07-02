@@ -14,11 +14,15 @@ Create New Transaction
         <div class="panel-body">
           <div class="col-lg-6">
             <div class="form-group">
+              {!! Form::open([
+                  'route' => 'superadmin.store'
+              ]) !!}
               @include('forms/_new_transaction')
               <div class="row" >
                 <br/>
-                <a href="superadmin_success"><button type="submit" class="btn btn-default"> Create Transaction </button></a>
-              </div>
+                {!! Form::submit('Create Transaction', ['class' => 'btn btn-default']) !!}
+
+                {!! Form::close() !!}
             </div>
           </div>
         </div>

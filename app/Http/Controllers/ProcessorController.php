@@ -20,6 +20,12 @@ class ProcessorController extends Controller
         return view('processor.index');
     }
 
+    public function create_transaction()
+    {
+        //
+        return view('processor.new_transaction');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -38,6 +44,7 @@ class ProcessorController extends Controller
     public function store()
     {
         //
+          return view('processor.success');
     }
 
     /**

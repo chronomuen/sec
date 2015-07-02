@@ -20,6 +20,18 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
+    public function create_transaction()
+    {
+        //
+        return view('admin.new_transaction');
+    }
+
+    public function assign_stages()
+    {
+        //
+        return view('admin.assign_stages');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -38,6 +50,7 @@ class AdminController extends Controller
     public function store()
     {
         //
+          return view('admin.success');
     }
 
     /**
