@@ -32,52 +32,102 @@
 				<tbody>
 					<tr>
 						<td>
-						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction1</a>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">
+							<b>Transaction1</b><br/>
+							Customer<br/>
+							Transaction Type<br/>
+							Transaction Stage
+						</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction2</a>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">
+							<b>Transaction2</b><br/>
+							Customer<br/>
+							Transaction Type<br/>
+							Transaction Stage
+						</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction3</a>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">
+							<b>Transaction3</b><br/>
+							Customer<br/>
+							Transaction Type<br/>
+							Transaction Stage
+						</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction4</a>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">
+							<b>Transaction4</b><br/>
+							Customer<br/>
+							Transaction Type<br/>
+							Transaction Stage
+						</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction5</a>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">
+							<b>Transaction5</b><br/>
+							Customer<br/>
+							Transaction Type<br/>
+							Transaction Stage
+						</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction6</a>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">
+							<b>Transaction6</b><br/>
+							Customer<br/>
+							Transaction Type<br/>
+							Transaction Stage
+						</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction7</a>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">
+							<b>Transaction7</b><br/>
+							Customer<br/>
+							Transaction Type<br/>
+							Transaction Stage
+						</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction8</a>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">
+							<b>Transaction8</b><br/>
+							Customer<br/>
+							Transaction Type<br/>
+							Transaction Stage
+						</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction9</a>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">
+							<b>Transaction9</b><br/>
+							Customer<br/>
+							Transaction Type<br/>
+							Transaction Stage
+						</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">Transaction10</a>
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#openModal">
+							<b>Transaction10</b><br/>
+							Customer<br/>
+							Transaction Type<br/>
+							Transaction Stage
+						</a>
 						</td>
 					</tr>
 				</tbody>
