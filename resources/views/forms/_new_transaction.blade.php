@@ -32,6 +32,7 @@
     {!! Form::select('tstage', ['Transaction Stage 1', 'Transaction Stage 2', 'Transaction Stage 3'], ['class' => 'form-control']) !!}
   </div>
 
+  {{ Session::flash('form_type', 'transaction') }}
 
 </div>
 
