@@ -2,7 +2,7 @@
 <!-- user info -->
 <p>First Lastname</p>
 <!-- job title -->
-<a href="#"><i class="fa fa-circle text-success"></i>Super <br/>Administrator</a>
+<a href="/superadmin"><i class="fa fa-circle text-success"></i>Super <br/>Administrator</a>
 @stop
 
 @section('sidebar')

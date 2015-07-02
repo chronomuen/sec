@@ -36,6 +36,8 @@
       {!! Form::text('job', null, ['class' => 'form-control']) !!}
     </div>
 
+    {{ Session::flash('form_type', 'user') }}
+
   </div>
 
 
