@@ -116,7 +116,6 @@
                         </tr>
                     </tbody>
                 </table>
->>>>>>> upstream/master
 		</div>
 	</div>
 </div>
