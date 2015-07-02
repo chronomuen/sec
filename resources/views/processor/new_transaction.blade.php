@@ -15,7 +15,7 @@ Create New Transaction
           <div class="col-lg-6">
             <div class="form-group">
               {!! Form::open([
-                  'route' => 'processor.store'
+                  'route' => 'transaction.store'
               ]) !!}
               @include('forms/_new_transaction')
               <div class="row" >

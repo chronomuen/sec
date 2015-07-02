@@ -28,7 +28,11 @@ Route::get('admin/create_user', 'AdminController@create_user');
 Route::get('admin/create_transaction', 'AdminController@create_transaction');
 Route::get('admin/assign_stages', 'AdminController@assign_stages');
 
+Route::post('transaction/process', 'TransactionController@process');
+
 Route::resource('superadmin', 'SuperAdminController');
 Route::resource('admin', 'AdminController');
 Route::resource('processor', 'ProcessorController');
 Route::resource('customer', 'CustomerController');
+Route::resource('transaction', 'TransactionController');
+Route::resource('user', 'UserController');
