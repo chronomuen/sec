@@ -20,6 +20,7 @@
 Route::get('superadmin/create_user', 'SuperAdminController@create_user');
 Route::get('superadmin/create_transaction', 'SuperAdminController@create_transaction');
 Route::get('superadmin/assign_stages', 'SuperAdminController@assign_stages');
+Route::get('superadmin/view_users', 'SuperAdminController@view_users');
 
 Route::get('processor/create_transaction', 'ProcessorController@create_transaction');
 
