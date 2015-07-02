@@ -22,8 +22,7 @@
       <i class="fa fa-angle-left pull-right"></i>
     </a>
     <ul class="treeview-menu">
-      <li><a href="#"><i class="fa fa-list"></i> View Users</a></li>
-      <li><a href="#"><i class="fa fa-user"></i> Set Administrators</a></li>
+      <li><a href="/superadmin/view_users"><i class="fa fa-list"></i> View Users</a></li>
       <li><a href="/superadmin/create_user"><i class="fa fa-plus-circle"></i> Add User</a></li>
     </ul>
   </li>

@@ -47,7 +47,13 @@ class SuperAdminController extends Controller
         //
         return view('superadmin.assign_stages');
     }
-
+	
+	public function view_users()
+    {
+        //
+        return view('superadmin.view_users');
+    }
+	
     /**
      * Store a newly created resource in storage.
      *
