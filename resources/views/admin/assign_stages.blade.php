@@ -6,10 +6,10 @@
 <div>
 	<div style="float:left">Assign Stages</div>
 
-	<div style="padding-left:712px">
+	<div style="padding-left:710px">
 		<form action="#" method="get">
 			<div class="input-group">
-				<input class="form-control" id="system-search" name="q" placeholder="Filter" required>
+				<input class="form-control" id="system-search" name="q" placeholder="Filter">
 				<span class="input-group-btn">
 					<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 				</span>
@@ -32,9 +32,9 @@
     	 <table class="table table-list-search">
                     <thead>
                         <tr>
-                            <th><center>Processor</center></th>
-                            <th><center>Department</center></th>
-                            <th><center>Stages</center></th>
+                            <th class="col-md-3"><center>Processor</center></th>
+                            <th class="col-md-3"><center>Department</center></th>
+                            <th class="col-md-3"><center>Stages</center></th>
                             <th><center>Search Stage</center></th>
                         </tr>
                     </thead>
@@ -45,20 +45,22 @@
                             <td>
 								<select id="select" class="form-control">
 									<option disabled selected> -- show stages -- </option>
-									<option>stage1</option>
-									<option>stage2</option>
-									<option>stage3</option>
-									<option>stage4</option>
-									<option>stage5</option>
+									<option disabled>stage1</option>
+									<option disabled>stage2</option>
+									<option disabled>stage3</option>
+									<option disabled>stage4</option>
+									<option disabled>stage5</option>
 								</select>
 							</td>
                             <td>
-								<div style="width:150px">
-									<input class="form-control" id="system-add" name="q" placeholder="Add Stage">
-									<span class="input-group-btn">
-										<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
-									</span>
-								</div>
+								<span style="float:left">	
+									<div style="width:150px">
+										<input class="form-control" id="system-add" name="q" placeholder="Add Stage">
+									</div>
+								</span>
+								<span class="input-group-btn" style="inline">
+									<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+								</span>
 							</td>
                         </tr>
                         <tr>
@@ -67,20 +69,20 @@
                             <td>
 								<select id="select" class="form-control">
 									<option disabled selected> -- show stages -- </option>
-									<option>stage1</option>
-									<option>stage2</option>
-									<option>stage3</option>
-									<option>stage4</option>
-									<option>stage5</option>
+									<option disabled>stage1</option>
+									<option disabled>stage2</option>
+									<option disabled>stage3</option>
+									<option disabled>stage4</option>
+									<option disabled>stage5</option>
 								</select>
 							</td>
                             <td>
-								<span>	
+								<span style="float:left">	
 									<div style="width:150px">
 										<input class="form-control" id="system-add" name="q" placeholder="Add Stage">
 									</div>
 								</span>
-								<span class="input-group-btn" style="float:right">
+								<span class="input-group-btn" style="inline">
 									<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
 								</span>
 								
@@ -93,24 +95,23 @@
                             <td>
 								<select id="select" class="form-control">
 									<option disabled selected> -- show stages -- </option>
-									<option>stage1</option>
-									<option>stage2</option>
-									<option>stage3</option>
-									<option>stage4</option>
-									<option>stage5</option>
+									<option disabled>stage1</option>
+									<option disabled>stage2</option>
+									<option disabled>stage3</option>
+									<option disabled>stage4</option>
+									<option disabled>stage5</option>
 								</select>
 							</td>
                             
 							<td>
-								<div style="width:150px">
-								
-									<input class="form-control" id="system-add" name="q" placeholder="Add Stage">
-								
-									
+								<span style="float:left">	
+									<div style="width:150px">
+										<input class="form-control" id="system-add" name="q" placeholder="Add Stage">
+									</div>
+								</span>
+								<span class="input-group-btn" style="inline">
 									<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
-									
-								
-								</div>
+								</span>
 								
 							</td>
                         </tr>
