@@ -27,8 +27,8 @@
     </div>
 
     <div class="form-group">
-      {!! Form::label('dept', 'Departnemt', ['class' => 'control-label']) !!}
-      {{ Form::select('dept', ['Dept 1', 'Dept 2', 'Dept 3']) }}
+      {!! Form::label('dept', 'Department', ['class' => 'control-label']) !!}<br/>
+      {!! Form::select('dept', ['Dept 1', 'Dept 2', 'Dept 3'], ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
