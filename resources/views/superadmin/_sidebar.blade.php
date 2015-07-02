@@ -7,10 +7,10 @@
 
 @section('sidebar')
   <li>
-      <a href="superadmin_index"><i class="fa fa-fw fa-reorder"></i>View Transactions</a>
+      <a href="/superadmin"><i class="fa fa-fw fa-reorder"></i>View Transactions</a>
   </li>
   <li>
-      <a href="superadmin_new_transaction"><i class="fa fa-fw fa-plus-square"></i>Create Transaction</a>
+      <a href="/superadmin/create_transaction"><i class="fa fa-fw fa-plus-square"></i>Create Transaction</a>
   </li>
   <li>
       <a href="#"><i class="fa fa-fw fa-exchange"></i>Assign Stages</a>
@@ -24,7 +24,7 @@
     <ul class="treeview-menu">
       <li><a href="#"><i class="fa fa-list"></i> View Users</a></li>
       <li><a href="#"><i class="fa fa-user"></i> Set Administrators</a></li>
-      <li><a href="superadmin_new_user"><i class="fa fa-plus-circle"></i> Add User</a></li>
+      <li><a href="/superadmin/create_user"><i class="fa fa-plus-circle"></i> Add User</a></li>
     </ul>
   </li>
 @stop

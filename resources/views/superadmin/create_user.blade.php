@@ -12,12 +12,17 @@ Create New User
     <div class="col-lg-11">
       <div class="panel">
         <div class="panel-body">
-          <div class="col-lg-11">
+          <div class="col-lg-6">
             <div class="form-group">
+              {!! Form::open([
+                  'route' => 'superadmin.store'
+              ]) !!}
               @include('forms/_new_user')
               <div class="row" >
                 <br/>
-                <a href="superadmin_success"><button type="submit" class="btn btn-default"> Create User </button></a>
+                {!! Form::submit('Create User', ['class' => 'btn btn-default']) !!}
+
+                {!! Form::close() !!}
               </div>
             </div>
           </div>
@@ -26,9 +31,4 @@ Create New User
     </div>
   </div>
 </div>
-
-@stop
-
-@section('javascript')
-<script src="/js/superadmin.js" type="text/javascript"></script>
 @stop

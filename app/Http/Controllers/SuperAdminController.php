@@ -17,7 +17,7 @@ class SuperAdminController extends Controller
     public function index()
     {
         //
-        return view('super_admin.index');
+        return view('superadmin.index');
     }
 
     /**
@@ -30,6 +30,24 @@ class SuperAdminController extends Controller
         //
     }
 
+    public function create_user()
+    {
+        //
+        return view('superadmin.create_user');
+    }
+
+    public function create_transaction()
+    {
+        //
+        return view('superadmin.new_transaction');
+    }
+
+    public function assign_stages()
+    {
+        //
+        return view('superadmin.assign_stages');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -38,6 +56,7 @@ class SuperAdminController extends Controller
     public function store()
     {
         //
+        return view('superadmin.success');
     }
 
     /**

@@ -7,12 +7,12 @@
 
 @section('sidebar')
   <li>
-      <a href="admin_index"><i class="fa fa-fw fa-reorder"></i>View Transactions</a>
+      <a href="/admin"><i class="fa fa-fw fa-reorder"></i>View Transactions</a>
   </li>
   <li>
-      <a href="admin_new_transaction"><i class="fa fa-fw fa-plus-square"></i>Create Transaction</a>
+      <a href="/admin/create_transaction"><i class="fa fa-fw fa-plus-square"></i>Create Transaction</a>
   </li>
   <li>
-    <a href="admin_assign_stages"><i class="fa fa-fw fa-exchange"></i>Assign Stages</a>
+    <a href="/admin/assign_stages"><i class="fa fa-fw fa-exchange"></i>Assign Stages</a>
   </li>
 @stop
