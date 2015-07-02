@@ -53,7 +53,7 @@ class SuperAdminController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
         //
         return view('superadmin.success');
