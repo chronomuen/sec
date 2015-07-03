@@ -71,6 +71,7 @@ class UserController extends Controller
     public function update($id)
     {
         //
+        return redirect()->back();
     }
 
     /**
