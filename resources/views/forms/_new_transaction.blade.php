@@ -24,12 +24,12 @@
 
   <div class="form-group">
     {!! Form::label('ttype', 'Transaction Type', ['class' => 'control-label']) !!}<br/>
-    {!! Form::select('ttype', ['Transaction Type 1', 'Transaction Type 2', 'Transaction Type 3'], array('id' => 'ttype', 'class' => 'form-control')) !!}
+    {!! Form::select('ttype', ['Transaction Type 1', 'Transaction Type 2', 'Transaction Type 3'], null, array('id' => 'ttype', 'class' => 'form-control')) !!}
   </div>
 
   <div class="form-group">
     {!! Form::label('tstage', 'Transaction Stage', ['class' => 'control-label']) !!}<br/>
-    {!! Form::select('tstage', ['Transaction Stage 1', 'Transaction Stage 2', 'Transaction Stage 3'], array('id' => 'tstage', 'class' => 'form-control')) !!}
+    {!! Form::select('tstage', ['Transaction Stage 1', 'Transaction Stage 2', 'Transaction Stage 3'], null, array('id' => 'tstage', 'class' => 'form-control')) !!}
   </div>
 
   <br/>
