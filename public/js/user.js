@@ -8,3 +8,11 @@ $('#userModal').on('show.bs.modal', function() {
   $("#dept_info").append($("#dept option:selected").text());
   $("#job_info").append($("#job").val());
 });
+
+function changeAdmin(id) {
+  var y = document.getElementById(id);
+  if(y.innerHTML == "Admin")
+    y.innerHTML = "Non-admin";
+  else if(y.innerHTML == "Non-admin")
+    y.innerHTML = "Admin"
+}
