@@ -9,11 +9,9 @@ Create New Transaction
 @section('content')
 <div class="container">
   <div class="row">
-    <div class="col-lg-11">
-      <div class="panel">
-        <div class="panel-body">
-          <div class="col-lg-6">
-            <div class="form-group">
+    <div class="panel" style="width:1000px">
+		<div class="panel-body">
+          <div class="col-md-6">
               {!! Form::open([
                   'route' => 'transaction.store'
               ]) !!}
@@ -45,11 +43,8 @@ Create New Transaction
 
                 </div>
               </div>
-
-            </div>
-          </div>
+           </div>
         </div>
-      </div>
     </div>
   </div>
 </div>

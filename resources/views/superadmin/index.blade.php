@@ -5,17 +5,14 @@
 @section('header')
 <div>
 	<div style="float: left">Transaction List</div>
-
-	 <div style="padding-left:710px">
-		<form action="#" method="get">
-			<div class="input-group">
-				<input class="form-control" id="system-search" name="q" placeholder="Search for">
-				<span class="input-group-btn">
-					<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-				</span>
-			</div>
-		</form>
-	</div>
+	<form action="#" method="get" style="padding-left:710px">
+		<div class="input-group" style="width:290px">
+			<input class="form-control" id="system-search" name="q" placeholder="Search for">
+			<span class="input-group-btn">
+				<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+			</span>
+		</div>
+	</form>
 </div>
 @stop
 
