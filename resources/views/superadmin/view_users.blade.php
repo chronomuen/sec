@@ -11,7 +11,7 @@
 			<div class="input-group">
 				<input class="form-control" id="system-search" name="q" placeholder="Search for">
 				<span class="input-group-btn">
-					<button type="submit" data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+					<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 				</span>
 			</div>
 		</form>
@@ -47,9 +47,9 @@
 						<td>Jackson, Percy</td>
 						<td>Half-Blood</td>
 						<td>God</td>
-						<td id="percy">Admin</td>
+						<td>Admin</td>
 						<td><center>
-							<button type="submit" data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default" onclick="changeAdmin('percy')"><i class="fa fa-gavel"></i></button>
+							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="fa fa-gavel"></i></button>
 						</center></td>
 					</tr>
 					<tr>
@@ -57,9 +57,9 @@
 						<td>Chase, Annabeth</td>
 						<td>Half-Blood</td>
 						<td>Olympian</td>
-						<td id="annabeth">Non-admin</td>
+						<td>Non-admin</td>
 						<td><center>
-							<button type="submit" data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default" onclick="changeAdmin('annabeth')"><i class="fa fa-gavel"></i></button>
+							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="fa fa-gavel"></i></button>
 						</center></td>
 					</tr>
 					<tr>
@@ -67,9 +67,9 @@
 						<td>Castellan, Luke</td>
 						<td>Half-Blood</td>
 						<td>Leader</td>
-						<td id="luke">Non-admin</td>
+						<td>Non-admin</td>
 						<td><center>
-							<button type="submit" data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default" onclick="changeAdmin('luke')"><i class="fa fa-gavel"></i></button>
+							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="fa fa-gavel"></i></button>
 						</center></td>
 					</tr>
 
@@ -78,9 +78,9 @@
 						<td>Grace, Jason</td>
 						<td>Jupiter</td>
 						<td>Praetor</td>
-						<td id="jason">Admin</td>
+						<td>Admin</td>
 						<td><center>
-							<button type="submit" data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default" onclick="changeAdmin('jason')"><i class="fa fa-gavel"></i></button>
+							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="fa fa-gavel"></i></button>
 						</center></td>
 					</tr>
 					<tr>
@@ -88,9 +88,9 @@
 						<td>Ramírez-Arellano, Reyna</td>
 						<td>Jupiter</td>
 						<td>Praetor</td>
-						<td id="reyna">Non-admin</td>
+						<td>Non-admin</td>
 						<td><center>
-							<button type="submit" data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default" onclick="changeAdmin('reyna')"><i class="fa fa-gavel"></i></button>
+							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="fa fa-gavel"></i></button>
 						</center></td>
 					</tr>
 					<tr>
@@ -98,9 +98,9 @@
 						<td>Zhang, Frank</td>
 						<td>Jupiter</td>
 						<td>Centurion</td>
-						<td id="frank">Non-admin</td>
+						<td>Non-admin</td>
 						<td><center>
-							<button type="submit" data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default" onclick="changeAdmin('frank')"><i class="fa fa-gavel"></i></button>
+							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="fa fa-gavel"></i></button>
 						</center></td>
 					</tr>
 
@@ -109,9 +109,9 @@
 						<td>Valdez, Leo</td>
 						<td>Festus</td>
 						<td>Captain</td>
-						<td id="leo">Admin</td>
+						<td>Admin</td>
 						<td><center>
-							<button type="submit" data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default" onclick="changeAdmin('leo')"><i class="fa fa-gavel"></i></button>
+							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="fa fa-gavel"></i></button>
 						</center></td>
 					</tr>
 					<tr>
@@ -119,9 +119,9 @@
 						<td>McLean, Piper</td>
 						<td>Festus</td>
 						<td>Charm</td>
-						<td id="piper">Non-admin</td>
+						<td>Non-admin</td>
 						<td><center>
-							<button type="submit" data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default" onclick="changeAdmin('piper')"><i class="fa fa-gavel"></i></button>
+							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="fa fa-gavel"></i></button>
 						</center></td>
 					</tr>
 
@@ -130,9 +130,9 @@
 						<td>Di Angelo, Nico</td>
 						<td>Underworld</td>
 						<td>Death</td>
-						<td id="nico">Admin</td>
+						<td>Admin</td>
 						<td><center>
-							<button type="submit" data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default" onclick="changeAdmin('nico')"><i class="fa fa-gavel"></i></button>
+							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="fa fa-gavel"></i></button>
 						</center></td>
 					</tr>
 					<tr>
@@ -140,9 +140,9 @@
 						<td>Levesque, Hazel</td>
 						<td>Underworld</td>
 						<td>Keeper</td>
-						<td id="hazel">Non-admin</td>
+						<td>Non-admin</td>
 						<td><center>
-							<button type="submit" data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default" onclick="changeAdmin('hazel')"><i class="fa fa-gavel"></i></button>
+							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="fa fa-gavel"></i></button>
 						</center></td>
 					</tr>
 				</tbody>
@@ -159,13 +159,22 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Set/Remove Admin Privileges</h4>
+        <h4 class="modal-title">Set Admin Privileges</h4>
       </div>
       <div class="modal-body">
-
+				<p id="modalMessage"></p>
+				<!--name is now an admin/ non-admin-->
 			</div>
 	    <div class="modal-footer">
-	      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				{!! Form::open([
+						'route' => 'user.update', 'method' => 'put'
+				]) !!}
+				  {!! Form::hidden('adminUserID', 'value', array('id' => 'adminUserID')) !!}
+					{!! Form::hidden('adminOption', 'value', array('id' => 'adminOption')) !!}
+				{!! Form::submit('Submit', ['class' => 'btn btn-default', 'id' => 'submitAdmin', 'style' => 'display:none;']) !!}
+				{!! Form::close() !!}
+
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	    </div>
 	  </div>
 
