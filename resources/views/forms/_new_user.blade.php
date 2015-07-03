@@ -33,7 +33,7 @@
 
     <div class="form-group">
       {!! Form::label('dept', 'Department', ['class' => 'control-label']) !!}<br/>
-      {!! Form::select('dept', ['Dept 1', 'Dept 2', 'Dept 3'], array('id' => 'dept', 'class' => 'form-control')) !!}
+      {!! Form::select('dept', ['Dept 1', 'Dept 2', 'Dept 3'], null, ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
