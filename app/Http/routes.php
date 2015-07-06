@@ -11,7 +11,7 @@
 |
 */
 
-//Route::get('login', 'PagesController@login');
+Route::get('login', 'PagesController@login');
 //Route::get('{user_type}_{page}', 'PagesController@page');
 //Route::get('/', 'PagesController@index');
 

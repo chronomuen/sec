@@ -46,8 +46,6 @@
 									<option disabled selected> -- show stages -- </option>
 									<option disabled>stage1</option>
 									<option disabled>stage2</option>
-									<option disabled>stage3</option>
-									<option disabled>stage4</option>
 									<option disabled>stage5</option>
 								</select>
 							</td>
@@ -68,8 +66,6 @@
                             <td>
 								<select id="select" class="form-control">
 									<option disabled selected> -- show stages -- </option>
-									<option disabled>stage1</option>
-									<option disabled>stage2</option>
 									<option disabled>stage3</option>
 									<option disabled>stage4</option>
 									<option disabled>stage5</option>
