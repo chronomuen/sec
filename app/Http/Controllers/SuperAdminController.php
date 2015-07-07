@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Input;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -51,7 +51,28 @@ class SuperAdminController extends Controller
     public function process()
     {
         //
-        return view('superadmin.processes');
+        $transactionID =  Input::get('transactionID');
+
+        if(Input::has('create'))
+        {
+            // Redirect to different route / URI
+            return view('superadmin.new_transaction', array('transactionID' => $transactionID));
+
+            // Alternatively, you could process action 1 here
+        }
+
+        elseif(Input::has('update'))
+        {
+            // Process action 2
+            return view('superadmin.update_transaction', array('transactionID' => $transactionID));
+        }
+
+
+        elseif(Input::has('out'))
+        {
+            // Process action 2
+            return view('superadmin.out_transaction', array('transactionID' => $transactionID));
+        }
     }
 
 	public function view_users()
