@@ -18,7 +18,7 @@ Create New Transaction
               @include('forms/_new_transaction')
               <div class="row" >
                 <br/>
-                {!! Form::submit('Create Transaction', ['class' => 'btn btn-primary', 'data-toggle' => 'modal', 'data-target' => '#transactionModal']) !!}
+                {!! Form::submit('Create Transaction', ['class' => 'btn btn-primary']) !!}
               </div>
 
               <!-- Modal -->
