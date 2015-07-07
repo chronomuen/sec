@@ -37,6 +37,7 @@ class TransactionController extends Controller
     public function store()
     {
         //
+        Session::flash('message', "success");
         return redirect()->back();
     }
 
