@@ -20,6 +20,18 @@ class ProcessorController extends Controller
         return view('processor.index');
     }
 
+    public function process_transactions()
+    {
+        //
+        return view('processor.processes');
+    }
+
+    public function process()
+    {
+        //
+        return view('processor.processes');
+    }
+
     public function create_transaction()
     {
         //
