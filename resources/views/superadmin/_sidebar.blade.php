@@ -18,7 +18,7 @@
     <ul class="treeview-menu">
       <li><a href="/superadmin/view_users"><i class="fa fa-file"></i>Create Transaction</a></li>
       <li><a href="/superadmin/update_transaction"><i class="fa fa-rotate-right"></i>Update Transaction</a></li>
-      <li><a href="/superadmin/create_user"><i class="fa fa-send"></i>Out</a></li>
+      <li><a href="/superadmin/out_transaction"><i class="fa fa-send"></i>Out</a></li>
     </ul>
   </li>
   
