@@ -11,7 +11,7 @@
 |
 */
 
-//Route::get('login', 'PagesController@login');
+Route::get('login', 'PagesController@login');
 //Route::get('{user_type}_{page}', 'PagesController@page');
 //Route::get('/', 'PagesController@index');
 
@@ -29,6 +29,8 @@ Route::get('admin/create_transaction', 'AdminController@create_transaction');
 Route::get('admin/assign_stages', 'AdminController@assign_stages');
 
 Route::post('transaction/process', 'TransactionController@process');
+
+Route::post('showTransaction', array('uses' => 'CustomerController@showTransaction'));
 
 Route::resource('superadmin', 'SuperAdminController');
 Route::resource('admin', 'AdminController');
