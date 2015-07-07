@@ -60,6 +60,12 @@ class SuperAdminController extends Controller
         return view('superadmin.view_users');
     }
 
+	public function	update_transaction()
+    {
+        //
+        return view('superadmin.update_transaction');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

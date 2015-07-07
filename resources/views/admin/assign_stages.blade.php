@@ -20,7 +20,7 @@
 @stop
 
 @section('javascript')
-<script src="/js/match.js" type="text/javascript"></script>
+	<script src="/js/match.js" type="text/javascript"></script>
 @stop
 
 @section('content')
