@@ -9,13 +9,15 @@ Create New Transaction
 @section('content')
 <div class="container">
   <div class="row">
-    <div class="panel" style="width:1000px">
-		<div class="panel-body">
-          <div class="col-md-6">
+    <div class="col-lg-11">
+      <div class="panel">
+        <div class="panel-body">
+          <div class="col-lg-6">
+            <div class="form-group">
               {!! Form::open([
                   'route' => 'transaction.store'
               ]) !!}
-              @include('forms/_new_transaction')
+              {!! View::make('forms/_new_transaction', array('transactionID' => $transactionID))  !!}
               <div class="row" >
                 <br/>
                 {!! Form::submit('Create Transaction', ['class' => 'btn btn-primary']) !!}
@@ -32,8 +34,7 @@ Create New Transaction
                   <h4 class="modal-title"><b>Transaction</b></h4>
                   </div>
                   <div class="modal-body">
-                  Successfully created transaction with transaction ID:
-                  <h4><b><p id="id_info"></p></b></h4>
+                  Successfully created transaction!
 
                   </div>
                   <div class="modal-footer">
@@ -43,8 +44,11 @@ Create New Transaction
 
                 </div>
               </div>
-           </div>
+
+            </div>
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </div>
@@ -52,4 +56,21 @@ Create New Transaction
 
 @section('javascript')
 <script src="/js/transaction.js" type="text/javascript"></script>
+
+@if (Session::has('message'))
+    @if (Session::get('message') === 'success')
+        <script>
+          $(function() {
+              $('#transactionModal').modal('show');
+            });
+        </script>
+    @else
+    <script>
+      $(function() {
+          alert("Ramza!");
+        });
+    </script>
+    @endif
+@endif
+
 @stop
