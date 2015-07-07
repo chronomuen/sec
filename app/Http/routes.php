@@ -22,6 +22,7 @@ Route::get('superadmin/create_transaction', 'SuperAdminController@create_transac
 Route::get('superadmin/assign_stages', 'SuperAdminController@assign_stages');
 Route::get('superadmin/view_users', 'SuperAdminController@view_users');
 Route::get('superadmin/update_transaction', 'SuperAdminController@update_transaction');
+Route::get('superadmin/out_transaction', 'SuperAdminController@out_transaction');
 
 Route::get('processor/create_transaction', 'ProcessorController@create_transaction');
 
