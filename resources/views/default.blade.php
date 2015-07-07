@@ -24,6 +24,9 @@
 	<link href="/css/find.css" rel="stylesheet" type="text/css"/>
 >>>>>>> 3edd4805c539e8b3277413a1bc719b1b6abead74
 
+    <!-- jquery ui -->
+    <link href="/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -106,6 +109,10 @@
 
     <!-- theme js -->
     <script src="/js/app.min.js" type="text/javascript"></script>
+
+    <!-- jquery ui -->
+    <script src="/js/jquery-ui.js" type="text/javascript"></script>
+    
 
 	   @yield('javascript')
   </body>

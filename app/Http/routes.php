@@ -21,10 +21,15 @@ Route::get('superadmin/create_user', 'SuperAdminController@create_user');
 Route::get('superadmin/create_transaction', 'SuperAdminController@create_transaction');
 Route::get('superadmin/assign_stages', 'SuperAdminController@assign_stages');
 Route::get('superadmin/view_users', 'SuperAdminController@view_users');
+Route::get('superadmin/process_transactions', 'SuperAdminController@process_transactions');
+Route::post('superadmin/process', array('uses' => 'SuperAdminController@process'));
 Route::get('superadmin/update_transaction', 'SuperAdminController@update_transaction');
 Route::get('superadmin/out_transaction', 'SuperAdminController@out_transaction');
 
+
 Route::get('processor/create_transaction', 'ProcessorController@create_transaction');
+Route::get('processor/process_transactions', 'ProcessorController@process_transactions');
+Route::post('processor/process', array('uses' => 'ProcessorController@process'));
 
 Route::post('transaction/process', 'TransactionController@process');
 

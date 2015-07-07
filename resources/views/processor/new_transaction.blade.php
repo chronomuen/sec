@@ -20,7 +20,7 @@ Create New Transaction
               @include('forms/_new_transaction')
               <div class="row" >
                 <br/>
-                {!! Form::submit('Create Transaction', ['class' => 'btn btn-primary', 'data-toggle' => 'modal', 'data-target' => '#transactionModal']) !!}
+                {!! Form::submit('Create Transaction', ['class' => 'btn btn-primary']) !!}
               </div>
 
               <!-- Modal -->
@@ -34,8 +34,7 @@ Create New Transaction
                   <h4 class="modal-title"><b>Transaction</b></h4>
                   </div>
                   <div class="modal-body">
-                  Successfully created transaction with transaction ID:
-                  <h4><b><p id="id_info"></p></b></h4>
+                  Successfully created transaction!
 
                   </div>
                   <div class="modal-footer">
@@ -57,4 +56,9 @@ Create New Transaction
 
 @section('javascript')
 <script src="/js/transaction.js" type="text/javascript"></script>
+
+@if (Session::has('message'))
+   <div class="alert alert-info">{{ Session::get('message') }}</div>
+@endif
+
 @stop

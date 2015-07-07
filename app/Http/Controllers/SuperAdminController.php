@@ -42,30 +42,36 @@ class SuperAdminController extends Controller
         return view('superadmin.new_transaction');
     }
 
-    public function assign_stages()
+    public function process_transactions()
     {
         //
-        return view('superadmin.assign_stages');
+        return view('superadmin.processes');
     }
-	
+
+    public function process()
+    {
+        //
+        return view('superadmin.processes');
+    }
+
 	public function view_users()
     {
         //
         return view('superadmin.view_users');
     }
-	
+
 	public function	update_transaction()
     {
         //
         return view('superadmin.update_transaction');
     }
-	
+
 	public function	out_transaction()
     {
         //
         return view('superadmin.out_transaction');
     }
-	
+
     /**
      * Store a newly created resource in storage.
      *
