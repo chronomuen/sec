@@ -24,6 +24,7 @@ Route::get('superadmin/view_users', 'SuperAdminController@view_users');
 Route::get('superadmin/process_transactions', 'SuperAdminController@process_transactions');
 Route::post('superadmin/process', array('uses' => 'SuperAdminController@process'));
 Route::get('superadmin/update_transaction', 'SuperAdminController@update_transaction');
+Route::get('superadmin/out_transaction', 'SuperAdminController@out_transaction');
 
 
 Route::get('processor/create_transaction', 'ProcessorController@create_transaction');
