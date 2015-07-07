@@ -30,6 +30,8 @@ Route::get('admin/assign_stages', 'AdminController@assign_stages');
 
 Route::post('transaction/process', 'TransactionController@process');
 
+Route::post('showTransaction', array('uses' => 'CustomerController@showTransaction'));
+
 Route::resource('superadmin', 'SuperAdminController');
 Route::resource('admin', 'AdminController');
 Route::resource('processor', 'ProcessorController');
