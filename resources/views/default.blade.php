@@ -17,8 +17,12 @@
     <link href="/css/skins/skin-blue.min.css" rel="stylesheet" type="text/css" />
     <!-- iCheck -->
 	<link href="/css/search.css" rel="stylesheet" type="text/css"/>
+<<<<<<< HEAD
 	<link href="/css/find.css" rel="stylesheet" type="text/css"/>	
 	<link href="/css/radio.css" rel="stylesheet" type="text/css"/>	
+=======
+	<link href="/css/find.css" rel="stylesheet" type="text/css"/>
+>>>>>>> 3edd4805c539e8b3277413a1bc719b1b6abead74
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

@@ -37,6 +37,7 @@ class UserController extends Controller
     public function store()
     {
         //
+        return redirect()->back();
     }
 
     /**
@@ -70,6 +71,7 @@ class UserController extends Controller
     public function update($id)
     {
         //
+        return redirect()->back();
     }
 
     /**
