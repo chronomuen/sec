@@ -30,19 +30,36 @@
 
 <body>
 
+  <!-- Script to load modal with details -->
+  <!-- to get transaction use something similar to $transaction == 1 -->
+
 	<div class="container">
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading"><font color="white">Enter <br/>Transaction Number</font></h2>
-        <label for="transaction" class="sr-only">Transaction Number</label>
-        <input type="text" id="transactionID" class="form-control" required autofocus>
-        <button class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#myModal">View Transaction</button>
-      </form>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4" align="center">
+              <h2 ><font color="white">Track Transaction</font></h2>
+              {!! Form::open(array('action' => 'CustomerController@showTransaction')) !!}
+                <font color="white">{!! Form::label('transID', 'Transaction ID', ['class' => 'control-label']) !!}</font>
+                {!! Form::text('transactionID', null, array('id' => 'transactionID', 'class' => 'form-control', 'required' => 'required')) !!}<br/>
+                <font color="white">{!! Form::label('transPass', 'Password', ['class' => 'control-label']) !!}</font>
+                {!! Form::password('transactionPass', array('id' => 'transactionPass', 'class' => 'form-control', 'required' => 'required')) !!}<br/>
+              {!! Form::submit('View Transaction', ['class' => 'btn btn-lg btn-primary btn-block']) !!}
+              {!! Form::close() !!}
+            </div>
+            <div class="col-lg-4">
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div> <!-- /container -->
 
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
+    <!-- Modal --> <!-- Just call transaction details here -->
+    <div id="viewModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
 
         <div class="modal-content">
@@ -51,18 +68,11 @@
             <h4 class="modal-title">Transaction Details</h4>
           </div>
           <div class="modal-body">
-            <b>Transaction Number:</b> 0879617150987<br/>
+            <b>Transaction ID:</b> 2345368<br/>
+            <b>Transaction Type: </b> Reserve Company Name<br/>
             <b>Transaction Start Date:</b> 01 July 2015<br/>
-            <b>Customer's Name:</b> First Last<br/>
-            <b>Processor's Name:</b> Pro Name<br/>
-            <b>Processor's ID Number:</b> 08796<br/>
-            <b>Processor's Department:</b> Department<br/>
-            <b>Transaction Type:</b> Type 1<br/>
-            <b>Transaction Stage:</b> Stage 5<br/>
-            <b>Handled By:</b>
-              <li> Department 1 </li>
-              <li> Department 2 </li>
-              <li> Department 3 </li>
+            <b>Customer's Name:</b> UP ITDC<br/>
+            <b>Status:</b> In Progress<br/>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -72,12 +82,20 @@
       </div>
     </div>
 
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    @if (!empty($transaction))
+      <script>
+        $(function() {
+            $('#viewModal').modal('show');
+          });
+      </script>
+    @endif
+
 </body>
 
 </html>

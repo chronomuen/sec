@@ -46,9 +46,18 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return Response
      */
+
+    public function showTransaction(){
+      //  $transaction = Transaction::find($id);
+        $transaction = "1";
+         return view('customer.index', array('transaction' => $transaction));
+    }
+
     public function show($id)
     {
-        //
+      //  $transaction = Transaction::find($id);
+        $transaction = "1";
+         return View::make('customer.index', array('transaction' => $transaction));
     }
 
     /**
