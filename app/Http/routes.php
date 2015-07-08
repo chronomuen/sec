@@ -40,7 +40,8 @@ Route::get('processor/out_transaction', array('as' => 'processor/out_transaction
 
 Route::post('transaction/process', 'TransactionController@process');
 
-Route::post('showTransaction', array('uses' => 'CustomerController@showTransaction'));
+Route::post('customer/showTransaction', array('as' => 'customer/showTransaction', 'uses' => 'CustomerController@showTransaction'));
+Route::get('customer', array('as' => 'customer', 'uses' => 'CustomerController@index'));
 
 Route::resource('superadmin', 'SuperAdminController');
 Route::resource('admin', 'AdminController');
