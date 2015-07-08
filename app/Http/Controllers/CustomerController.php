@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Redirect;
+use Input;
+use Session;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +19,8 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        return view('customer.index');
+        $transactionID = Session::get('transactionID');
+        return view('customer.index', array('transactionID' => $transactionID));
     }
 
     /**
@@ -49,8 +52,8 @@ class CustomerController extends Controller
 
     public function showTransaction(){
       //  $transaction = Transaction::find($id);
-        $transaction = "1";
-         return view('customer.index', array('transaction' => $transaction));
+        $transactionID = Input::get('transactionID');
+         return Redirect::route('customer')->with('transactionID', $transactionID);
     }
 
     public function show($id)
