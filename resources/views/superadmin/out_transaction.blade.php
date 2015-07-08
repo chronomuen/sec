@@ -14,6 +14,6 @@ Update Transaction
 
 @section('content')
 	{!! Form::open(array('action' => 'SuperAdminController@store_transaction')) !!}
-	{!! View::make('forms/_out_transaction', array('transactionID' => $transactionID))  !!}
+	{!! View::make('forms/_out_transaction', array('transactionID' => $transactionID, 'processorName' => 'Jose Palma'))  !!}
 	<!-- form close in form itself -->
 @stop
