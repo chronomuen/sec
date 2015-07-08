@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Input;
 use Session;
+use Redirect;
 
 class UserController extends Controller
 {
@@ -86,7 +87,7 @@ class UserController extends Controller
         {
             Session::flash('message', "error");
         }
-        return redirect()->back();
+        return Redirect::route('superadmin/view_users');
     }
 
     /**

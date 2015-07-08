@@ -43,7 +43,7 @@ class SuperAdminController extends Controller
     {
         //
         //$userID = Session::get('transactionID');
-        $userID = 112;
+        $userID = Input::get('edit_userID');
         return view('superadmin.edit_user', array('userID' => $userID));
     }
 
