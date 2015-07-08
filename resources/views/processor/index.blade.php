@@ -29,9 +29,9 @@ Transaction List
 
 
 <br>
-<div id="transactions" class="container">
+<div id="transactions" style="padding-right:20px; padding-left:20px">
 	<div class="row">
-		<div class="panel" style="width:1000px">
+		<div class="panel">
 			<table class="table table-list-search">
 				<thead>
 					<tr>
