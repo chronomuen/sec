@@ -44,9 +44,9 @@
               <h2 ><font color="white">Track Transaction</font></h2>
               {!! Form::open(array('action' => 'CustomerController@showTransaction')) !!}
                 <font color="white">{!! Form::label('transID', 'Transaction ID', ['class' => 'control-label']) !!}</font>
-                {!! Form::text('transactionID', null, array('id' => 'transactionID', 'class' => 'form-control', 'required' => 'required')) !!}<br/>
+                {!! Form::text('transactionID', null, array('id' => 'transactionID', 'class' => 'form-control', 'required' => 'required', 'style' => 'text-align: center')) !!}<br/>
                 <font color="white">{!! Form::label('transPass', 'Password', ['class' => 'control-label']) !!}</font>
-                {!! Form::password('transactionPass', array('id' => 'transactionPass', 'class' => 'form-control', 'required' => 'required')) !!}<br/>
+                {!! Form::password('transactionPass', array('id' => 'transactionPass', 'class' => 'form-control', 'required' => 'required', 'style' => 'text-align: center')) !!}<br/>
               {!! Form::submit('View Transaction', ['class' => 'btn btn-lg btn-primary btn-block']) !!}
               {!! Form::close() !!}
             </div>
@@ -68,7 +68,7 @@
             <h4 class="modal-title">Transaction Details</h4>
           </div>
           <div class="modal-body">
-            <b>Transaction ID:</b> 2345368<br/>
+            <b>Transaction ID:</b> {!! $transactionID !!}<br/>
             <b>Transaction Type: </b> Reserve Company Name<br/>
             <b>Transaction Start Date:</b> 01 July 2015<br/>
             <b>Customer's Name:</b> UP ITDC<br/>
@@ -88,7 +88,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    @if (!empty($transaction))
+    @if (!empty($transactionID))
       <script>
         $(function() {
             $('#viewModal').modal('show');
