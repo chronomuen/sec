@@ -71,6 +71,19 @@ class UserController extends Controller
     public function update($id)
     {
         //
+        if(Input::has('edit'))
+        {
+            Session::flash('message', "success edit");
+        }
+        elseif(Input::has('deactivate'))
+        {
+            Session::flash('message', "success deactivate");
+
+        }
+        else
+        {
+            Session::flash('message', "error");
+        }
         return redirect()->back();
     }
 
