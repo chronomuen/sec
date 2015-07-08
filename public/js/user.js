@@ -9,7 +9,7 @@ $('#userModal').on('show.bs.modal', function() {
   $("#job_info").append($("#job").val());
 });
 
-$(".setAdminButton").click(function(){
+$(".deactivateButton").click(function(){
   $("#modalMessage").html("");
   var $row = $(this).closest("tr");
 
@@ -18,30 +18,28 @@ $(".setAdminButton").click(function(){
   $.each($IDcol, function() {
     $IDtext = $(this).text();
   });
-
+  
   var $namecol = $row.find("td:nth-child(2)");
   var $name = "";
   $.each($namecol, function() {
        $name = $(this).text();
    });
-
-  var $admincol = $row.find("td:nth-child(5)");
-  var $admin = "";
-  $.each($admincol, function() {
-    $admin = $(this).text();
+   
+  var $statuscol = $row.find("td:nth-child(5)");
+  var $status = "";
+  $.each($statuscol, function() {
+    $status = $(this).text();
   });
-
-  if($admin == "Admin"){
-    $admincol.html("Non-admin");
-    $("#modalMessage").html("<b>" + $name + "</b> is now a <b>Non-Admin</b> user.");
+  
+   if($status == "Active"){
+    $admincol.html("Inactive");
+    $("#modalMessage").html("<b>" + $name + "</b> is now <b>Inactive</b>.");
   }
-  else if($admin == "Non-admin"){
-    $admincol.html("Admin");
-    $("#modalMessage").html("<b>" + $name + "</b> is now an <b>Administrator</b>.");
+  else if($status == "Inactive"){
+    $admincol.html("Active");
+    $("#modalMessage").html("<b>" + $name + "</b> is now <b>Active</b>.");
   }
 
-  $("#adminUserID").val($IDtext);
-  $("#adminOption").val($admin);
-  //$("#submitAdmin").click(); // (include when database comes)
-
-});
+  $("#userID").val($IDtext);
+  $("#option").val($status);
+}
