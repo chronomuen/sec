@@ -34,11 +34,13 @@
 
       <form class="form-signin">
         <h2 class="form-signin-heading"><font color="white">Sign In</font></h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        {!! Form::open(array('action' => 'PagesController@login')) !!}
+          <font color="white">{!! Form::label('userID', 'User ID', ['class' => 'control-label']) !!}</font>
+          {!! Form::text('userID', null, array('id' => 'userID', 'class' => 'form-control', 'required' => 'required', 'style' => 'text-align: center')) !!}<br/>
+          <font color="white">{!! Form::label('userPass', 'Password', ['class' => 'control-label']) !!}</font>
+          {!! Form::password('usernPass', array('id' => 'userPass', 'class' => 'form-control', 'required' => 'required', 'style' => 'text-align: center')) !!}<br/>
+        {!! Form::submit('Sign In', ['class' => 'btn btn-lg btn-primary btn-block']) !!}
+        {!! Form::close() !!}
       </form>
 
     </div> <!-- /container -->
