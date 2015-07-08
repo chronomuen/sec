@@ -14,6 +14,6 @@ Update Transaction
 
 @section('content')
 	{!! Form::open(array('action' => 'ProcessorController@store_transaction')) !!}
-	{!! View::make('forms/_update_transaction', array('transactionID' => $transactionID))  !!}
+	{!! View::make('forms/_update_transaction', array('transactionID' => $transactionID, 'processorName' => 'Julian Felipe'))  !!}
 	<!-- form close in form itself -->
 @stop

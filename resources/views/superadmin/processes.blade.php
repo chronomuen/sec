@@ -85,4 +85,6 @@ Search Transaction
     @endif
 @endif
 
+Session::flush();
+
 @stop

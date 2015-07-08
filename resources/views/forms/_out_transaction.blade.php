@@ -13,7 +13,7 @@
 						<b>Customer Name:</b> Hershel Layton
 					</p>
 					<p id="current_processor">
-						<b>Processor:</b> Jason Grace
+						<b>Processor:</b> {!! $processorName !!}
 					</p>
 					<p>
 						<b>Date Submitted:</b> 01/02/15
@@ -22,7 +22,7 @@
 						<b>Status:</b> In-process
 					</p>
 					<p>
-						<b>Remarks:</b> Validated document
+						<b>Remarks:</b> Checked document
 					</p>
 				</td>
 			</tr>
@@ -48,7 +48,7 @@
 			<tr>
 				<td>{!! $transactionID !!}</td>
 				<td>new</td>
-				<td>Validated</td>
+				<td>Validated document</td>
 				<td>Percy Jackson</td>
 				<td id="1">01/01/15</td>
 				<td>01/03/15</td>
@@ -57,7 +57,7 @@
 			<tr>
 				<td>{!! $transactionID !!}</td>
 				<td>in-process</td>
-				<td>Validated</td>
+				<td>Evaluated document</td>
 				<td>Annabeth Chase</td>
 				<td id="1">01/03/15</td>
 				<td>01/03/15</td>
@@ -66,21 +66,30 @@
 			<tr>
 				<td>{!! $transactionID !!}</td>
 				<td>in-process</td>
-				<td>Validated</td>
+				<td>Encoded document</td>
 				<td>Piper McLean</td>
 				<td>01/03/15</td>
 				<td>01/04/15</td>
 				<td>Jason Grace</td>
 			</tr>
-			<tr id="tr" style="display:none">
+            <tr>
 				<td>{!! $transactionID !!}</td>
 				<td>in-process</td>
-				<td>Validate</td>
-				<td>Jason Grace</td>
+				<td>Checked document</td>
+				<td>{!! $processorName !!}</td>
+				<td>01/03/15</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+		<!--	<tr id="tr" style="display:none">
+				<td>{!! $transactionID !!}</td>
+				<td>in-process</td>
+				<td>Checked document</td>
+				<td>{!! $processorName !!}</td>
 				<td>01/03/15</td>
 				<td>01/04/15</td>
 				<td>Hazel Levesque</td>
-			</tr>
+			</tr> -->
 		</tbody>
 	</table>
 </div>
