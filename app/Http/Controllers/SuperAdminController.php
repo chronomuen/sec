@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Input;
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Session;
 
 class SuperAdminController extends Controller
 {
@@ -19,6 +21,7 @@ class SuperAdminController extends Controller
         //
         return view('superadmin.index');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -39,7 +42,8 @@ class SuperAdminController extends Controller
     public function create_transaction()
     {
         //
-        return view('superadmin.new_transaction');
+        $transactionID = Session::get('transactionID');
+        return view('superadmin.new_transaction', array('transactionID' => $transactionID));
     }
 
     public function process_transactions()
@@ -56,7 +60,8 @@ class SuperAdminController extends Controller
         if(Input::has('create'))
         {
             // Redirect to different route / URI
-            return view('superadmin.new_transaction', array('transactionID' => $transactionID));
+            return Redirect::route('superadmin/create_transaction')->with('transactionID', $transactionID);
+
 
             // Alternatively, you could process action 1 here
         }
@@ -64,14 +69,14 @@ class SuperAdminController extends Controller
         elseif(Input::has('update'))
         {
             // Process action 2
-            return view('superadmin.update_transaction', array('transactionID' => $transactionID));
+            return Redirect::route('superadmin/update_transaction')->with('transactionID', $transactionID);
         }
 
 
         elseif(Input::has('out'))
         {
-            // Process action 2
-            return view('superadmin.out_transaction', array('transactionID' => $transactionID));
+            // Process action 3
+            return Redirect::route('superadmin/out_transaction')->with('transactionID', $transactionID);
         }
     }
 
@@ -84,13 +89,38 @@ class SuperAdminController extends Controller
 	public function	update_transaction()
     {
         //
-        return view('superadmin.update_transaction');
+        $transactionID = Session::get('transactionID');
+        return view('superadmin.update_transaction', array('transactionID' => $transactionID));
     }
 
 	public function	out_transaction()
     {
         //
-        return view('superadmin.out_transaction');
+        $transactionID = Session::get('transactionID');
+        return view('superadmin.out_transaction', array('transactionID' => $transactionID));
+    }
+
+    public function store_transaction()
+    {
+        //
+        if(Input::has('create'))
+        {
+            Session::flash('message', "success create");
+        }
+        elseif(Input::has('update'))
+        {
+            Session::flash('message', "success update");
+
+        }
+        elseif(Input::has('out'))
+        {
+            Session::flash('message', "success out");
+
+        }
+        else {
+            Session::flash('message', "error");
+        }
+        return Redirect::route('superadmin/process_transactions');
     }
 
     /**
@@ -103,6 +133,8 @@ class SuperAdminController extends Controller
         //
         return view('superadmin.success');
     }
+
+
 
     /**
      * Display the specified resource.
