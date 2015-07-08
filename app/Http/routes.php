@@ -18,6 +18,7 @@ Route::get('login', 'PagesController@login');
 
 
 Route::get('superadmin/create_user', 'SuperAdminController@create_user');
+Route::get('superadmin/edit_user', 'SuperAdminController@edit_user');
 Route::get('superadmin/assign_stages', 'SuperAdminController@assign_stages');
 Route::get('superadmin/view_users', 'SuperAdminController@view_users');
 
