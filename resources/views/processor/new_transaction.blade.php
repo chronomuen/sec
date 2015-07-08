@@ -7,10 +7,9 @@ Create New Transaction
 @stop
 
 @section('content')
-<div class="container">
-  <div class="row">
-    <div class="col-lg-11">
-      <div class="panel">
+<div style="padding-right:20px; padding-left:20px">
+	<div class="row">
+		<div class="panel">
         <div class="panel-body">
           <div class="col-lg-6">
             <div class="form-group">
