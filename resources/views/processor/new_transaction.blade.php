@@ -58,7 +58,19 @@ Create New Transaction
 <script src="/js/transaction.js" type="text/javascript"></script>
 
 @if (Session::has('message'))
-   <div class="alert alert-info">{{ Session::get('message') }}</div>
+    @if (Session::get('message') === 'success')
+        <script>
+          $(function() {
+              $('#transactionModal').modal('show');
+            });
+        </script>
+    @else
+    <script>
+      $(function() {
+          alert("Ramza!");
+        });
+    </script>
+    @endif
 @endif
 
 @stop
