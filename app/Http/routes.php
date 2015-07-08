@@ -18,13 +18,14 @@ Route::get('login', 'PagesController@login');
 
 
 Route::get('superadmin/create_user', 'SuperAdminController@create_user');
-Route::get('superadmin/create_transaction', 'SuperAdminController@create_transaction');
+Route::get('superadmin/create_transaction', array('as' => 'superadmin/create_transaction', 'uses' => 'SuperAdminController@create_transaction'));
 Route::get('superadmin/assign_stages', 'SuperAdminController@assign_stages');
 Route::get('superadmin/view_users', 'SuperAdminController@view_users');
-Route::get('superadmin/process_transactions', 'SuperAdminController@process_transactions');
-Route::post('superadmin/process', array('uses' => 'SuperAdminController@process'));
-Route::get('superadmin/update_transaction', 'SuperAdminController@update_transaction');
-Route::get('superadmin/out_transaction', 'SuperAdminController@out_transaction');
+Route::get('superadmin/process_transactions', array('as' => 'superadmin/process_transactions', 'uses' => 'SuperAdminController@process_transactions'));
+Route::post('superadmin/process', array('as' => 'superadmin/process', 'uses' => 'SuperAdminController@process'));
+Route::post('superadmin/storeTransaction', array('as' => 'superadmin/storeTransaction', 'uses' => 'SuperAdminController@store_transaction'));
+Route::get('superadmin/update_transaction', array('as' => 'superadmin/update_transaction', 'uses' => 'SuperAdminController@update_transaction'));
+Route::get('superadmin/out_transaction', array('as' => 'superadmin/out_transaction', 'uses' => 'SuperAdminController@out_transaction'));
 
 
 Route::get('processor/create_transaction', 'ProcessorController@create_transaction');

@@ -31,6 +31,58 @@ Search Transaction
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div id="transactionModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><b>Transaction</b></h4>
+            </div>
+            <div class="modal-body">
+                @if (Session::has('message'))
+                    @if (Session::get('message') === 'success create')
+                        Successfully created transaction!
+                    @elseif (Session::get('message') === 'success update')
+                        Successfully updated transaction!
+                    @elseif (Session::get('message') === 'success out')
+                        Successfully logged out transaction!
+                    @endif
+                @endif
+
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+          </div>
+        </div>
+
     </div>
 </div>
+@stop
+
+@section('javascript')
+<script src="/js/transaction.js" type="text/javascript"></script>
+
+@if (Session::has('message'))
+    @if (Session::get('message') === 'error')
+    <script>
+      $(function() {
+          alert("Error!");
+        });
+    </script>
+    @else
+    <script>
+      $(function() {
+          $('#transactionModal').modal('show');
+        });
+    </script>
+    @endif
+@endif
+
 @stop
