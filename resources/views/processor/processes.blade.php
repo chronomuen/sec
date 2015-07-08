@@ -3,7 +3,7 @@
 @include('processor/_sidebar')
 
 @section('header')
-Search Transaction
+Process Transaction
 @stop
 
 @section('content')
@@ -17,11 +17,11 @@ Search Transaction
                     <div class="col-md-4">
                         <h2 >Enter Transaction ID</h2>
                         {!! Form::open(array('action' => 'ProcessorController@process')) !!}
-                        {!! Form::text('transactionID', null, array('id' => 'transactionID', 'class' => 'form-control', 'required' => 'required')) !!}<br/>
+                        {!! Form::text('transactionID', null, array('id' => 'transactionID', 'class' => 'form-control', 'required' => 'required', 'style' => 'text-align: center')) !!}<br/>
                         <div class="row">
                             {!! Form::submit('Create Transaction', ['class' => 'btn btn-success btn-block', 'name' => 'create']) !!}
                             {!! Form::submit('Update Transaction', ['class' => 'btn btn-primary btn-block', 'name' => 'update']) !!}
-                            {!! Form::submit('Out', ['class' => 'btn btn-warning btn-block', 'name' => 'out']) !!}
+                            {!! Form::submit('Logout Transaction', ['class' => 'btn btn-warning btn-block', 'name' => 'out']) !!}
                         </div>
                         {!! Form::close() !!}
                         <br/><br/>

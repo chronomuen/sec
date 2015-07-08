@@ -2,7 +2,7 @@
 <!-- user info -->
 <p>Julian Felipe</p>
 <!-- job title -->
-<a href="/processor"><i class="fa fa-circle text-success"></i>Processor</a>
+<a href="/processor"><i class="fa fa-circle text-success"></i>Frontliner</a>
 @stop
 
 @section('sidebar')

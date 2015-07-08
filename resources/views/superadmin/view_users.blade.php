@@ -3,9 +3,9 @@
 @include('superadmin/_sidebar')
 
 @section('header')
-<div>
-	<div style="float: left">User List</div>
-	<form action="#" method="get" style="padding-left:710px">
+<div class="row" style="padding-right:20px; padding-left:20px">
+	User List
+	<form action="#" method="get" style="float:right">
 		<div class="input-group" style="width:290px">
 			<input class="form-control" id="system-search" name="q" placeholder="Search for">
 			<span class="input-group-btn">
@@ -23,9 +23,9 @@
 @stop
 
 @section('content')
-<div id="users" class="container">
-	<div class="row">
-		<div class="panel" style="width:1000px">
+<div id="users" style="padding-right:20px; padding-left:20px">
+    <div class="row">
+        <div class="panel">
 			<table class="table table-list-search">
 				<thead>
 					<tr>
@@ -42,8 +42,8 @@
 					<tr>
 						<td>31256</td>
 						<td>Jackson, Percy</td>
-						<td>Half-Blood</td>
-						<td>God</td>
+						<td>Human Resource and Administration Department</td>
+						<td>SEC Director</td>
 						<td>Active</td>
 						<td><center>
 							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
@@ -53,8 +53,8 @@
 					<tr>
 						<td>21563</td>
 						<td>Chase, Annabeth</td>
-						<td>Half-Blood</td>
-						<td>Olympian</td>
+						<td>Human Resource and Administration Department</td>
+						<td>SEC Assistant DIrector</td>
 						<td>Active</td>
 						<td><center>
 							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
@@ -65,8 +65,8 @@
 					<tr>
 						<td>08352</td>
 						<td>Castellan, Luke</td>
-						<td>Half-Blood</td>
-						<td>Leader</td>
+						<td>Company Registration and Monitoring Department</td>
+						<td>Securities Counsel I</td>
 						<td>Active</td>
 						<td><center>
 							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
@@ -77,8 +77,8 @@
 					<tr>
 						<td>12672</td>
 						<td>Grace, Jason</td>
-						<td>Jupiter</td>
-						<td>Praetor</td>
+						<td>Company Registration and Monitoring Department</td>
+						<td>Securities Counsel III</td>
 						<td>Active</td>
 						<td><center>
 							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
@@ -88,8 +88,8 @@
 					<tr>
 						<td>57126</td>
 						<td>Ramírez-Arellano, Reyna</td>
-						<td>Jupiter</td>
-						<td>Praetor</td>
+						<td>Financial Management Department</td>
+						<td>SEC Assistant Director</td>
 						<td>Inactive</td>
 						<td><center>
 							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
@@ -99,8 +99,8 @@
 					<tr>
 						<td>86734</td>
 						<td>Zhang, Frank</td>
-						<td>Jupiter</td>
-						<td>Centurion</td>
+						<td>Economic Research and Training Department</td>
+						<td>Securities Examiner II</td>
 						<td>Inactive</td>
 						<td><center>
 							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
@@ -111,8 +111,8 @@
 					<tr>
 						<td>02351</td>
 						<td>Valdez, Leo</td>
-						<td>Festus</td>
-						<td>Captain</td>
+						<td>Economic Research and Training Department</td>
+						<td>Securities Examiner II</td>
 						<td>Inactive</td>
 						<td><center>
 							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
@@ -122,8 +122,8 @@
 					<tr>
 						<td>02157</td>
 						<td>McLean, Piper</td>
-						<td>Festus</td>
-						<td>Charm</td>
+						<td>Economic Research and Training Department</td>
+						<td>Securities Specialist I</td>
 						<td>Inactive</td>
 						<td><center>
 							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
@@ -134,8 +134,8 @@
 					<tr>
 						<td>18256</td>
 						<td>Di Angelo, Nico</td>
-						<td>Underworld</td>
-						<td>Death</td>
+						<td>Markets and Securities Regulation Department</td>
+						<td>SEC Economist</td>
 						<td>Inactive</td>
 						<td><center>
 							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
@@ -145,9 +145,9 @@
 					<tr>
 						<td>54312</td>
 						<td>Levesque, Hazel</td>
-						<td>Underworld</td>
+						<td>Markets and Securities Regulation Department</td>
+						<td>SEC Specialist III</td>
 						<td>Inactive</td>
-						<td>Keeper</td>
 						<td><center>
 							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
