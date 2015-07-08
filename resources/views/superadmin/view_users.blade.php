@@ -46,7 +46,7 @@
 						<td>God</td>
 						<td>Active</td>
 						<td><center>
-							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="glyphicon glyphicon-edit"></i></button>
+							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 						</center></td>
 					</tr>
@@ -57,9 +57,9 @@
 						<td>Olympian</td>
 						<td>Active</td>
 						<td><center>
-							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="glyphicon glyphicon-edit"></i></button>
+							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
-							
+
 						</center></td>
 					</tr>
 					<tr>
@@ -69,7 +69,7 @@
 						<td>Leader</td>
 						<td>Active</td>
 						<td><center>
-							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="glyphicon glyphicon-edit"></i></button>
+							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 						</center></td>
 					</tr>
@@ -81,7 +81,7 @@
 						<td>Praetor</td>
 						<td>Active</td>
 						<td><center>
-							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="glyphicon glyphicon-edit"></i></button>
+							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 						</center></td>
 					</tr>
@@ -92,7 +92,7 @@
 						<td>Praetor</td>
 						<td>Inactive</td>
 						<td><center>
-							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="glyphicon glyphicon-edit"></i></button>
+							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 						</center></td>
 					</tr>
@@ -103,7 +103,7 @@
 						<td>Centurion</td>
 						<td>Inactive</td>
 						<td><center>
-							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="glyphicon glyphicon-edit"></i></button>
+							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 						</center></td>
 					</tr>
@@ -115,7 +115,7 @@
 						<td>Captain</td>
 						<td>Inactive</td>
 						<td><center>
-							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="glyphicon glyphicon-edit"></i></button>
+							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 						</center></td>
 					</tr>
@@ -126,7 +126,7 @@
 						<td>Charm</td>
 						<td>Inactive</td>
 						<td><center>
-							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="glyphicon glyphicon-edit"></i></button>
+							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 						</center></td>
 					</tr>
@@ -138,7 +138,7 @@
 						<td>Death</td>
 						<td>Inactive</td>
 						<td><center>
-							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="glyphicon glyphicon-edit"></i></button>
+							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 						</center></td>
 					</tr>
@@ -149,7 +149,7 @@
 						<td>Inactive</td>
 						<td>Keeper</td>
 						<td><center>
-							<button type="submit"  data-toggle="modal" data-target="#setAdminModal"  class="btn btn-default setAdminButton" ><i class="glyphicon glyphicon-edit"></i></button>
+							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 						</center></td>
 					</tr>
@@ -158,6 +158,13 @@
 		</div>
 	</div>
 </div>
+
+<!-- Hidden form for edit user -->
+{!! Form::open(array('action' => 'SuperAdminController@edit_user')) !!}
+{!! Form::hidden('edit_userID', 'value', array('id' => 'edit_userID')) !!}
+{!! Form::submit('Submit', ['class' => 'btn btn-default', 'id' => 'submitEdit', 'style' => 'display:none;']) !!}
+{!! Form::close() !!}
+<!-- end of edit form -->
 
 <!-- Modal -->
 <div id="deactivateModal" class="modal fade" role="dialog">
@@ -179,7 +186,7 @@
 				]) !!}
 				  {!! Form::hidden('userID', 'value', array('id' => 'userID')) !!}
 					{!! Form::hidden('option', 'value', array('id' => 'option')) !!}
-				{!! Form::submit('Submit', ['class' => 'btn btn-default', 'id' => 'submitDeactivate', 'style' => 'display:none;']) !!}
+				{!! Form::submit('Submit', ['class' => 'btn btn-default', 'id' => 'submitDeactivate', 'name' => 'deactivate', 'style' => 'display:none;']) !!}
 				{!! Form::close() !!}
 
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

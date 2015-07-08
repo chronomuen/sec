@@ -39,6 +39,14 @@ class SuperAdminController extends Controller
         return view('superadmin.create_user');
     }
 
+    public function edit_user()
+    {
+        //
+        //$userID = Session::get('transactionID');
+        $userID = Input::get('edit_userID');
+        return view('superadmin.edit_user', array('userID' => $userID));
+    }
+
     public function create_transaction()
     {
         //
@@ -117,7 +125,8 @@ class SuperAdminController extends Controller
             Session::flash('message', "success out");
 
         }
-        else {
+        else
+        {
             Session::flash('message', "error");
         }
         return Redirect::route('superadmin/process_transactions');
