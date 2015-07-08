@@ -3,7 +3,7 @@
 @include('superadmin/_sidebar')
 
 @section('header')
-Create New User
+Edit User
 @stop
 
 @section('content')
