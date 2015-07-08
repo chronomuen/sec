@@ -19,7 +19,7 @@
 
   <div class="form-group">
     {!! Form::label('pname', 'Processor Name', ['class' => 'control-label']) !!}
-    {!! Form::text('pname', 'Juan Cruz', array('id' => 'pname', 'class' => 'form-control', 'required' => 'required', 'disabled' => 'true')) !!}
+    {!! Form::text('pname', $processorName, array('id' => 'pname', 'class' => 'form-control', 'required' => 'required', 'disabled' => 'true')) !!}
   </div>
 
   <div class="form-group">

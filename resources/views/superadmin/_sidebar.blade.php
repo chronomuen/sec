@@ -1,6 +1,6 @@
 @section('user_info')
 <!-- user info -->
-<p>Juan Cruz</p>
+<p>Jose Palma</p>
 <!-- job title -->
 <a href="/superadmin"><i class="fa fa-circle text-success"></i>Super <br/>Administrator</a>
 @stop
