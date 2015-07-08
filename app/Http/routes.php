@@ -18,8 +18,9 @@ Route::get('login', 'PagesController@login');
 
 
 Route::get('superadmin/create_user', 'SuperAdminController@create_user');
-Route::get('superadmin/assign_stages', 'SuperAdminController@assign_stages');
-Route::get('superadmin/view_users', 'SuperAdminController@view_users');
+Route::post('superadmin/edit_user', array('as' => 'superadmin/edit_user', 'uses' => 'SuperAdminController@edit_user'));
+//Route::get('superadmin/assign_stages', 'SuperAdminController@assign_stages');
+Route::get('superadmin/view_users', array('as' => 'superadmin/view_users', 'uses' => 'SuperAdminController@view_users'));
 
 Route::get('superadmin/process_transactions', array('as' => 'superadmin/process_transactions', 'uses' => 'SuperAdminController@process_transactions'));
 Route::post('superadmin/process', array('as' => 'superadmin/process', 'uses' => 'SuperAdminController@process'));

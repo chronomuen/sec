@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Input;
+use Session;
+use Redirect;
 
 class UserController extends Controller
 {
@@ -71,7 +74,20 @@ class UserController extends Controller
     public function update($id)
     {
         //
-        return redirect()->back();
+        if(Input::has('edit'))
+        {
+            Session::flash('message', "success edit");
+        }
+        elseif(Input::has('deactivate'))
+        {
+            Session::flash('message', "success deactivate");
+
+        }
+        else
+        {
+            Session::flash('message', "error");
+        }
+        return Redirect::route('superadmin/view_users');
     }
 
     /**
