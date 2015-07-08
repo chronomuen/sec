@@ -50,7 +50,7 @@
 				<td>new</td>
 				<td>Validated document</td>
 				<td>Percy Jackson</td>
-				<td id="1">01/01/15</td>
+				<td id="1">01/02/15</td>
 				<td>01/03/15</td>
 				<td>Annabeth Chase</td>
 			</tr>
@@ -115,7 +115,7 @@
 					<br>
 					{!! Form::textarea('data', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80]) !!}
 					<br><br>
-					{!! Form::submit('Submit', ['id' => 'submit', 'class' => 'btn btn-primary btn-md', 'name' => 'out']) !!}
+					{!! Form::submit('Logout Transaction', ['id' => 'submit', 'class' => 'btn btn-primary btn-md', 'name' => 'out']) !!}
 				</td>
 			</tr>
 		</tbody>

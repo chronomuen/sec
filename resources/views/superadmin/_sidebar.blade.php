@@ -23,7 +23,7 @@
     <ul class="treeview-menu">
 
       <li><a href="/superadmin/view_users"><i class="fa fa-list"></i> View Users</a></li>
-      <li><a href="/superadmin/create_user"><i class="fa fa-plus-circle"></i> Add User</a></li>
+      <li><a href="/superadmin/create_user"><i class="fa fa-plus-circle"></i> Create User</a></li>
 
     </ul>
   </li>

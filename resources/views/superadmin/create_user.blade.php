@@ -7,9 +7,9 @@ Create New User
 @stop
 
 @section('content')
-<div class="container">
-  <div class="row">
-      <div class="panel" style="width:1000px">
+<div style="padding-right:20px; padding-left:20px">
+    <div class="row">
+        <div class="panel">
         <div class="panel-body">
           <div class="col-md-6">
             <div class="form-group">

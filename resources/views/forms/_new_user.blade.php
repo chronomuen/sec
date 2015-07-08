@@ -33,7 +33,7 @@
 
     <div class="form-group">
       {!! Form::label('dept', 'Department', ['class' => 'control-label']) !!}<br/>
-      {!! Form::select('dept', ['Dept 1', 'Dept 2', 'Dept 3'], null, ['class' => 'form-control']) !!}
+      {!! Form::select('dept', ['Markets and Securities Regulation Department', 'Corporate Governance and Finance Department', 'Enforcement and Investor Protection Department', 'Company Registration and Monitoring Department', ' Information and Communications Technology Department', 'Human Resource and Administration Department', 'Economic Research and Training Department', ' Financial Management Department'], null, ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
