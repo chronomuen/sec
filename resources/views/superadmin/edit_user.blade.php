@@ -14,7 +14,7 @@ Edit User
           <div class="col-md-6">
             <div class="form-group">
               {!! Form::open([
-                  'route' => 'user.update'
+                  'route' => 'user.update', 'method' => 'put'
               ]) !!}
               {!! View::make('forms/_edit_user', array('userID' => $userID))  !!}
               <div class="row" >

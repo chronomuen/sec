@@ -2,6 +2,11 @@
   <div class="row">
 
     <div class="form-group">
+        {!! Form::label('userID', 'User ID', ['class' => 'control-label']) !!}
+        {!! Form::text('userID', $userID , array('id' => 'userID', 'class' => 'form-control', 'disabled' => 'true')) !!}
+    </div>
+
+    <div class="form-group">
       {!! Form::label('username', 'Username', ['class' => 'control-label']) !!}
       {!! Form::text('username', null, array('id' => 'username', 'class' => 'form-control')) !!}
     </div>

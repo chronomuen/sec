@@ -9,6 +9,19 @@ $('#userModal').on('show.bs.modal', function() {
     $("#job_info").append($("#job").val());
 });
 
+$(".editUserButton").click(function(){
+    var $row = $(this).closest("tr");
+
+    var $IDcol = $row.find("td:nth-child(1)");
+    var $IDtext = "";
+    $.each($IDcol, function() {
+      $IDtext = $(this).text();
+    });
+
+    $("#edit_userID").val($IDtext);
+    $("#submitEdit").click();
+});
+
 $(".deactivateButton").click(function(){
     $("#modalMessage").html("");
     var $row = $(this).closest("tr");
