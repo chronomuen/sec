@@ -3,20 +3,9 @@
 @include('processor/_sidebar')
 
 @section('header')
-<div>
-	<div style="float: left">Transaction List</div>
 
-	 <div style="padding-left:710px">
-		<form action="#" method="get">
-			<div class="input-group">
-				<input class="form-control" id="system-search" name="q" placeholder="Search for">
-				<span class="input-group-btn">
-					<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-				</span>
-			</div>
-		</form>
-	</div>
-</div>
+Transaction List
+
 @stop
 
 @section('javascript')
@@ -25,120 +14,73 @@
 @stop
 
 @section('content')
+
+<div align="center">
+	<h3 style="center">Search Transaction</h3>
+	<form action="#" method="get" style="width: 300px">
+		<div class="input-group">
+			<input class="form-control" id="system-search" name="q" placeholder="Search for">
+			<span class="input-group-btn">
+				<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+			</span>
+		</div>
+	</form>
+</div>
+
+
+<br>
 <div id="transactions" class="container">
 	<div class="row">
 		<div class="panel" style="width:1000px">
 			<table class="table table-list-search">
+				<thead>
+					<tr>
+					<th class="col-md-1"><center>Transaction ID</center></th>
+					<th class="col-md-1"><center>Status</center></th>
+					<th class="col-md-2"><center>Remarks</center></th>
+					<th class="col-md-2"><center>Processor</center></th>
+					<th class="col-md-1"><center>Receive Date</center></th>
+					<th class="col-md-1"><center>Release Date</center></th>
+					<th class="col-md-2"><center>Next Processor</center></th>
+					</tr>
+				</thead>
+
 				<tbody>
 					<tr>
-						<td>
-						<a href="#" class="list-group-item" data-toggle="modal" data-target="#transactionModal" data-transaction-id="transactionID1">
-							<b>Transaction1</b><br/>
-							Transaction ID<br/>
-							Customer<br/>
-							Transaction Type<br/>
-							Transaction Stage
-						</a>
-						</td>
+						<td>00001</td>
+						<td>new</td>
+						<td>Validated</td>
+						<td>Percy Jackson</td>
+						<td>01/01/15</td>
+						<td>01/03/15</td>
+						<td>Annabeth Chase</td>
 					</tr>
 					<tr>
-						<td>
-						<a href="#" class="list-group-item " data-toggle="modal" data-target="#transactionModal" data-transaction-id="transactionID2">
-							<b>Transaction2</b><br/>
-							Transaction ID<br/>
-							Customer<br/>
-							Transaction Type<br/>
-							Transaction Stage
-						</a>
-						</td>
+						<td>00001</td>
+						<td>in-process</td>
+						<td>Validated</td>
+						<td>Annabeth Chase</td>
+						<td>01/03/15</td>
+						<td>01/03/15</td>
+						<td>Piper McLean</td>
 					</tr>
 					<tr>
-						<td>
-						<a href="#" class="list-group-item " data-toggle="modal" data-target="#transactionModal" data-transaction-id="transactionID3">
-							<b>Transaction3</b><br/>
-							Transaction ID<br/>
-							Customer<br/>
-							Transaction Type<br/>
-							Transaction Stage
-						</a>
-						</td>
+						<td>00001</td>
+						<td>in-process</td>
+						<td>Validated</td>
+						<td>Piper McLean</td>
+						<td>01/03/15</td>
+						<td>01/04/15</td>
+						<td>Jason Grace</td>
 					</tr>
 					<tr>
-						<td>
-						<a href="#" class="list-group-item " data-toggle="modal" data-target="#transactionModal" data-transaction-id="transactionID4">
-							<b>Transaction4</b><br/>
-							Transaction ID<br/>
-							Customer<br/>
-							Transaction Type<br/>
-							Transaction Stage
-						</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<a href="#" class="list-group-item " data-toggle="modal" data-target="#transactionModal" data-transaction-id="transactionID5">
-							<b>Transaction5</b><br/>
-							Transaction ID<br/>
-							Customer<br/>
-							Transaction Type<br/>
-							Transaction Stage
-						</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<a href="#" class="list-group-item " data-toggle="modal" data-target="#transactionModal" data-transaction-id="transactionID6">
-							<b>Transaction6</b><br/>
-							Transaction ID<br/>
-							Customer<br/>
-							Transaction Type<br/>
-							Transaction Stage
-						</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<a href="#" class="list-group-item " data-toggle="modal" data-target="#transactionModal" data-transaction-id="transactionID7">
-							<b>Transaction7</b><br/>
-							Transaction ID<br/>
-							Customer<br/>
-							Transaction Type<br/>
-							Transaction Stage
-						</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<a href="#" class="list-group-item " data-toggle="modal" data-target="#transactionModal" data-transaction-id="transactionID8">
-							<b>Transaction8</b><br/>
-							Transaction ID<br/>
-							Customer<br/>
-							Transaction Type<br/>
-							Transaction Stage
-						</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<a href="#" class="list-group-item " data-toggle="modal" data-target="#transactionModal" data-transaction-id="transactionID9">
-							<b>Transaction9</b><br/>
-							Transaction ID<br/>
-							Customer<br/>
-							Transaction Type<br/>
-							Transaction Stage
-						</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<a href="#" class="list-group-item " data-toggle="modal" data-transaction-id="transactionID10" data-target="#transactionModal">
-							<b>Transaction10</b><br/>
-							Transaction ID<br/>
-							Customer<br/>
-							Transaction Type<br/>
-							Transaction Stage
-						</a>
-						</td>
+						<td>00001</td>
+						<td>completed</td>
+						<td>Validated</td>
+						<td>Jason Grace</td>
+						<td>01/04/15</td>
+						<td>01/05/15</td>
+						<td>-</td>
 					</tr>
 				</tbody>
 			</table>
