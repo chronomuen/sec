@@ -4,7 +4,7 @@
 
 @section('header')
 
-Update Transaction
+Logout Transaction
 
 @stop
 
