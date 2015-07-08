@@ -39,7 +39,7 @@ class TransactionController extends Controller
     {
         //
         Session::flash('message', "success");
-        return redirect()->back();
+        return redirect()->back()->withInput();
     }
 
     public function process()
