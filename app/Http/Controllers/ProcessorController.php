@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Input;
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Session;
 
 class ProcessorController extends Controller
 {
@@ -20,6 +22,13 @@ class ProcessorController extends Controller
         return view('processor.index');
     }
 
+    public function create_transaction()
+    {
+        //
+        $transactionID = Session::get('transactionID');
+        return view('processor.new_transaction', array('transactionID' => $transactionID));
+    }
+
     public function process_transactions()
     {
         //
@@ -29,13 +38,72 @@ class ProcessorController extends Controller
     public function process()
     {
         //
-        return view('processor.processes');
+        $transactionID =  Input::get('transactionID');
+
+        if(Input::has('create'))
+        {
+            // Redirect to different route / URI
+            return Redirect::route('processor/create_transaction')->with('transactionID', $transactionID);
+
+
+            // Alternatively, you could process action 1 here
+        }
+
+        elseif(Input::has('update'))
+        {
+            // Process action 2
+            return Redirect::route('processor/update_transaction')->with('transactionID', $transactionID);
+        }
+
+
+        elseif(Input::has('out'))
+        {
+            // Process action 3
+            return Redirect::route('processor/out_transaction')->with('transactionID', $transactionID);
+        }
     }
 
-    public function create_transaction()
+	public function view_users()
     {
         //
-        return view('processor.new_transaction');
+        return view('processor.view_users');
+    }
+
+	public function	update_transaction()
+    {
+        //
+        $transactionID = Session::get('transactionID');
+        return view('processor.update_transaction', array('transactionID' => $transactionID));
+    }
+
+	public function	out_transaction()
+    {
+        //
+        $transactionID = Session::get('transactionID');
+        return view('processor.out_transaction', array('transactionID' => $transactionID));
+    }
+
+    public function store_transaction()
+    {
+        //
+        if(Input::has('create'))
+        {
+            Session::flash('message', "success create");
+        }
+        elseif(Input::has('update'))
+        {
+            Session::flash('message', "success update");
+
+        }
+        elseif(Input::has('out'))
+        {
+            Session::flash('message', "success out");
+
+        }
+        else {
+            Session::flash('message', "error");
+        }
+        return Redirect::route('processor/process_transactions');
     }
 
     /**
