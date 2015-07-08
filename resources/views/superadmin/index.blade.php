@@ -17,7 +17,7 @@ Transaction List
 	<h3 style="center">Search Transaction</h3>
 	<form action="#" method="get" style="width: 300px">
 		<div class="input-group">
-			<input class="form-control" id="system-search" name="q" placeholder="Search for">
+			<input class="form-control" id="system-search" name="q" placeholder="Enter ID">
 			<span class="input-group-btn">
 				<button type="button" id="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 			</span>
