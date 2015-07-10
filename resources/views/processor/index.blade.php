@@ -9,19 +9,17 @@ Transaction List
 @stop
 
 @section('javascript')
-<script src="/js/department.js" type="text/javascript"></script>
-<script src="/js/match.js" type="text/javascript"></script>
+<script src="/js/table.js" type="text/javascript"></script>
 @stop
 
 @section('content')
-
 <div align="center">
 	<h3 style="center">Search Transaction</h3>
 	<form action="#" method="get" style="width: 300px">
 		<div class="input-group">
-			<input class="form-control" id="system-search" name="q" placeholder="Search for">
+			<input class="form-control" id="system-search" name="q" placeholder="Enter ID">
 			<span class="input-group-btn">
-				<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+				<button type="button" id="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 			</span>
 		</div>
 	</form>
@@ -29,10 +27,10 @@ Transaction List
 
 
 <br>
-<div id="transactions" style="padding-right:20px; padding-left:20px">
+<div style="padding-right:20px; padding-left:20px">
 	<div class="row">
-		<div class="panel">
-			<table class="table table-list-search">
+		<div id="panel" class="panel" style="display: none">
+			<table  id="transactions" class="table table-list-search" style="display: none">
 				<thead>
 					<tr>
 					<th class="col-md-1"><center>Transaction ID</center></th>
@@ -49,7 +47,7 @@ Transaction List
 					<tr>
 						<td>00001</td>
 						<td>new</td>
-						<td>Validated</td>
+						<td>Validated document</td>
 						<td>Percy Jackson</td>
 						<td>01/01/15</td>
 						<td>01/03/15</td>
@@ -58,7 +56,7 @@ Transaction List
 					<tr>
 						<td>00001</td>
 						<td>in-process</td>
-						<td>Validated</td>
+						<td>Evaluated document</td>
 						<td>Annabeth Chase</td>
 						<td>01/03/15</td>
 						<td>01/03/15</td>
@@ -67,7 +65,7 @@ Transaction List
 					<tr>
 						<td>00001</td>
 						<td>in-process</td>
-						<td>Validated</td>
+						<td>Encoded document</td>
 						<td>Piper McLean</td>
 						<td>01/03/15</td>
 						<td>01/04/15</td>
@@ -76,7 +74,7 @@ Transaction List
 					<tr>
 						<td>00001</td>
 						<td>completed</td>
-						<td>Validated</td>
+						<td>Approved document</td>
 						<td>Jason Grace</td>
 						<td>01/04/15</td>
 						<td>01/05/15</td>
@@ -87,59 +85,4 @@ Transaction List
 		</div>
 	</div>
 </div>
-
-<!-- Modal -->
-<div id="transactionModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">
-					Process Transaction
-					<b><p id="transaction_title"></p></b>
-				</h4>
-      </div>
-      <div class="modal-body">
-				<label>Send transaction to: </label>
-        <div class="form-group">
-					<select id="select" class="form-control">
-						<option disabled selected> -- select department -- </option>
-						<option>department1</option>
-						<option>department2</option>
-						<option>department3</option>
-						<option>department4</option>
-						<option>department5</option>
-					</select>
-				</div>
-				<p>
-				Proceed to
-				<b>
-				<class id="department">
-
-				</class>
-				</b>
-				at room something something database.
-				</p>
-      </div>
-      <div class="modal-footer">
-				{!! Form::open(array('url' => '/transaction/process')) !!}
-				  {!! Form::hidden('transactionID', 'value', array('id' => 'transaction_id')) !!}
-					{!! Form::hidden('deptName', 'value', array('id' => 'deptName')) !!}
-				{!! Form::submit('Submit', ['class' => 'btn btn-default']) !!}
-
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				{!! Form::close() !!}
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-
-
-
-
 @stop
