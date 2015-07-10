@@ -7,13 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Phaza\SingleTableInheritance\SingleTableInheritanceTrait;
+use App\Processor;
+use App\SuperAdmin;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
+    use SingleTableInheritanceTrait;
     use Authenticatable, CanResetPassword;
 
     //The database table used by the model.
     protected $table = 'users';
+
+    // defines the name of the field that contains the class name of the inherited table
+    protected static $singleTableTypeField = "user_type";
+
+    //user types
+    protected static $singleTableSubclasses = ['Processor', 'SuperAdmin'];
+
+    // fields common to all User types
+    protected static $persisted = ['id', 'user_id', 'username', 'password', 'email', 'firstname', 'lastname', 'department', 'job_title', 'user_type', 'status'];
 
     //The attributes that are mass assignable.
     protected $fillable = ['name', 'email', 'password'];
@@ -36,7 +49,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
 
-    //SINGLE TABLE INHERITANCE SETUP -------------------
+/*    //SINGLE TABLE INHERITANCE SETUP -------------------
 
     //for single table inheritance, to assignuser type
     public function __construct($attributes = array())
@@ -69,7 +82,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         } else {
           return parent::newFromBuilder($attributes);
         }
-    }
+    }*/
 
 
 }
