@@ -16,7 +16,7 @@ Process Transaction
                     </div>
                     <div class="col-md-4">
                         <h2 >Enter Transaction ID</h2>
-                        {!! Form::open(array('action' => 'SuperAdminController@process')) !!}
+                        {!! Form::open(array('action' => 'SuperadminController@process')) !!}
                         {!! Form::text('transactionID', null, array('id' => 'transactionID', 'class' => 'form-control', 'required' => 'required', 'style' => 'text-align: center')) !!}<br/>
                         <div class="row">
                             {!! Form::submit('Create Transaction', ['class' => 'btn btn-success btn-block', 'name' => 'create']) !!}

@@ -1,8 +1,8 @@
 @section('user_info')
 <!-- user info -->
-<p>{!! $user->firstname!!} {!! $user->lastname!!}</p>
+<p>{!! $user->firstname !!} {!! $user->lastname !!}</p>
 <!-- job title -->
-<a href="/processor"><i class="fa fa-circle text-success"></i>{!! $user->job_title!!}</a>
+<a href="/processor"><i class="fa fa-circle text-success"></i>{!! $user->job_title !!}</a>
 @stop
 
 @section('sidebar')
