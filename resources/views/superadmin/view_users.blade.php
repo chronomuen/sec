@@ -40,6 +40,17 @@
 
 				<tbody>
 					<tr>
+						<td>{!! $user->user_id !!}</td>
+						<td>{!! $user->lastname !!}, {!! $user->firstname !!}</td>
+						<td>{!! $user->department()->first()->name !!}</td>
+						<td>{!! $user->job_title !!}</td>
+						<td>{!! $user->status !!}</td>
+						<td><center>
+							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
+							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
+						</center></td>
+					</tr>
+					<tr>
 						<td>31256</td>
 						<td>Jackson, Percy</td>
 						<td>Human Resource and Administration Department</td>

@@ -8,5 +8,6 @@ class Processor extends Model
 {
     //
     protected $table = 'users';
+    protected static $singleTableType = 'Processor';
 
 }
