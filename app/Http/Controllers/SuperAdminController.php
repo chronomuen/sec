@@ -10,8 +10,10 @@ use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Session;
+use App\Department;
+use DB;
 
-class SuperAdminController extends Controller
+class SuperadminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -94,6 +96,9 @@ class SuperAdminController extends Controller
     {
         //
         $user = User::find(1);
+        //var_dump(Department::find(1));
+        //var_dump(DB::getQueryLog());
+        //$user = DB::table('users')->where('user_id', '=', 201201034)->first();
         return view('superadmin.view_users', array('user' => $user));
     }
 
