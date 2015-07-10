@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Phaza\SingleTableInheritance\SingleTableInheritanceTrait;
+use App\Processor;
+use App\SuperAdmin;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -17,10 +20,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $table = 'users';
 
     // defines the name of the field that contains the class name of the inherited table
-    public static $singleTableInheritanceTypeField = "user_type";
+    protected static $singleTableTypeField = "user_type";
+
+    //user types
+    protected static $singleTableSubclasses = ['Processor', 'SuperAdmin'];
 
     // fields common to all User types
-    public static $singleTableInheritancePersisted = ['id', 'user_id', 'username', 'password', 'email', 'firstname', 'lastname', 'department', 'job_title', 'user_type', 'status'];
+    protected static $persisted = ['id', 'user_id', 'username', 'password', 'email', 'firstname', 'lastname', 'department', 'job_title', 'user_type', 'status'];
 
     //The attributes that are mass assignable.
     protected $fillable = ['name', 'email', 'password'];
