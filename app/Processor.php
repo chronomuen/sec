@@ -8,7 +8,6 @@ use Phaza\SingleTableInheritance\SingleTableInheritanceTrait;
 class Processor extends User
 {
     //
-    protected $table = 'users';
-    protected static $singleTableType = 'processor';
+    protected static $singleTableType = 'app\processor';
 
 }
