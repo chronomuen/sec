@@ -1,6 +1,6 @@
 @extends('default')
 <!-- User Sidebar -->
-@include('processor/_sidebar')
+{!! View::make('processor/_sidebar', array('user' => $user))  !!}
 
 @section('header')
 

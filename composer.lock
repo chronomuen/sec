@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "051058f8b202cfa9eedcee27ecd0a2c6",
+    "hash": "839486070a1a561f10c91b0f6e46a3b2",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1229,6 +1229,61 @@
                 "php"
             ],
             "time": "2015-05-02 15:40:40"
+        },
+        {
+            "name": "phaza/single-table-inheritance",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phaza/single-table-inheritance.git",
+                "reference": "9759ec897c37c0fd3394939bf43ec23217b311d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phaza/single-table-inheritance/zipball/9759ec897c37c0fd3394939bf43ec23217b311d4",
+                "reference": "9759ec897c37c0fd3394939bf43ec23217b311d4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "4.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phaza\\SingleTableInheritance\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jon Palmer",
+                    "email": "jpalmer@nanigans.com"
+                },
+                {
+                    "name": "Peter Haza",
+                    "email": "peter.haza+github@gmail.com"
+                }
+            ],
+            "description": "Single Table Inheritance Trait",
+            "keywords": [
+                "eloquent",
+                "inheritance",
+                "laravel",
+                "model",
+                "single",
+                "table"
+            ],
+            "time": "2015-06-19 09:47:59"
         },
         {
             "name": "psr/log",

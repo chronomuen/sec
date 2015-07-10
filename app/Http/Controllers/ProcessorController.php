@@ -8,6 +8,7 @@ use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Session;
+use App\User;
 
 class ProcessorController extends Controller
 {
@@ -19,7 +20,8 @@ class ProcessorController extends Controller
     public function index()
     {
         //
-        return view('processor.index');
+        $user = User::find(1);
+        return view('processor.index', array('user' => $user));
     }
 
     public function create_transaction()
