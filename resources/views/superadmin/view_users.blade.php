@@ -171,7 +171,7 @@
 </div>
 
 <!-- Hidden form for edit user -->
-{!! Form::open(array('action' => 'SuperAdminController@edit_user')) !!}
+{!! Form::open(array('action' => 'SuperadminController@edit_user')) !!}
 {!! Form::hidden('edit_userID', 'value', array('id' => 'edit_userID')) !!}
 {!! Form::submit('Submit', ['class' => 'btn btn-default', 'id' => 'submitEdit', 'style' => 'display:none;']) !!}
 {!! Form::close() !!}

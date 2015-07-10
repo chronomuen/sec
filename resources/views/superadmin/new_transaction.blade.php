@@ -13,7 +13,7 @@ Create New Transaction
         <div class="panel-body">
           <div class="col-lg-6">
             <div class="form-group">
-              {!! Form::open(array('action' => 'SuperAdminController@store_transaction')) !!}
+              {!! Form::open(array('action' => 'SuperadminController@store_transaction')) !!}
               {!! View::make('forms/_new_transaction', array('transactionID' => $transactionID, 'processorName' => 'Jose Palma'))  !!}
               <div class="row" >
                 <br/>

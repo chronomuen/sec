@@ -13,7 +13,7 @@ Update Transaction
 @stop
 
 @section('content')
-	{!! Form::open(array('action' => 'SuperAdminController@store_transaction')) !!}
+	{!! Form::open(array('action' => 'SuperadminController@store_transaction')) !!}
 	{!! View::make('forms/_update_transaction', array('transactionID' => $transactionID, 'processorName' => 'Jose Palma'))  !!}
 	<!-- form close in form itself -->
 @stop
