@@ -10,10 +10,17 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
+    use SingleTableInheritanceTrait;
     use Authenticatable, CanResetPassword;
 
     //The database table used by the model.
     protected $table = 'users';
+
+    // defines the name of the field that contains the class name of the inherited table
+    public static $singleTableInheritanceTypeField = "user_type";
+
+    // fields common to all User types
+    public static $singleTableInheritancePersisted = ['id', 'user_id', 'username', 'password', 'email', 'firstname', 'lastname', 'department', 'job_title', 'user_type', 'status'];
 
     //The attributes that are mass assignable.
     protected $fillable = ['name', 'email', 'password'];
@@ -36,7 +43,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
 
-    //SINGLE TABLE INHERITANCE SETUP -------------------
+/*    //SINGLE TABLE INHERITANCE SETUP -------------------
 
     //for single table inheritance, to assignuser type
     public function __construct($attributes = array())
@@ -69,7 +76,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         } else {
           return parent::newFromBuilder($attributes);
         }
-    }
+    }*/
 
 
 }

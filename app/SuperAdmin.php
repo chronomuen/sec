@@ -8,5 +8,6 @@ class SuperAdmin extends Model
 {
     //
     protected $table = 'users';
+    protected static $singleTableType = 'SuperAdmin';
 
 }

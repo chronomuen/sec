@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Input;
+use App;
+use App\User;
 use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -91,7 +93,8 @@ class SuperAdminController extends Controller
 	public function view_users()
     {
         //
-        return view('superadmin.view_users');
+        $user = User::find(1);
+        return view('superadmin.view_users', array('user' => $user));
     }
 
 	public function	update_transaction()
