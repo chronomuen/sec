@@ -47,7 +47,7 @@ Transaction List
 					<tr>
 						<td>00001</td>
 						<td>new</td>
-						<td>Validated</td>
+						<td>Validated document</td>
 						<td>Percy Jackson</td>
 						<td>01/01/15</td>
 						<td>01/03/15</td>
@@ -56,7 +56,7 @@ Transaction List
 					<tr>
 						<td>00001</td>
 						<td>in-process</td>
-						<td>Validated</td>
+						<td>Evaluated document</td>
 						<td>Annabeth Chase</td>
 						<td>01/03/15</td>
 						<td>01/03/15</td>
@@ -65,7 +65,7 @@ Transaction List
 					<tr>
 						<td>00001</td>
 						<td>in-process</td>
-						<td>Validated</td>
+						<td>Encoded document</td>
 						<td>Piper McLean</td>
 						<td>01/03/15</td>
 						<td>01/04/15</td>
@@ -74,7 +74,7 @@ Transaction List
 					<tr>
 						<td>00001</td>
 						<td>completed</td>
-						<td>Validated</td>
+						<td>Approved document</td>
 						<td>Jason Grace</td>
 						<td>01/04/15</td>
 						<td>01/05/15</td>
