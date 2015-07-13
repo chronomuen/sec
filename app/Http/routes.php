@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', ['middleware' => 'auth', 'uses' => 'AuthController@getLogin']);
+Route::get('/', 'Auth\AuthController@getLogin');
+//Route::get('/', ['middleware' => 'auth', 'uses' => 'Auth\AuthController@getLogin']);
 //Route::get('{user_type}_{page}', 'PagesController@page');
-//Route::get('/', 'PagesController@index');
+//Route::get('/', 'PagesController@login');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

@@ -82,29 +82,16 @@ class AuthController extends Controller
 
     public function postLogin()
     {
-        if (Auth::attempt(['user_id' => '201201034', 'password' =>  'jfelipepass'])) {
+        if (Auth::attempt([
+            'user_id' => Input::get('user_id'),
+            'password' =>  Input::get('password')
+        ]))
+        {
               // Authentication passed...
-              return Redirect::to('/processor');
-          }
-          return Redirect::to('/customer');
+              return Redirect::to(strtolower(Auth::user()->user_type).'/');
+        }
+      return Redirect::back()->withMessage('Invalid credentials');
 
-       /*        //
-       $credentials = Input::only('user_id', 'password');
-       //if ( ! Auth::attempt($credentials))
-       $success = Auth::attempt(['user_id' => '201201034', 'password' => 'jfelipepass']);
-       if($success)
-       {
-           //return Redirect::back()->withMessage('Invalid credentials');
-          return Redirect::to('/processor');
-       }
-       else{
-          return Redirect::to('/customer');
-       }
-       if (Auth::user()->user_type == 'Processor')
-       {
-           //return Redirect::to('/processor');
-       }
-       return Redirect::to('/superadmin');*/
     }
 
     public function getLogout()
