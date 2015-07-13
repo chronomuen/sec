@@ -18,6 +18,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     //The database table used by the model.
     protected $table = 'users';
+    protected $primaryKey = 'user_id';
     //for sti
     // defines the name of the field that contains the class name of the inherited table
     protected static $singleTableTypeField = "user_type";
@@ -28,7 +29,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     //for sti
     // fields common to all User types
-    //protected static $persisted = ['id', 'user_id', 'username', 'password', 'email', 'firstname', 'lastname', 'department', 'job_title', 'user_type', 'status'];
+    protected static $persisted = ['id', 'user_id', 'username', 'password', 'email', 'firstname', 'lastname', 'department', 'job_title', 'user_type', 'status'];
 
     //The attributes that are mass assignable.
     protected $fillable = ['name', 'email', 'password'];
@@ -48,6 +49,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function log()
     {
         return $this->hasMany('App\Log', 'processor_id', 'user_id');
+    }
+
+    //authentication
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
     }
 
 
