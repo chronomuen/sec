@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Session;
 use App\User;
+use Auth;
 use DB;
 
 class ProcessorController extends Controller

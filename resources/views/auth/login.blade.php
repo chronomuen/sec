@@ -56,6 +56,42 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- Modal --> <!-- Just call transaction details here -->
+    <div id="loginErrorModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header alert-danger">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Authentication Error</h4>
+          </div>
+          <div class="modal-body">
+              {{ Session::get('message') }}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    @if (Session::has('message'))
+      <script>
+        $(function() {
+            $('#loginErrorModal').modal('show');
+          });
+      </script>
+    @endif
+
+
 </body>
 
 </html>
