@@ -47,7 +47,7 @@
               <!-- navbar options -->
               @yield('navbar_options')
               <li>
-                <a href="#"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
+                <a href="/auth/logout"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
               </li>
             </ul>
           </div>
