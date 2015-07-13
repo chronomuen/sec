@@ -95,10 +95,12 @@ class SuperadminController extends Controller
 	public function view_users()
     {
         //
-        $user = Auth::user();
+        //$user = Auth::user();
         //var_dump(Department::find(1));
         //var_dump(DB::getQueryLog());
         //$user = DB::table('users')->where('user_id', '=', 201201034)->first();
+		
+		$user = User::find('201201030');
         return view('superadmin.view_users', array('user' => $user));
     }
 
