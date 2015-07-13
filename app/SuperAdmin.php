@@ -8,6 +8,6 @@ use Phaza\SingleTableInheritance\SingleTableInheritanceTrait;
 class Superadmin extends User
 {
     //
-    protected static $singleTableType = 'app\superadmin';
+    protected static $singleTableType = 'Superadmin';
 
 }
