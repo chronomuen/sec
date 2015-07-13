@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Session;
 use App\User;
+use Auth;
 use DB;
 
 class ProcessorController extends Controller
@@ -21,7 +22,7 @@ class ProcessorController extends Controller
     public function index()
     {
         //
-        $user = User::find(1);
+        $user = Auth::user();
         //$user = DB::table('users')->where('user_id', '=', 201201034)->first();
         return view('processor.index', array('user' => $user));
     }

@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Input;
+use Auth;
+use Redirect;
+use Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -41,8 +45,8 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'username' => 'required|max:255',
+            'user_id' => 'required|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -56,9 +60,56 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'user_id' => $data['user_id'],
+            'username' => $data['username'],
             'email' => $data['email'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'department' => $data['department'],
+            'job_title' => $data['job_title'],
             'password' => bcrypt($data['password']),
+            'status' => 'Active',
+            'user_type' => 'Processor'
         ]);
+    }
+
+    //authentication part
+    public function getLogin()
+    {
+        //
+        return view('auth.login');
+    }
+
+    public function postLogin()
+    {
+        if (Auth::attempt([
+            'user_id' => Input::get('user_id'),
+            'password' =>  Input::get('password')
+        ]))
+        {
+              // Authentication passed...
+              return Redirect::to(strtolower(Auth::user()->user_type).'/');
+        }
+      return Redirect::back()->withMessage('Invalid credentials');
+
+    }
+
+    public function getLogout()
+    {
+        //
+        Auth::logout();
+        return redirect('/');
+    }
+
+    public function getRegister()
+    {
+        //
+        return view('auth.login');
+    }
+
+    public function postRegister()
+    {
+        //
+        return view('auth.login');
     }
 }

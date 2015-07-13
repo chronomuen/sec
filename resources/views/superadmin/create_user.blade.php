@@ -16,6 +16,7 @@ Create New User
               {!! Form::open([
                   'route' => 'user.store'
               ]) !!}
+              {!! csrf_field() !!}
               @include('forms/_new_user')
               <div class="row" >
                 <br/>

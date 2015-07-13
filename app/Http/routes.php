@@ -11,17 +11,24 @@
 |
 */
 
-Route::get('/', array('as' => '/', 'uses' => 'PagesController@login'));
+Route::get('/', 'Auth\AuthController@getLogin');
+//Route::get('/', ['middleware' => 'auth', 'uses' => 'Auth\AuthController@getLogin']);
 //Route::get('{user_type}_{page}', 'PagesController@page');
-//Route::get('/', 'PagesController@index');
+//Route::get('/', 'PagesController@login');
 
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
 Route::get('superadmin/create_user', 'SuperadminController@create_user');
 Route::post('superadmin/edit_user', array('as' => 'superadmin/edit_user', 'uses' => 'SuperadminController@edit_user'));
-//Route::get('superadmin/assign_stages', 'SuperadminController@assign_stages');
 Route::get('superadmin/view_users', array('as' => 'superadmin/view_users', 'uses' => 'SuperadminController@view_users'));
-
 Route::get('superadmin/process_transactions', array('as' => 'superadmin/process_transactions', 'uses' => 'SuperadminController@process_transactions'));
 Route::post('superadmin/process', array('as' => 'superadmin/process', 'uses' => 'SuperadminController@process'));
 Route::post('superadmin/storeTransaction', array('as' => 'superadmin/storeTransaction', 'uses' => 'SuperadminController@store_transaction'));
