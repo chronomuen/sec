@@ -30,8 +30,8 @@
 				<thead>
 					<tr>
 						<th class="col-md-1"><center>ID</center></th>
-						<th class="col-md-3"><center>Name</center></th>
-						<th class="col-md-2.5"><center>Department</center></th>
+						<th class="col-md-2"><center>Name</center></th>
+						<th class="col-md-4"><center>Department</center></th>
 						<th class="col-md-2"><center>Job Title</center></th>
 						<th class="col-md-1"><center>Status</center></th>
 						<th><center></center></th>
