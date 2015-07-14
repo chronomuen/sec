@@ -98,10 +98,28 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
         //
-        if(Input::has('edit'))
+        $user = User::findOrFail($id);
+
+        $this->validate($request, [
+            'email' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'department' => 'required',
+            'job_title' => 'required',
+        ]);
+
+        $input = $request->all();
+
+        $user->fill($input)->save();
+
+        Session::flash('flash_message', 'User successfully edited!');
+
+        return redirect()->back();
+
+        /*if(Input::has('edit'))
         {
             Session::flash('message', "success edit");
         }
@@ -114,7 +132,7 @@ class UserController extends Controller
         {
             Session::flash('message', "error");
         }
-        return redirect('superadmin/view_users');
+        return redirect('superadmin/view_users');*/
     }
 
     /**

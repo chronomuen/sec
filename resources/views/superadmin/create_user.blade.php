@@ -13,20 +13,10 @@ Create New User
         <div class="panel-body">
 
             <!-- missing input fields -->
-            @if($errors->any())
-                <div class="alert alert-danger">
-                    @foreach($errors->all() as $error)
-                        <p>{{ $error }}</p>
-                    @endforeach
-                </div>
-            @endif
+            @include('alerts.errors');
 
             <!-- success -->
-            @if(Session::has('flash_message'))
-                <div class="alert alert-success">
-                    {{ Session::get('flash_message') }}
-                </div>
-            @endif
+            @include('alerts.sessions');
 
           <div class="col-md-6">
             <div class="form-group">
