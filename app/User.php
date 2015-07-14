@@ -21,7 +21,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $primaryKey = 'user_id';
     //for sti
     // defines the name of the field that contains the class name of the inherited table
-    protected static $singleTableTypeField = "user_type";
+    protected static $singleTableTypeField = 'user_type';
+
+    //protected static $singleTableType = 'User';
 
     //for sti
     //user types

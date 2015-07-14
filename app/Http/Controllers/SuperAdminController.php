@@ -41,8 +41,8 @@ class SuperadminController extends Controller
 
     public function create_user()
     {
-        //
-        return view('superadmin.create_user');
+        $depts = Department::lists('name', 'department_id');
+        return view('superadmin.create_user', array('depts' => $depts));
     }
 
     public function edit_user()
