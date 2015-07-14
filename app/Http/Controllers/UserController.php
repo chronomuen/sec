@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Input;
 use Session;
 use Redirect;
+use App\User;
+use App\Processor;
 
 class UserController extends Controller
 {
@@ -47,10 +49,10 @@ class UserController extends Controller
             'lastname' => 'required',
             'department' => 'required',
             'job_title' => 'required',
-            'password' => 'required',
+            'password' => 'required'
         ]);
 
-        return User::create([
+        User::create([
             'user_id' => $request['user_id'],
             'username' => $request['username'],
             'email' => $request['email'],
@@ -65,7 +67,7 @@ class UserController extends Controller
 
         Session::flash('flash_message', 'User successfully created!');
 
-        return redirect()->back();
+        return redirect('superadmin/view_users');
     }
 
     /**
@@ -112,7 +114,7 @@ class UserController extends Controller
         {
             Session::flash('message', "error");
         }
-        return Redirect::route('superadmin/view_users');
+        return redirect('superadmin/view_users');
     }
 
     /**
