@@ -28,6 +28,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('superadmin/create_user', 'SuperadminController@create_user');
 Route::post('superadmin/edit_user', array('as' => 'superadmin/edit_user', 'uses' => 'SuperadminController@edit_user'));
+Route::get('superadmin/edit_user', array('as' => 'superadmin/edit_user', 'uses' => 'SuperadminController@edit_user'));
 Route::post('superadmin/view_users', ['middleware' => 'auth', 'as' => 'SuperadminController@view_users', 'uses' => 'SuperadminController@view_users']);
 Route::get('superadmin/view_users', ['middleware' => 'auth', 'as' => 'SuperadminController@view_users', 'uses' => 'SuperadminController@view_users']);
 Route::get('superadmin/process_transactions', array('as' => 'superadmin/process_transactions', 'uses' => 'SuperadminController@process_transactions'));

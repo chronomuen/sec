@@ -19,7 +19,7 @@
 @section('javascript')
 <script src="/js/department.js" type="text/javascript"></script>
 <script src="/js/match.js" type="text/javascript"></script>
-<script src="/js/user.js" type="text/javascript"></script>
+<!--<script src="/js/user.js" type="text/javascript"></script>-->
 @stop
 
 @section('content')
@@ -47,7 +47,8 @@
 						<td>{!! $user->job_title !!}</td>
 						<td>{!! $user->status !!}</td>
 						<td><center>
-							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
+							<a href="{{ route('superadmin.edit', $user->user_id) }}" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i></a>
+
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 						</center></td>
 					</tr>
@@ -59,10 +60,7 @@
 </div>
 
 <!-- Hidden form for edit user -->
-{!! Form::open(array('action' => 'SuperadminController@edit_user')) !!}
-{!! Form::hidden('edit_userID', 'value', array('id' => 'edit_userID')) !!}
-{!! Form::submit('Submit', ['class' => 'btn btn-default', 'id' => 'submitEdit', 'style' => 'display:none;']) !!}
-{!! Form::close() !!}
+
 <!-- end of edit form -->
 
 <!-- Modal -->
