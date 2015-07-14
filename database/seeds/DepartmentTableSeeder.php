@@ -10,7 +10,9 @@ class DepartmentTableSeeder extends Seeder
         DB::table('departments')->delete();
 
         $departments = array(
-            ['id' => 1, 'department_id' => 00020, 'name' => 'Company Registration and Monitoring Department']
+            ['id' => 1, 'department_id' => 00020, 'name' => 'Company Registration and Monitoring Department'],
+
+            ['id' => 2, 'department_id' => 00001, 'name' => 'Administration Department']
         );
 
         //// Uncomment the below to run the seeder
