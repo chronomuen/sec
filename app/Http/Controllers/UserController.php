@@ -52,7 +52,7 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
-        User::create([
+        Processor::create([
             'user_id' => $request['user_id'],
             'username' => $request['username'],
             'email' => $request['email'],
@@ -60,14 +60,14 @@ class UserController extends Controller
             'lastname' => $request['lastname'],
             'department' => $request['department'],
             'job_title' => $request['job_title'],
-            'password' => bcrypt($request['password']),
+            'password' => $request['password'],
             'status' => 'Active',
             'user_type' => 'Processor'
         ]);
 
         Session::flash('flash_message', 'User successfully created!');
 
-        return redirect('superadmin/view_users');
+        return redirect('superadmin/create_user');
     }
 
     /**
