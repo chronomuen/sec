@@ -96,13 +96,19 @@ class SuperadminController extends Controller
 
 	public function view_users()
     {
-        //
         $authuser = Auth::user();
         $users = User::all();
         //var_dump(Department::find(1));
         //var_dump(DB::getQueryLog());
         //$user = DB::table('users')->where('user_id', '=', 201201034)->first();
         return view('superadmin.view_users', array('users' => $users, 'authuser' => $authuser));
+
+        //$user = Auth::user();
+        //var_dump(Department::find(1));
+        //var_dump(DB::getQueryLog());
+        //$user = DB::table('users')->where('user_id', '=', 201201034)->first();
+
+
     }
 
 	public function	update_transaction()
