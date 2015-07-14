@@ -34,7 +34,7 @@ Create New User
                   'route' => 'user.store'
               ]) !!}
               {!! csrf_field() !!}
-              @include('forms/_new_user')
+              {!! View::make('forms/_new_user', array('depts' => $depts))->render() !!}
               <div class="row" >
                 <br/>
                 {!! Form::submit('Create User', ['class' => 'btn btn-primary']) !!}

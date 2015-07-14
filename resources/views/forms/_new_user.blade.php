@@ -33,12 +33,12 @@
 
     <div class="form-group">
       {!! Form::label('department', 'Department', ['class' => 'control-label']) !!}<br/>
-      {!! Form::select('department', ['Markets and Securities Regulation Department', 'Corporate Governance and Finance Department', 'Enforcement and Investor Protection Department', 'Company Registration and Monitoring Department', ' Information and Communications Technology Department', 'Human Resource and Administration Department', 'Economic Research and Training Department', ' Financial Management Department'], null, ['class' => 'form-control', 'required' => 'required']) !!}
+      {!! Form::select('department', $depts, null, ['class' => 'form-control', 'required' => 'required']) !!}
     </div>
 
     <div class="form-group">
       {!! Form::label('job_title', 'Job Title', ['class' => 'control-label']) !!}
-      {!! Form::text('job', null, array('id' => 'job_title', 'class' => 'form-control', 'required' => 'required')) !!}
+      {!! Form::text('job_title', null, array('id' => 'job_title', 'class' => 'form-control', 'required' => 'required')) !!}
     </div>
 
   </div>
