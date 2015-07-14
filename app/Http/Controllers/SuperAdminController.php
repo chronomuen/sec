@@ -45,12 +45,11 @@ class SuperadminController extends Controller
         return view('superadmin.create_user', array('depts' => $depts));
     }
 
-    public function edit_user()
+    public function edit_user($id)
     {
-        //
-        //$userID = Session::get('transactionID');
-        $userID = Input::get('edit_userID');
-        return view('superadmin.edit_user', array('userID' => $userID));
+        $user = User::findOrFail($id);
+
+        return view('superadmin.edit_user', array('user' => $user));
     }
 
     public function create_transaction()
@@ -182,6 +181,10 @@ class SuperadminController extends Controller
     public function edit($id)
     {
         //
+        $user = User::findOrFail($id);
+        $depts = Department::lists('name', 'department_id');
+
+        return view('superadmin.edit_user', array('user' => $user, 'depts' => $depts));
     }
 
     /**
