@@ -14,6 +14,7 @@ use DB;
 
 class ProcessorController extends Controller
 {
+    //var $authuser = Auth::user();
     /**
      * Display a listing of the resource.
      *
@@ -22,22 +23,24 @@ class ProcessorController extends Controller
     public function index()
     {
         //
-        $user = Auth::user();
-        //$user = DB::table('users')->where('user_id', '=', 201201034)->first();
-        return view('processor.index', array('user' => $user));
+        $authuser = Auth::user();
+        return view('processor.index', array('authuser' => $authuser));
     }
 
     public function create_transaction()
     {
         //
+        $authuser = Auth::user();
         $transactionID = Session::get('transactionID');
-        return view('processor.new_transaction', array('transactionID' => $transactionID));
+
+        return view('processor.new_transaction', array('authuser' => $authuser, 'transactionID' => $transactionID));
     }
 
     public function process_transactions()
     {
         //
-        return view('processor.processes');
+        $authuser = Auth::user();
+        return view('processor.processes', array('authuser' => $authuser));
     }
 
     public function process()
@@ -48,9 +51,7 @@ class ProcessorController extends Controller
         if(Input::has('create'))
         {
             // Redirect to different route / URI
-            return Redirect::route('processor/create_transaction')->with('transactionID', $transactionID);
-
-
+            return redirect('processor/create_transaction')->with('transactionID', $transactionID);
             // Alternatively, you could process action 1 here
         }
 
@@ -71,21 +72,24 @@ class ProcessorController extends Controller
 	public function view_users()
     {
         //
-        return view('processor.view_users');
+        $authuser = Auth::user();
+        return view('processor.view_users', array('authuser' => $authuser));
     }
 
 	public function	update_transaction()
     {
         //
+        $authuser = Auth::user();
         $transactionID = Session::get('transactionID');
-        return view('processor.update_transaction', array('transactionID' => $transactionID));
+        return view('processor.update_transaction', array('transactionID' => $transactionID, 'authuser' => $authuser));
     }
 
 	public function	out_transaction()
     {
         //
+        $authuser = Auth::user();
         $transactionID = Session::get('transactionID');
-        return view('processor.out_transaction', array('transactionID' => $transactionID));
+        return view('processor.out_transaction', array('transactionID' => $transactionID, 'authuser' => $authuser));
     }
 
     public function store_transaction()

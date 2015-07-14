@@ -1,6 +1,6 @@
 @extends('default')
 <!-- User Sidebar -->
-@include('processor/_sidebar')
+{!! View::make('processor/_sidebar', array('authuser' => $authuser))->render() !!}
 
 @section('header')
 
@@ -14,6 +14,6 @@ Update Transaction
 
 @section('content')
 	{!! Form::open(array('action' => 'ProcessorController@store_transaction')) !!}
-	{!! View::make('forms/_update_transaction', array('transactionID' => $transactionID, 'processorName' => 'Julian Felipe'))  !!}
+	{!! View::make('forms/_update_transaction', array('transactionID' => $transactionID, 'processorName' => $authuser->firstname $authuser->lastname))  !!}
 	<!-- form close in form itself -->
 @stop
