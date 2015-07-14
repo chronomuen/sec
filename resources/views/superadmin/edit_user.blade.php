@@ -6,10 +6,6 @@
 Edit User
 @stop
 
-@section('javascript')
-<script src="/js/user.js" type="text/javascript"></script>
-@stop
-
 @section('content')
 <div style="padding-right:20px; padding-left:20px">
     <div class="row">
@@ -24,7 +20,7 @@ Edit User
 
           <div class="col-md-6">
             <div class="form-group">
-              {!! Form::model($user, ['method' => 'PATCH', 'route' =>  ['user.update', $user->id] ])
+              {!! Form::model($user, ['method' => 'PATCH', 'route' =>  ['user.update', $user->user_id] ])
               !!}
               {!! View::make('forms/_edit_user', array('depts' => $depts))->render() !!}
               <div class="row" >

@@ -7,13 +7,8 @@
     </div>
 
     <div class="form-group">
-      {!! Form::label('password', 'Password', ['class' => 'control-label']) !!}
-      {!! Form::text('password', null, array('id' => 'password', 'class' => 'form-control', 'required' => 'required')) !!}
-    </div>
-
-    <div class="form-group">
       {!! Form::label('user_id', 'ID', ['class' => 'control-label']) !!}
-      {!! Form::text('user_id', null, array('id' => 'user_id', 'class' => 'form-control', 'required' => 'required')) !!}
+      {!! Form::text('user_id', null, array('id' => 'user_id', 'class' => 'form-control', 'required' => 'required', 'disabled' => 'true')) !!}
     </div>
 
     <div class="form-group">
