@@ -27,19 +27,44 @@ class UserController extends Controller
      *
      * @return Response
      */
-    public function create()
-    {
-        //
-    }
+     protected function create()
+     {
+     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'user_id' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'department' => 'required',
+            'job_title' => 'required',
+            'password' => 'required',
+        ]);
+
+        return User::create([
+            'user_id' => $request['user_id'],
+            'username' => $request['username'],
+            'email' => $request['email'],
+            'firstname' => $request['firstname'],
+            'lastname' => $request['lastname'],
+            'department' => $request['department'],
+            'job_title' => $request['job_title'],
+            'password' => bcrypt($request['password']),
+            'status' => 'Active',
+            'user_type' => 'Processor'
+        ]);
+
+        Session::flash('flash_message', 'User successfully created!');
+
         return redirect()->back();
     }
 
