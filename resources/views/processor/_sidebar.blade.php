@@ -1,6 +1,7 @@
 @section('user_info')
 <!-- user info -->
 <p>Julian Felipe</p>
+<p>201200001</p>
 <!-- job title -->
 <a href="/processor"><i class="fa fa-circle text-success"></i>{!! $user->job_title !!}</a>
 @stop
