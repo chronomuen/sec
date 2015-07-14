@@ -39,6 +39,7 @@
 				</thead>
 
 				<tbody>
+					@foreach ($users as $user)
 					<tr>
 						<td>{!! $user->user_id !!}</td>
 						<td>{!! $user->lastname !!}, {!! $user->firstname !!}</td>
@@ -50,120 +51,7 @@
 							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 						</center></td>
 					</tr>
-					<tr>
-						<td>31256</td>
-						<td>Jackson, Percy</td>
-						<td>Human Resource and Administration Department</td>
-						<td>SEC Director</td>
-						<td>Active</td>
-						<td><center>
-							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
-							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
-						</center></td>
-					</tr>
-					<tr>
-						<td>21563</td>
-						<td>Chase, Annabeth</td>
-						<td>Human Resource and Administration Department</td>
-						<td>SEC Assistant DIrector</td>
-						<td>Active</td>
-						<td><center>
-							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
-							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
-
-						</center></td>
-					</tr>
-					<tr>
-						<td>08352</td>
-						<td>Castellan, Luke</td>
-						<td>Company Registration and Monitoring Department</td>
-						<td>Securities Counsel I</td>
-						<td>Active</td>
-						<td><center>
-							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
-							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
-						</center></td>
-					</tr>
-
-					<tr>
-						<td>12672</td>
-						<td>Grace, Jason</td>
-						<td>Company Registration and Monitoring Department</td>
-						<td>Securities Counsel III</td>
-						<td>Active</td>
-						<td><center>
-							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
-							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
-						</center></td>
-					</tr>
-					<tr>
-						<td>57126</td>
-						<td>Ramírez-Arellano, Reyna</td>
-						<td>Financial Management Department</td>
-						<td>SEC Assistant Director</td>
-						<td>Inactive</td>
-						<td><center>
-							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
-							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
-						</center></td>
-					</tr>
-					<tr>
-						<td>86734</td>
-						<td>Zhang, Frank</td>
-						<td>Economic Research and Training Department</td>
-						<td>Securities Examiner II</td>
-						<td>Inactive</td>
-						<td><center>
-							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
-							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
-						</center></td>
-					</tr>
-
-					<tr>
-						<td>02351</td>
-						<td>Valdez, Leo</td>
-						<td>Economic Research and Training Department</td>
-						<td>Securities Examiner II</td>
-						<td>Inactive</td>
-						<td><center>
-							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
-							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
-						</center></td>
-					</tr>
-					<tr>
-						<td>02157</td>
-						<td>McLean, Piper</td>
-						<td>Economic Research and Training Department</td>
-						<td>Securities Specialist I</td>
-						<td>Inactive</td>
-						<td><center>
-							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
-							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
-						</center></td>
-					</tr>
-
-					<tr>
-						<td>18256</td>
-						<td>Di Angelo, Nico</td>
-						<td>Markets and Securities Regulation Department</td>
-						<td>SEC Economist</td>
-						<td>Inactive</td>
-						<td><center>
-							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
-							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
-						</center></td>
-					</tr>
-					<tr>
-						<td>54312</td>
-						<td>Levesque, Hazel</td>
-						<td>Markets and Securities Regulation Department</td>
-						<td>SEC Specialist III</td>
-						<td>Inactive</td>
-						<td><center>
-							<button type="submit" class="btn btn-default editUserButton"><i class="glyphicon glyphicon-edit"></i></button>
-							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
-						</center></td>
-					</tr>
+				    @endforeach
 				</tbody>
 			</table>
 		</div>

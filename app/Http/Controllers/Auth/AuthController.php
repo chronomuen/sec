@@ -59,18 +59,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'user_id' => $data['user_id'],
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'firstname' => $data['firstname'],
-            'lastname' => $data['lastname'],
-            'department' => $data['department'],
-            'job_title' => $data['job_title'],
-            'password' => bcrypt($data['password']),
-            'status' => 'Active',
-            'user_type' => 'Processor'
-        ]);
+
     }
 
     //authentication part
@@ -88,7 +77,9 @@ class AuthController extends Controller
         ]))
         {
               // Authentication passed...
-              return Redirect::to(strtolower(Auth::user()->user_type).'/');
+              $user = Auth::user();
+
+              return Redirect::to(strtolower($user->user_type).'/');
         }
       return Redirect::back()->withMessage('Invalid credentials');
 

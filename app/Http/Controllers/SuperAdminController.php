@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Input;
 use App;
+use Auth;
 use App\User;
 use Redirect;
 use App\Http\Requests;
@@ -22,8 +23,9 @@ class SuperadminController extends Controller
      */
     public function index()
     {
-        //
-        return view('superadmin.index');
+        $authuser = Auth::user();
+        //$user = DB::table('users')->where('user_id', '=', 201201034)->first();
+        return view('superadmin.index', array('authuser' => $authuser));
     }
 
 
@@ -95,11 +97,12 @@ class SuperadminController extends Controller
 	public function view_users()
     {
         //
-        $user = Auth::user();
+        $authuser = Auth::user();
+        $users = User::all();
         //var_dump(Department::find(1));
         //var_dump(DB::getQueryLog());
         //$user = DB::table('users')->where('user_id', '=', 201201034)->first();
-        return view('superadmin.view_users', array('user' => $user));
+        return view('superadmin.view_users', array('users' => $users, 'authuser' => $authuser));
     }
 
 	public function	update_transaction()

@@ -32,7 +32,18 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected static $persisted = ['id', 'user_id', 'username', 'password', 'email', 'firstname', 'lastname', 'department', 'job_title', 'user_type', 'status'];
 
     //The attributes that are mass assignable.
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = [
+        'user_id',
+        'username',
+        'email',
+        'firstname',
+        'lastname',
+        'department',
+        'job_title',
+        'password',
+        'status',
+        'user_type'
+    ];
 
     //The attributes excluded from the model's JSON form.
     protected $hidden = ['password', 'remember_token'];
