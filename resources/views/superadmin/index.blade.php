@@ -17,14 +17,16 @@ Transaction List
 	<h3 style="center">Search Transaction</h3>
 	<form action="#" method="get" style="width: 300px">
 		<div class="input-group">
-			<input class="form-control" id="system-search" name="q" placeholder="Enter ID">
-			<span class="input-group-btn">
-				<button type="button" id="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+			 <div>
+				{!! Form::open(['route' => 'superadmin.index']) !!}
+                {!! Form::text('search', null, array('id' => 'search', 'class' => 'form-control', 'placeholder' => 'Enter ID')) !!}<br/>
+            </div>
+            <span class="input-group-btn">
+				<button type="submit" id="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 			</span>
 		</div>
 	</form>
 </div>
-
 
 <br>
 <div style="padding-right:20px; padding-left:20px">
@@ -37,49 +39,23 @@ Transaction List
 					<th class="col-md-1"><center>Status</center></th>
 					<th class="col-md-2"><center>Remarks</center></th>
 					<th class="col-md-2"><center>Processor</center></th>
-					<th class="col-md-1"><center>Receive Date</center></th>
-					<th class="col-md-1"><center>Release Date</center></th>
+					<th class="col-md-1"><center>Date Received</center></th>
+					<th class="col-md-1"><center>Date Released</center></th>
 					<th class="col-md-2"><center>Next Processor</center></th>
 					</tr>
 				</thead>
-
 				<tbody>
+					@foreach ($logs as $log)
 					<tr>
-						<td>00001</td>
-						<td>new</td>
-						<td>Validated document</td>
-						<td>Percy Jackson</td>
-						<td>01/01/15</td>
-						<td>01/03/15</td>
-						<td>Annabeth Chase</td>
+						<td>{!! $log->transaction_number !!}</td>
+						<td>{!! $log->status !!}</td>
+						<td>{!! $log->remarks !!}</td>
+						<td>{!! $log->processor_name !!}</td>
+						<td>{!! $log->date_received !!}</td>
+						<td>{!! $log->date_released !!}</td>
+						<td>{!! $log->next_processor !!}</td>
 					</tr>
-					<tr>
-						<td>00001</td>
-						<td>in-process</td>
-						<td>Evaluated document</td>
-						<td>Annabeth Chase</td>
-						<td>01/03/15</td>
-						<td>01/03/15</td>
-						<td>Piper McLean</td>
-					</tr>
-					<tr>
-						<td>00001</td>
-						<td>in-process</td>
-						<td>Encoded document</td>
-						<td>Piper McLean</td>
-						<td>01/03/15</td>
-						<td>01/04/15</td>
-						<td>Jason Grace</td>
-					</tr>
-					<tr>
-						<td>00001</td>
-						<td>completed</td>
-						<td>Approved document</td>
-						<td>Jason Grace</td>
-						<td>01/04/15</td>
-						<td>01/05/15</td>
-						<td>-</td>
-					</tr>
+				    @endforeach
 				</tbody>
 			</table>
 		</div>

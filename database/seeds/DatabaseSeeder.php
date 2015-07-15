@@ -20,6 +20,13 @@ class DatabaseSeeder extends Seeder
         $this->call('DepartmentTableSeeder');
         $this->command->info('Department table seeded!');
 
+		$this->call('TransactionTableSeeder');
+        $this->command->info('Transaction table seeded!');
+		
+		$this->call('LogTableSeeder');
+        $this->command->info('Log table seeded!');
+
+
         //Model::reguard();
     }
 }
