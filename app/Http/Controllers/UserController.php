@@ -103,19 +103,29 @@ class UserController extends Controller
         //
         $user = User::findOrFail($id);
 
-        $this->validate($request, [
-            'email' => 'required',
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'department' => 'required',
-            'job_title' => 'required',
-        ]);
+        if(Input::has('edit'))
+        {
 
-        $input = $request->all();
+            $this->validate($request, [
+                'email' => 'required',
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'department' => 'required',
+                'job_title' => 'required',
+            ]);
 
-        $user->fill($input)->save();
+            $input = $request->all();
 
-        Session::flash('flash_message', 'User successfully edited!');
+            $user->fill($input)->save();
+
+            Session::flash('message', 'User successfully edited!');
+        }
+        else{
+            $input = $request->all();
+
+            $user->fill($input)->save();
+        }
+
 
         return redirect()->back();
 
