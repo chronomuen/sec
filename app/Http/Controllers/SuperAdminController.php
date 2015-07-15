@@ -26,8 +26,8 @@ class SuperadminController extends Controller
     public function index()
     {
 		$transactionID =  Input::get('search');
-		 
-		$column = 'transaction_number'; // This is the name of the column you wish to search
+		
+		$column = 'transaction_id'; // This is the name of the column you wish to search
 
 		$logs = Log::where($column , '=', $transactionID);
 		 

@@ -28,7 +28,6 @@ Transaction List
 	</form>
 </div>
 
-
 <br>
 <div style="padding-right:20px; padding-left:20px">
 	<div class="row">
