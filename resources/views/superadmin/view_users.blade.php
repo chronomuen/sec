@@ -31,10 +31,10 @@
 					<tr>
 						<th class="col-md-1"><center>ID</center></th>
 						<th class="col-md-2"><center>Name</center></th>
-						<th class="col-md-4"><center>Department</center></th>
+						<th class="col-md-2"><center>Department</center></th>
 						<th class="col-md-2"><center>Job Title</center></th>
 						<th class="col-md-1"><center>Status</center></th>
-						<th><center></center></th>
+						<thclass="col-md-4"><center></center></th>
 					</tr>
 				</thead>
 
@@ -47,9 +47,14 @@
 						<td>{!! $user->job_title !!}</td>
 						<td>{!! $user->status !!}</td>
 						<td><center>
-							<a href="{{ route('superadmin.edit', $user->user_id) }}" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i></a>
+							{!! Form::model($user, ['route' =>  ['user.update', $user->user_id] ])!!}
+								<a href="{{ route('superadmin.edit', $user->user_id) }}" class="btn btn-default" name="edit"><i class="glyphicon glyphicon-edit"></i></a>
 
-							<button type="submit"  data-toggle="modal" data-target="#deactivateModal"  class="btn btn-default deactivateButton" ><i id="icon" class="glyphicon glyphicon-remove"></i></button>
+								@if($user->user_type != "Superadmin")
+									{!! Form::hidden('status', 'null', array('id' => 'status')) !!}
+									<button type="submit" class="btn btn-default inline" name="deactivate"><i id="icon" class="glyphicon glyphicon-remove"></i></button>
+								@endif
+							{!! Form::close() !!}
 						</center></td>
 					</tr>
 				    @endforeach
