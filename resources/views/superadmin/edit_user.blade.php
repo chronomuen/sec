@@ -25,7 +25,7 @@ Edit User
               {!! View::make('forms/_edit_user', array('depts' => $depts))->render() !!}
               <div class="row" >
                 <br/>
-                {!! Form::submit('Edit User', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Edit User', ['class' => 'btn btn-primary', 'name' => 'edit']) !!}
               </div>
 
               <!-- Modal -->
