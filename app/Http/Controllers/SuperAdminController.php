@@ -11,7 +11,9 @@ use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Session;
+use App\Transaction;
 use App\Department;
+use App\Log;
 use DB;
 
 class SuperadminController extends Controller
@@ -23,9 +25,16 @@ class SuperadminController extends Controller
      */
     public function index()
     {
+		$transactionID =  Input::get('search');
+		 
+		$column = 'transaction_number'; // This is the name of the column you wish to search
+
+		$logs = Log::where($column , '=', $transactionID);
+		 
+		//$transactions = Transaction::all();
+		//$logs = Log::all();
         $authuser = Auth::user();
-        //$user = DB::table('users')->where('user_id', '=', 201201034)->first();
-        return view('superadmin.index', array('authuser' => $authuser));
+        return view('superadmin.index', array('authuser' => $authuser, 'logs' => $logs));
     }
 
 
