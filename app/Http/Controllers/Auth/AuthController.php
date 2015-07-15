@@ -72,7 +72,7 @@ class AuthController extends Controller
     public function postLogin()
     {
         if (Auth::attempt([
-            'user_id' => Input::get('user_id'),
+            'username' => Input::get('username'),
             'password' =>  Input::get('password')
         ]))
         {

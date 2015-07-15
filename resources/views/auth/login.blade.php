@@ -37,8 +37,8 @@
             {!! csrf_field() !!}
 
             <div>
-                <font color="white">User ID </font>
-                 {!! Form::text('user_id', null, array('id' => 'user_id', 'class' => 'form-control', 'required' => 'required', 'style' => 'text-align: center')) !!}<br/>
+                <font color="white">Username </font>
+                 {!! Form::text('username', null, array('id' => 'username', 'class' => 'form-control', 'required' => 'required', 'style' => 'text-align: center')) !!}<br/>
             </div>
 
             <div>
