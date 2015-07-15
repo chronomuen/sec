@@ -31,10 +31,10 @@
 					<tr>
 						<th class="col-md-1"><center>ID</center></th>
 						<th class="col-md-2"><center>Name</center></th>
-						<th class="col-md-2"><center>Department</center></th>
+						<th class="col-md-4"><center>Department</center></th>
 						<th class="col-md-2"><center>Job Title</center></th>
 						<th class="col-md-1"><center>Status</center></th>
-						<thclass="col-md-4"><center></center></th>
+						<thclass="col-md-2"><center></center></th>
 					</tr>
 				</thead>
 
@@ -47,11 +47,15 @@
 						<td>{!! $user->job_title !!}</td>
 						<td>{!! $user->status !!}</td>
 						<td><center>
-							{!! Form::model($user, ['route' =>  ['user.update', $user->user_id] ])!!}
+							{!! Form::model($user, ['method' => 'PATCH', 'route' =>  ['user.update', $user->user_id] ])!!}
 								<a href="{{ route('superadmin.edit', $user->user_id) }}" class="btn btn-default" name="edit"><i class="glyphicon glyphicon-edit"></i></a>
 
 								@if($user->user_type != "Superadmin")
-									{!! Form::hidden('status', 'null', array('id' => 'status')) !!}
+									@if($user->status == "Active")
+										{!! Form::hidden('status', 'Inactive', array('id' => 'status')) !!}
+									@else
+										{!! Form::hidden('status', 'Active', array('id' => 'status')) !!}
+									@endif
 									<button type="submit" class="btn btn-default inline" name="deactivate"><i id="icon" class="glyphicon glyphicon-remove"></i></button>
 								@endif
 							{!! Form::close() !!}
@@ -63,44 +67,6 @@
 		</div>
 	</div>
 </div>
-
-<!-- Hidden form for edit user -->
-
-<!-- end of edit form -->
-
-<!-- Modal -->
-<div id="deactivateModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">User Status</h4>
-      </div>
-      <div class="modal-body">
-				<p id="modalMessage"></p>
-				<!--name is now an active/inactive-->
-			</div>
-	    <div class="modal-footer">
-				{!! Form::open([
-						'route' => 'user.update', 'method' => 'put'
-				]) !!}
-				  {!! Form::hidden('userID', 'value', array('id' => 'userID')) !!}
-					{!! Form::hidden('option', 'value', array('id' => 'option')) !!}
-				{!! Form::submit('Submit', ['class' => 'btn btn-default', 'id' => 'submitDeactivate', 'name' => 'deactivate', 'style' => 'display:none;']) !!}
-				{!! Form::close() !!}
-
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	    </div>
-	  </div>
-
-  </div>
-</div>
-
-
-
-
 
 
 @stop
