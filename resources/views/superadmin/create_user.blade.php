@@ -13,10 +13,10 @@ Create New User
         <div class="panel-body">
 
             <!-- missing input fields -->
-            @include('alerts.errors');
+            @include('alerts.errors')
 
             <!-- success -->
-            @include('alerts.sessions');
+            @include('alerts.sessions')
 
           <div class="col-md-6">
             <div class="form-group">

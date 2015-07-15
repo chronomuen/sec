@@ -55,8 +55,9 @@ class SuperadminController extends Controller
     public function create_transaction()
     {
         //
+        $authuser = Auth::user();
         $transactionID = Session::get('transactionID');
-        return view('superadmin.new_transaction', array('transactionID' => $transactionID));
+        return view('superadmin.new_transaction', array('transactionID' => $transactionID, 'authuser' => $authuser));
     }
 
     public function process_transactions()
