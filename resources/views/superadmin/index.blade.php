@@ -9,7 +9,7 @@ Transaction List
 @stop
 
 @section('javascript')
-<script src="/js/table.js" type="text/javascript"></script>
+	<script src="/js/table.js" type="text/javascript"></script>
 @stop
 
 @section('content')
