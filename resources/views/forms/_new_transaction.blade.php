@@ -3,28 +3,28 @@
 <div class="row">
 
   <div class="form-group">
-    {!! Form::label('transactionID', 'Transaction ID', ['class' => 'control-label']) !!}
-    {!! Form::text('transactionID',  $transactionID , array('id' => 'transactionID', 'class' => 'form-control', 'required' => 'required')) !!}
+    {!! Form::label('transaction_id', 'Transaction ID', ['class' => 'control-label']) !!}
+    {!! Form::text('transaction_id',  $transactionID , array('id' => 'transaction_id', 'class' => 'form-control', 'required' => 'required')) !!}
   </div>
 
   <div class="form-group">
-    {!! Form::label('transType', 'Transaction Type', ['class' => 'control-label']) !!}
-    {!! Form::text('transType', null, array('id' => 'transType', 'class' => 'form-control', 'required' => 'required')) !!}
+    {!! Form::label('type', 'Transaction Type', ['class' => 'control-label']) !!}
+    {!! Form::text('type', null, array('id' => 'type', 'class' => 'form-control', 'required' => 'required')) !!}
   </div>
 
   <div class="form-group">
-    {!! Form::label('cname', 'Client Name', ['class' => 'control-label']) !!}
-    {!! Form::text('cname', null, array('id' => 'cname', 'class' => 'form-control', 'required' => 'required')) !!}
+    {!! Form::label('client', 'Client Name', ['class' => 'control-label']) !!}
+    {!! Form::text('client', null, array('id' => 'client', 'class' => 'form-control', 'required' => 'required')) !!}
   </div>
 
   <div class="form-group">
-    {!! Form::label('pname', 'Processor Name', ['class' => 'control-label']) !!}
-    {!! Form::text('pname', $processorName, array('id' => 'pname', 'class' => 'form-control', 'required' => 'required', 'disabled' => 'true')) !!}
+    {!! Form::label('processor_name', 'Processor Name', ['class' => 'control-label']) !!}
+    {!! Form::text('processor_name', $processorName->firstname.' '.$processorName->lastname, array('id' => 'processor_name', 'class' => 'form-control', 'required' => 'required', 'disabled' => 'true')) !!}
   </div>
 
   <div class="form-group">
-      {!! Form::label('dateSubmitted', 'Date Submitted', ['class' => 'control-label']) !!}
-      {!! Form::text('dateSubmitted', null, array('id' => 'dateSubmitted', 'class' => 'form-control', 'required' => 'required')) !!}
+      {!! Form::label('date_submitted', 'Date Submitted', ['class' => 'control-label']) !!}
+      {!! Form::text('date_submitted', null, array('id' => 'date_submitted', 'class' => 'form-control', 'required' => 'required')) !!}
   </div>
 
   <div class="form-group">
@@ -43,8 +43,8 @@
   <button type="button" class="btn btn-default" id="transButton">Generate Password</button>
 
   <div class="form-group">
-    {!! Form::label('tpass', 'Transaction Password', ['class' => 'control-label']) !!}<br/>
-    {!! Form::text('tpass', null, array('id' => 'tpass', 'class' => 'form-control', 'required' => 'required', 'disabled' => 'true')) !!}
+    {!! Form::label('password', 'Transaction Password', ['class' => 'control-label']) !!}<br/>
+    {!! Form::text('password', null, array('id' => 'password', 'class' => 'form-control', 'required' => 'required', 'disabled' => 'true')) !!}
   </div>
 
 </div>

@@ -7,6 +7,9 @@ use Session;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Transaction;
+use App\Log;
+use Auth;
 
 class TransactionController extends Controller
 {
@@ -35,11 +38,29 @@ class TransactionController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
         //
-        Session::flash('message', "success");
-        return redirect()->back()->withInput();
+        $user = Auth::user();
+        Transaction::create([
+            'transaction_id' => $request['transaction_id'],
+            'type' => $request['type'],
+            'client' => $request['client'],
+            'status' => 'New',
+            'date_submitted' => $request['date_submitted']
+        ]);
+
+        Log::create([
+            'transaction_id' => $request['transaction_id'],
+            'processor_name' => $user->firstname.' '.$user->lastname,
+            'status' => 'New',
+            'remarks' => $request['remarks'],
+            'date_received' => $request['date_submitted'],
+            'date_released' => '',
+            'next_processor' => ''
+        ]);
+
+        return redirect('superadmin/process_transactions')->withMessage('success create');
     }
 
     public function process()
