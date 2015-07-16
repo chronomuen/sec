@@ -17,9 +17,8 @@
 @stop
 
 @section('javascript')
-<script src="/js/department.js" type="text/javascript"></script>
-<script src="/js/match.js" type="text/javascript"></script>
-<!--<script src="/js/user.js" type="text/javascript"></script>-->
+	<script src="/js/department.js" type="text/javascript"></script>
+	<script src="/js/match.js" type="text/javascript"></script>
 @stop
 
 @section('content')
