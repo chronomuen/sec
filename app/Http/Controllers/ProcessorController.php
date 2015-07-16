@@ -12,6 +12,8 @@ use App\User;
 use App\Log;
 use Auth;
 use DB;
+use App\Transaction;
+use App\Log;
 
 class ProcessorController extends Controller
 {
@@ -36,8 +38,7 @@ class ProcessorController extends Controller
         //
         $authuser = Auth::user();
         $transactionID = Session::get('transactionID');
-
-        return view('processor.new_transaction', array('authuser' => $authuser, 'transactionID' => $transactionID));
+        return view('processor.new_transaction', array('transactionID' => $transactionID, 'authuser' => $authuser));
     }
 
     public function process_transactions()
@@ -51,25 +52,38 @@ class ProcessorController extends Controller
     {
         //
         $transactionID =  Input::get('transactionID');
+        $transaction = Transaction::where('transaction_id', '=', $transactionID)->first();
+        $logs = Log::where('transaction_id', '=', $transactionID)->get();
+        $recentLog = Log::where('transaction_id', '=', $transactionID)->orderBy('date_received', 'desc')->first();
+
 
         if(Input::has('create'))
         {
             // Redirect to different route / URI
-            return redirect('processor/create_transaction')->with('transactionID', $transactionID);
+            return Redirect::route('processor/create_transaction')->with('transactionID', $transactionID);
+
+
             // Alternatively, you could process action 1 here
         }
 
         elseif(Input::has('update'))
         {
             // Process action 2
-            return Redirect::route('processor/update_transaction')->with('transactionID', $transactionID);
+
+            return Redirect::route('processor/update_transaction')
+                ->with( 'transaction', $transaction )
+                ->with( 'logs', $logs )
+                ->with( 'recentLog', $recentLog );
         }
 
 
         elseif(Input::has('out'))
         {
             // Process action 3
-            return Redirect::route('processor/out_transaction')->with('transactionID', $transactionID);
+            return Redirect::route('processor/out_transaction')
+                ->with( 'transaction', $transaction )
+                ->with( 'logs', $logs )
+                ->with( 'recentLog', $recentLog );
         }
     }
 
@@ -84,16 +98,20 @@ class ProcessorController extends Controller
     {
         //
         $authuser = Auth::user();
-        $transactionID = Session::get('transactionID');
-        return view('processor.update_transaction', array('transactionID' => $transactionID, 'authuser' => $authuser));
+        $transaction = Session::get('transaction');
+        $logs = Session::get('logs');
+        $recentLog = Session::get('recentLog');
+        return view('processor.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog));
     }
 
 	public function	out_transaction()
     {
         //
         $authuser = Auth::user();
-        $transactionID = Session::get('transactionID');
-        return view('processor.out_transaction', array('transactionID' => $transactionID, 'authuser' => $authuser));
+        $transaction = Session::get('transaction');
+        $logs = Session::get('logs');
+        $recentLog = Session::get('recentLog');
+        return view('processor.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog));
     }
 
     public function store_transaction()
