@@ -18,8 +18,8 @@
   </div>
 
   <div class="form-group">
-    {!! Form::label('processr_name', 'Processor Name', ['class' => 'control-label']) !!}
-    {!! Form::text('processr_name', $processorName->firstname.' '.$processorName->lastname, array('id' => 'processr_name', 'class' => 'form-control', 'required' => 'required', 'disabled' => 'true')) !!}
+    {!! Form::label('processor_name', 'Processor Name', ['class' => 'control-label']) !!}
+    {!! Form::text('processor_name', $processorName->firstname.' '.$processorName->lastname, array('id' => 'processor_name', 'class' => 'form-control', 'required' => 'required', 'disabled' => 'true')) !!}
   </div>
 
   <div class="form-group">

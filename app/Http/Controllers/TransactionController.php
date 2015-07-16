@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Transaction;
 use App\Log;
+use Auth;
 
 class TransactionController extends Controller
 {
@@ -40,6 +41,7 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         //
+        $user = Auth::user();
         Transaction::create([
             'transaction_id' => $request['transaction_id'],
             'type' => $request['type'],
@@ -49,19 +51,16 @@ class TransactionController extends Controller
         ]);
 
         Log::create([
-            'user_id' => $request['user_id'],
-            'username' => $request['username'],
-            'email' => $request['email'],
-            'firstname' => $request['firstname'],
-            'lastname' => $request['lastname'],
-            'department' => $request['department'],
-            'job_title' => $request['job_title'],
-            'password' => $request['password'],
-            'status' => 'Active',
-            'user_type' => 'Processor'
+            'transaction_id' => $request['transaction_id'],
+            'processor_name' => $user->firstname.' '.$user->lastname,
+            'status' => 'New',
+            'remarks' => $request['remarks'],
+            'date_received' => $request['date_submitted'],
+            'date_released' => '',
+            'next_processor' => ''
         ]);
 
-        return redirect('superadmin/process_transactions')->withMessage('Successfully created transaction!');
+        return redirect('superadmin/process_transactions')->withMessage('success create');
     }
 
     public function process()

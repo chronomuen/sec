@@ -9,22 +9,16 @@ class Transaction extends Model
     //
     protected $table = 'transactions';
 
+    protected $fillable = [
+        'transaction_id',
+        'type',
+        'client',
+        'status',
+        'date_submitted'
+    ];
+
     //RELATIONS------------------------------
 
-	//The attributes that are mass assignable.
-	protected $fillable = [
-        'user_id',
-        'username',
-        'email',
-        'firstname',
-        'lastname',
-        'department',
-        'job_title',
-        'password',
-        'status',
-        'user_type'
-    ];
-	
     //transaction has many logs
     public function log()
     {
