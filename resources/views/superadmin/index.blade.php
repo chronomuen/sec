@@ -28,11 +28,11 @@ Transaction List
 <br>
 <div style="padding-right:20px; padding-left:20px">
 	<div class="row">
-		@if(empty($logs))
+		@if($logs->isEmpty())
+		@else
 		<div id="panel" class="panel" >
 			<table  id="transactions" class="table table-list-search">
 				<thead>
-					
 						<tr>
 						<th class="col-md-1"><center>Transaction ID</center></th>
 						<th class="col-md-1"><center>Status</center></th>
@@ -41,8 +41,7 @@ Transaction List
 						<th class="col-md-1"><center>Date Received</center></th>
 						<th class="col-md-1"><center>Date Released</center></th>
 						<th class="col-md-2"><center>Next Processor</center></th>
-						</tr>					
-				
+						</tr>
 				</thead>
 				<tbody>
 					@foreach ($logs as $log)
