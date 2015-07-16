@@ -14,7 +14,7 @@ class Log extends Model
     //log belongs to one transaction
     public function transaction()
     {
-        return $this->belongsTo('App\Transaction', 'transaction_number', 'transaction_nuumber');
+        return $this->belongsTo('App\Transaction', 'transaction_id', 'transaction_id');
     }
 
     //log belongs to one processor
