@@ -26,7 +26,7 @@ class SuperadminController extends Controller
     public function index()
     {
 		$transactionID =  Input::get('search');
-		
+
 		$logs = Log::where('transaction_id', '=', $transactionID)->get();
 		//$logs = DB::table('logs')->where('transaction_id', '00001');
 		//$logs = Log::all();
@@ -61,8 +61,9 @@ class SuperadminController extends Controller
     public function create_transaction()
     {
         //
+        $authuser = Auth::user();
         $transactionID = Session::get('transactionID');
-        return view('superadmin.new_transaction', array('transactionID' => $transactionID));
+        return view('superadmin.new_transaction', array('transactionID' => $transactionID, 'authuser' => $authuser));
     }
 
     public function process_transactions()
@@ -75,6 +76,9 @@ class SuperadminController extends Controller
     {
         //
         $transactionID =  Input::get('transactionID');
+        $transaction = Transaction::where('transaction_id', '=', $transactionID)->first();
+        $logs = Log::where('transaction_id', '=', $transactionID)->get();
+
 
         if(Input::has('create'))
         {
@@ -88,7 +92,8 @@ class SuperadminController extends Controller
         elseif(Input::has('update'))
         {
             // Process action 2
-            return Redirect::route('superadmin/update_transaction')->with('transactionID', $transactionID);
+
+            return Redirect::route('superadmin/update_transaction', array('transaction' => $transaction, 'logs' => $logs));
         }
 
 
@@ -119,8 +124,9 @@ class SuperadminController extends Controller
 	public function	update_transaction()
     {
         //
-        $transactionID = Session::get('transactionID');
-        return view('superadmin.update_transaction', array('transactionID' => $transactionID));
+        $transaction = Session::get('transaction');
+        $logs = Session::get('logs');
+        return view('superadmin.update_transaction', array('transaction' => $transaction, 'logs' => $logs));
     }
 
 	public function	out_transaction()
