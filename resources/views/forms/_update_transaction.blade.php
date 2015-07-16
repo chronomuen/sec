@@ -14,16 +14,16 @@
 					</p>
 				<!--	<p id="current_processor">-->
                     <p>
-						<b>Processor:</b> Pipe Mclean
+						<b>Processor:</b> {!! $recentLog->processor_name !!}
 					</p>
 					<p>
-						<b>Date Submitted:</b> {!! $transaction->date_submitted !!}
+						<b>Date Submitted:</b> {!! str_replace("00:00:00", "", $transaction->date_submitted) !!}
 					</p>
 					<p>
-						<b>Status:</b> {!! $transaction->status !!}
+						<b>Status:</b> {!! $recentLog->status !!}
 					</p>
 					<p>
-						<b>Remarks:</b> Encoded document
+						<b>Remarks:</b> {!! $recentLog->remarks !!}
 					</p>
 				</td>
 			</tr>
@@ -46,42 +46,17 @@
 		</thead>
 
 		<tbody>
+			@foreach ($logs as $log)
 			<tr>
-				<td>{!! $transactionID !!}</td>
-				<td>new</td>
-				<td>Validated document</td>
-				<td>Percy Jackson</td>
-				<td id="1">01/02/15</td>
-				<td>01/03/15</td>
-				<td>Annabeth Chase</td>
+				<td>{!! $log->transaction_id !!}</td>
+				<td>{!! $log->status !!}</td>
+				<td>{!! $log->remarks !!}</td>
+				<td>{!! $log->processor_name !!}</td>
+				<td>{!! str_replace("00:00:00", "", $log->date_received) !!}</td>
+				<td>@if($log->date_released != "0000-00-00 00:00:00"){!! str_replace("00:00:00", "", $log->date_released) !!}@endif</td>
+				<td>{!! $log->next_processor !!}</td>
 			</tr>
-			<tr>
-				<td>{!! $transactionID !!}</td>
-				<td>in-process</td>
-				<td>Evaluated document</td>
-				<td>Annabeth Chase</td>
-				<td id="1">01/03/15</td>
-				<td>01/03/15</td>
-				<td>Piper McLean</td>
-			</tr>
-			<tr>
-				<td>{!! $transactionID !!}</td>
-				<td>in-process</td>
-				<td>Encoded document</td>
-				<td>Piper McLean</td>
-				<td>01/03/15</td>
-				<td>01/04/15</td>
-				<td>{!! $processorName !!}</td>
-			</tr>
-			<tr id="tr" style="display:none">
-				<td >{!! $transactionID !!}</td>
-				<td >in-process</td>
-				<td >Checked document</td>
-				<td >{!! $processorName !!}</td>
-				<td >01/03/15</td>
-				<td >-</td>
-				<td >-</td>
-			</tr>
+			@endforeach
 		</tbody>
 	</table>
 </div>
@@ -95,16 +70,16 @@
                         <!-- form open is on user's corresponding update transaction page -->
 						{!! Form::label('status', 'Status', ['class' => 'control-label']) !!}
 						<br>
-						{!! Form::radio('status', 'new', false, ['id' => 'button']) !!} New
+						{!! Form::radio('status', 'New', false) !!} New
 						<br>
-						{!! Form::radio('status', 'in-process', false, ['id' => 'button']) !!} In-process
+						{!! Form::radio('status', 'In Process', false) !!} In process
 						<br>
-						{!! Form::radio('status', 'completed', false, ['id' => 'button']) !!} Completed
+						{!! Form::radio('status', 'Completed', false) !!} Completed
 						<br><br>
 					</form>
 					{!! Form::label('data', 'Remarks', ['class' => 'control-label']) !!}
 					<br>
-					{!! Form::textarea('data', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80]) !!}
+					{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80]) !!}
 					<br><br>
 					{!! Form::submit('Update Transaction', ['id' => 'submit', 'class' => 'btn btn-primary btn-md', 'name' => 'update']) !!}
 				</td>

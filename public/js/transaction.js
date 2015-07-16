@@ -9,8 +9,4 @@ $('#transactionModal').on('show.bs.modal', function(e) {
   $("#id_info").text($("#tid").val());
 });
 
-$( "#date_submitted" ).datepicker();
-
-$(function() {
-    $( "#datepicker" ).datepicker();
- });
+$("#date_submitted").datepicker();
