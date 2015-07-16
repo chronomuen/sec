@@ -104,7 +104,10 @@ class SuperadminController extends Controller
         elseif(Input::has('out'))
         {
             // Process action 3
-            return Redirect::route('superadmin/out_transaction')->with('transactionID', $transactionID);
+            return Redirect::route('superadmin/out_transaction')
+                ->with( 'transaction', $transaction )
+                ->with( 'logs', $logs )
+                ->with( 'recentLog', $recentLog );
         }
     }
 
@@ -137,8 +140,10 @@ class SuperadminController extends Controller
 	public function	out_transaction()
     {
         //
-        $transactionID = Session::get('transactionID');
-        return view('superadmin.out_transaction', array('transactionID' => $transactionID));
+        $transaction = Session::get('transaction');
+        $logs = Session::get('logs');
+        $recentLog = Session::get('recentLog');
+        return view('superadmin.out_transaction', array('transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog));
     }
 
     public function store_transaction()
