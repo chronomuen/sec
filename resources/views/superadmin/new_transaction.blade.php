@@ -23,7 +23,7 @@ Create New Transaction
                     'route' => 'transaction.store'
                 ]) !!}
 				{!! csrf_field() !!}
-              {!! View::make('forms/_new_transaction', array('transactionID' => $transactionID, 'processorName' => $authuser))  !!}
+              {!! View::make('forms/_new_transaction', array('transactionID' => $transactionID, 'processorName' => $authuser))->render()  !!}
               <div class="row" >
                 <br/>
                 {!! Form::submit('Create Transaction', ['class' => 'btn btn-primary', 'name' => 'create']) !!}
