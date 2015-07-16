@@ -68,11 +68,32 @@
             <h4 class="modal-title">Transaction Details</h4>
           </div>
           <div class="modal-body">
-            <b>Transaction ID:</b> {!! $transactionID !!}<br/>
-            <b>Transaction Type: </b> Reserve Company Name<br/>
-            <b>Transaction Start Date:</b> 01 July 2015<br/>
-            <b>Customer's Name:</b> UP ITDC<br/>
-            <b>Status:</b> In Progress<br/>
+            <b>Transaction ID:</b> {!! $transaction->transaction_id !!}<br/>
+            <b>Transaction Type: </b> {!! $transaction->type !!}<br/>
+            <b>Transaction Start Date:</b> {!! $transaction->date_submitted !!}<br/>
+            <b>Customer's Name:</b> {!! $transaction->client !!}<br/>
+            <b>Status:</b> {!! $transaction->status !!}<br/>
+			{{ Session::get('message') }}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+	
+	<!-- Modal --> <!-- Just call transaction details here -->
+    <div id="loginErrorModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header alert-danger">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Authentication Error</h4>
+          </div>
+          <div class="modal-body">
+              {{ Session::get('message') }}
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -88,8 +109,14 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    @if (!empty($transactionID))
+    @if Session::has('message' = 'Invalid credentials'))
       <script>
+        $(function() {
+            $('#loginErrorModal').modal('show');
+          });
+      </script>
+	@else
+		<script>
         $(function() {
             $('#viewModal').modal('show');
           });

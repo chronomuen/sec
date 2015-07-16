@@ -22,7 +22,7 @@ class Transaction extends Model
     //transaction has many logs
     public function log()
     {
-        return $this->hasMany('App\Log', 'transaction_number', 'transaction_number');
+        return $this->hasMany('App\Log', 'transaction_id', 'transaction_id');
     }
 
 }
