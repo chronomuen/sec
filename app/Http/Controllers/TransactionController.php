@@ -64,7 +64,13 @@ class TransactionController extends Controller
             'next_processor' => ''
         ]);
 
-        return redirect('superadmin/process_transactions')->withMessage('success create');
+        if($user->user_type = "Processor")
+        {
+            return redirect('processor/process_transactions')->withMessage('success create');
+        }
+        else{
+            return redirect('superadmin/process_transactions')->withMessage('success create');
+        }
     }
 
     public function process()
@@ -103,6 +109,7 @@ class TransactionController extends Controller
     public function update($id, Request $request)
     {
         $transaction = Transaction::findOrFail($id);
+        $authuser = Auth::user();
 
         //Update transaction
         if(Input::has('update'))
@@ -119,11 +126,10 @@ class TransactionController extends Controller
             //if processor of recent log is the auth user, update log
             $recentLog = Log::where('transaction_id', '=', $transaction->transaction_id)->orderBy('date_received', 'desc')->first();
 
-            $authuser = Auth::user();
             $firstname = $authuser->firstname;
             $lastname = $authuser->lastname;
 
-            if($recentLog->processor_name = $firstname.' '.$lastname)
+            if($recentLog->processor_name == $firstname.' '.$lastname)
             {
                 //update log
                 $input = $request->all();
@@ -143,7 +149,13 @@ class TransactionController extends Controller
                 ]);
             }
 
-            return redirect('superadmin/process_transactions')->withMessage('success update');
+            if($authuser->user_type = "Processor")
+            {
+                return redirect('processor/process_transactions')->withMessage('success update');
+            }
+            else{
+                return redirect('superadmin/process_transactions')->withMessage('success update');
+            }
         }
 
         //Log out transaction
