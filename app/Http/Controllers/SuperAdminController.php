@@ -47,15 +47,16 @@ class SuperadminController extends Controller
 
     public function create_user()
     {
+        $authuser = Auth::user();
         $depts = Department::lists('name', 'department_id');
-        return view('superadmin.create_user', array('depts' => $depts));
+        return view('superadmin.create_user', array('authuser' => $authuser, 'depts' => $depts));
     }
 
     public function edit_user($id)
     {
         $user = User::findOrFail($id);
-
-        return view('superadmin.edit_user', array('user' => $user));
+        $authuser = Auth::user();
+        return view('superadmin.edit_user', array('authuser' => $authuser, 'user' => $user));
     }
 
     public function create_transaction()
@@ -69,12 +70,14 @@ class SuperadminController extends Controller
     public function process_transactions()
     {
         //
-        return view('superadmin.processes');
+        $authuser = Auth::user();
+        return view('superadmin.processes', array('authuser' => $authuser));
     }
 
     public function process()
     {
         //
+
         $transactionID =  Input::get('transactionID');
         $transaction = Transaction::where('transaction_id', '=', $transactionID)->first();
         $logs = Log::where('transaction_id', '=', $transactionID)->get();
@@ -131,19 +134,21 @@ class SuperadminController extends Controller
 	public function	update_transaction()
     {
         //
+        $authuser = Auth::user();
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');
         $recentLog = Session::get('recentLog');
-        return view('superadmin.update_transaction', array('transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog));
+        return view('superadmin.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog));
     }
 
 	public function	out_transaction()
     {
         //
+        $authuser = Auth::user();
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');
         $recentLog = Session::get('recentLog');
-        return view('superadmin.out_transaction', array('transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog));
+        return view('superadmin.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog));
     }
 
     public function store_transaction()
@@ -203,10 +208,11 @@ class SuperadminController extends Controller
     public function edit($id)
     {
         //
+        $authuser = Auth::user();
         $user = User::findOrFail($id);
         $depts = Department::lists('name', 'department_id');
 
-        return view('superadmin.edit_user', array('user' => $user, 'depts' => $depts));
+        return view('superadmin.edit_user', array('authuser' => $authuser, 'user' => $user, 'depts' => $depts));
     }
 
     /**

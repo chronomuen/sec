@@ -1,6 +1,6 @@
 @extends('default')
 <!-- User Sidebar -->
-@include('superadmin/_sidebar')
+{!! View::make('superadmin/_sidebar', array('authuser' => $authuser))->render() !!}
 
 @section('header')
 <div class="row" style="padding-right:20px; padding-left:20px">

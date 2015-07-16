@@ -1,6 +1,6 @@
 @extends('default')
 <!-- User Sidebar -->
-@include('superadmin/_sidebar')
+{!! View::make('superadmin/_sidebar', array('authuser' => $authuser))->render() !!}
 
 @section('header')
 Process Transaction
@@ -51,6 +51,7 @@ Process Transaction
                     @elseif (Session::get('message') === 'success out')
                         Successfully logged out transaction!
                     @endif
+                    {!! Session::flash('message', "none") !!}
                 @endif
 
             </div>
@@ -76,6 +77,7 @@ Process Transaction
           alert("Error!");
         });
     </script>
+    @elseif (Session::get('message') === 'none')
     @else
     <script>
       $(function() {

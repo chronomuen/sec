@@ -1,6 +1,6 @@
 @extends('default')
 <!-- User Sidebar -->
-@include('superadmin/_sidebar')
+{!! View::make('superadmin/_sidebar', array('authuser' => $authuser))->render() !!}
 
 @section('header')
 Create New User
