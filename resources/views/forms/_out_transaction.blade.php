@@ -3,26 +3,27 @@
 		<tbody>
 			<tr>
 				<td>
+					<p>
+						<b>Transaction ID:</b> {!! $transaction->transaction_id !!}
+					</p>
+					<p>
+						<b>Transaction Type:</b> {!! $transaction->type !!}
+					</p>
+					<p>
+						<b>Customer Name:</b> {!! $transaction->client !!}
+					</p>
+				<!--	<p id="current_processor">-->
                     <p>
-						<b>Transaction ID:</b> {!! $transactionID !!}
+						<b>Processor:</b> {!! $recentLog->processor_name !!}
 					</p>
 					<p>
-						<b>Transaction Type:</b> Reserve Company Name
+						<b>Date Submitted:</b> {!! str_replace("00:00:00", "", $transaction->date_submitted) !!}
 					</p>
 					<p>
-						<b>Customer Name:</b> Hershel Layton
-					</p>
-					<p id="current_processor">
-						<b>Processor:</b> {!! $processorName !!}
+						<b>Status:</b> {!! $recentLog->status !!}
 					</p>
 					<p>
-						<b>Date Submitted:</b> 01/02/15
-					</p>
-					<p>
-						<b>Status:</b> In-process
-					</p>
-					<p>
-						<b>Remarks:</b> Checked document
+						<b>Remarks:</b> {!! $recentLog->remarks !!}
 					</p>
 				</td>
 			</tr>
@@ -45,51 +46,17 @@
 		</thead>
 
 		<tbody>
+			@foreach ($logs as $log)
 			<tr>
-				<td>{!! $transactionID !!}</td>
-				<td>new</td>
-				<td>Validated document</td>
-				<td>Percy Jackson</td>
-				<td id="1">01/02/15</td>
-				<td>01/03/15</td>
-				<td>Annabeth Chase</td>
+				<td>{!! $log->transaction_id !!}</td>
+				<td>{!! $log->status !!}</td>
+				<td>{!! $log->remarks !!}</td>
+				<td>{!! $log->processor_name !!}</td>
+				<td>{!! str_replace("00:00:00", "", $log->date_received) !!}</td>
+				<td>@if($log->date_released != "0000-00-00 00:00:00"){!! str_replace("00:00:00", "", $log->date_released) !!}@endif</td>
+				<td>{!! $log->next_processor !!}</td>
 			</tr>
-			<tr>
-				<td>{!! $transactionID !!}</td>
-				<td>in-process</td>
-				<td>Evaluated document</td>
-				<td>Annabeth Chase</td>
-				<td id="1">01/03/15</td>
-				<td>01/03/15</td>
-				<td>Piper McLean</td>
-			</tr>
-			<tr>
-				<td>{!! $transactionID !!}</td>
-				<td>in-process</td>
-				<td>Encoded document</td>
-				<td>Piper McLean</td>
-				<td>01/03/15</td>
-				<td>01/04/15</td>
-				<td>Jason Grace</td>
-			</tr>
-            <tr>
-				<td>{!! $transactionID !!}</td>
-				<td>in-process</td>
-				<td>Checked document</td>
-				<td>{!! $processorName !!}</td>
-				<td>01/03/15</td>
-				<td>-</td>
-				<td>-</td>
-			</tr>
-		<!--	<tr id="tr" style="display:none">
-				<td>{!! $transactionID !!}</td>
-				<td>in-process</td>
-				<td>Checked document</td>
-				<td>{!! $processorName !!}</td>
-				<td>01/03/15</td>
-				<td>01/04/15</td>
-				<td>Hazel Levesque</td>
-			</tr> -->
+			@endforeach
 		</tbody>
 	</table>
 </div>
