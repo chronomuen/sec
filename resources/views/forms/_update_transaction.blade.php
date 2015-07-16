@@ -4,23 +4,23 @@
 			<tr>
 				<td>
                     <p>
-						<b>Transaction ID:</b> {!! $transactionID !!}
+						<b>Transaction ID:</b> {!! $transaction->transaction_id !!}
 					</p>
 					<p>
-						<b>Transaction Type:</b> Reserve Company Name
+						<b>Transaction Type:</b> {!! $transaction->type !!}
 					</p>
 					<p>
-						<b>Customer Name:</b> Hershel Layton
+						<b>Customer Name:</b> {!! $transaction->client !!}
 					</p>
 				<!--	<p id="current_processor">-->
                     <p>
 						<b>Processor:</b> Pipe Mclean
 					</p>
 					<p>
-						<b>Date Submitted:</b> 01/02/15
+						<b>Date Submitted:</b> {!! $transaction->date_submitted !!}
 					</p>
 					<p>
-						<b>Status:</b> In-process
+						<b>Status:</b> {!! $transaction->status !!}
 					</p>
 					<p>
 						<b>Remarks:</b> Encoded document

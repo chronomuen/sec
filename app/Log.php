@@ -9,6 +9,16 @@ class Log extends Model
     //
     protected $table = 'logs';
 
+    protected $fillable = [
+        'transaction_id',
+        'processor_name',
+        'status',
+        'remarks',
+        'date_received',
+        'date_released',
+        'next_processor'
+    ];
+
     //RELATIONS------------------------------
 
     //log belongs to one transaction
