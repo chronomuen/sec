@@ -19,9 +19,17 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        $transactionID = Session::get('transactionID');
+        $transactionID = Input::get('transactionID');
         return view('customer.index', array('transactionID' => $transactionID));
     }
+	
+		$transactionID =  Input::get('search');
+		
+		$logs = Log::where('transaction_id', '=', $transactionID)->get();
+		//$logs = DB::table('logs')->where('transaction_id', '00001');
+		//$logs = Log::all();
+        $authuser = Auth::user();
+        return view('superadmin.index', array('authuser' => $authuser, 'logs' => $logs ));
 
     /**
      * Show the form for creating a new resource.

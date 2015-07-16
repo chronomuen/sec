@@ -25,6 +25,7 @@ class SuperadminController extends Controller
      */
     public function index()
     {
+		
 		$transactionID =  Input::get('search');
 		
 		$logs = Log::where('transaction_id', '=', $transactionID)->get();
