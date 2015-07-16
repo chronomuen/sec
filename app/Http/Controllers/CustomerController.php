@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Redirect;
 use Input;
-use Session;
+use Auth;
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Session;
+use App\Transaction;
+use DB;
 
 class CustomerController extends Controller
 {
@@ -18,9 +21,17 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
-        $transactionID = Session::get('transactionID');
-        return view('customer.index', array('transactionID' => $transactionID));
+		$transactionID = Input::get('transactionID');
+		$transaction = Transaction::where('transaction_id', '=', $transactionID)->get();
+		if (Auth::attempt([
+            'transaction_id' => Input::get('transactionID'),
+            'password' =>  Input::get('transactionPass')
+        ]))
+		{
+            // Authentication passed...
+			return Redirect::back()->withMessage(' ', array('transaction' => $transaction));
+        }
+        return Redirect::back()->withMessage('Invalid credentials');
     }
 
     /**
