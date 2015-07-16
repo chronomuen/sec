@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Session;
 use App\User;
+use App\Log;
 use Auth;
 use DB;
 
@@ -23,8 +24,11 @@ class ProcessorController extends Controller
     public function index()
     {
         //
+		$transactionID =  Input::get('search');
+
+		$logs = Log::where('transaction_id', '=', $transactionID)->get();
         $authuser = Auth::user();
-        return view('processor.index', array('authuser' => $authuser));
+        return view('superadmin.index', array('authuser' => $authuser, 'logs' => $logs ));
     }
 
     public function create_transaction()

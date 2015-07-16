@@ -25,7 +25,7 @@ class SuperadminController extends Controller
      */
     public function index()
     {
-		
+		//
 		$transactionID =  Input::get('search');
 
 		$logs = Log::where('transaction_id', '=', $transactionID)->get();
@@ -139,10 +139,12 @@ class SuperadminController extends Controller
 	public function	out_transaction()
     {
         //
+		$users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'user_id');
+		//$users = User::lists(fullname, 'user_id');
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');
         $recentLog = Session::get('recentLog');
-        return view('superadmin.out_transaction', array('transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog));
+        return view('superadmin.out_transaction', array('transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users));
     }
 
     public function store_transaction()

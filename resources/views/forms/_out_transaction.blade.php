@@ -70,7 +70,9 @@
 					{!! Form::label('forward', 'Forward to', ['class' => 'control-label']) !!}
 					<form action="#" method="get">
 						<div class="input-group" style="width:290px">
-							<input class="form-control" id="system-search" name="q" placeholder="Search name">
+							
+							{!! Form::select('forward', $users, null, ['class' => 'form-control', 'required' => 'required']) !!}	
+							
 							<span class="input-group-btn">
 								<button type="submit" class="btn btn-default" ><i class="glyphicon glyphicon-search"></i></button>
 							</span>
