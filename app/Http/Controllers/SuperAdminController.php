@@ -27,11 +27,8 @@ class SuperadminController extends Controller
     {
 		$transactionID =  Input::get('search');
 		
-		$column = 'transaction_number'; // This is the name of the column you wish to search
-
-		$logs = Log::where($column , '=', $transactionID);
-		 
-		//$transactions = Transaction::all();
+		$logs = Log::where('transaction_id', '=', $transactionID)->get();
+		//$logs = DB::table('logs')->where('transaction_id', '00001');
 		//$logs = Log::all();
         $authuser = Auth::user();
         return view('superadmin.index', array('authuser' => $authuser, 'logs' => $logs ));
