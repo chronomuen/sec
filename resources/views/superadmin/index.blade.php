@@ -8,7 +8,6 @@ Transaction List
 
 @stop
 
-
 @section('content')
 <div align="center">
 	<h3 style="center">Search Transaction</h3>
