@@ -1,7 +1,7 @@
 $("#transButton").click(function () {
-  var tid =  $("#transactionID").val();
+  var tid =  $("#transaction_id").val();
   var random = Math.floor((Math.random() * 10000) + 1);
-  $("#tpass").val(tid + random);
+  $("#password").val(tid + random);
   $('#transButton').attr("disabled", true);
 });
 
@@ -9,7 +9,7 @@ $('#transactionModal').on('show.bs.modal', function(e) {
   $("#id_info").text($("#tid").val());
 });
 
-$( "#dateSubmitted" ).datepicker();
+$( "#date_submitted" ).datepicker();
 
 $(function() {
     $( "#datepicker" ).datepicker();
