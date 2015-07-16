@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Transaction;
 use App\Log;
 use Auth;
+use DateTime;
 
 class TransactionController extends Controller
 {
@@ -42,12 +43,13 @@ class TransactionController extends Controller
     {
         //
         $user = Auth::user();
+        $date = new DateTime($request['date_submitted']);
         Transaction::create([
             'transaction_id' => $request['transaction_id'],
             'type' => $request['type'],
             'client' => $request['client'],
             'status' => 'New',
-            'date_submitted' => $request['date_submitted']
+            'date_submitted' => $date
         ]);
 
         Log::create([
@@ -55,7 +57,7 @@ class TransactionController extends Controller
             'processor_name' => $user->firstname.' '.$user->lastname,
             'status' => 'New',
             'remarks' => $request['remarks'],
-            'date_received' => $request['date_submitted'],
+            'date_received' => $date,
             'date_released' => '',
             'next_processor' => ''
         ]);
@@ -96,9 +98,49 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        //
+        //Update transaction
+        $transaction = Transaction::findOrFail($id);
+
+        $this->validate($request, [
+            'status' => 'required',
+            'remarks' => 'required'
+        ]);
+
+        $input = $request->all();
+        $transaction->fill($input)->save();
+
+        //Log
+        //if processor of recent log is the auth user, update log
+        $recentLog = Log::where('transaction_id', '=', $transaction->transaction_id)->orderBy('date_received', 'desc')->first();
+
+        $authuser = Auth::user();
+        $firstname = $authuser->firstname;
+        $lastname = $authuser->lastname;
+
+        if($recentLog->processor_name = $firstname.' '.$lastname)
+        {
+            //update log
+            $input = $request->all();
+            $recentLog->fill($input)->save();
+        }
+        else {
+            //create log
+            $date = new DateTime();
+            Log::create([
+                'transaction_id' => $transaction->transaction_id,
+                'processor_name' => $authuser->firstname.' '.$authuser->lastname,
+                'status' => $request['status'],
+                'remarks' => $request['remarks'],
+                'date_received' => $date,
+                'date_released' => '',
+                'next_processor' => ''
+            ]);
+        }
+
+        return redirect('superadmin/process_transactions')->withMessage('success update');
+
     }
 
     /**

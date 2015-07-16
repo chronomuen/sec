@@ -77,6 +77,7 @@ class SuperadminController extends Controller
         $transactionID =  Input::get('transactionID');
         $transaction = Transaction::where('transaction_id', '=', $transactionID)->first();
         $logs = Log::where('transaction_id', '=', $transactionID)->get();
+        $recentLog = Log::where('transaction_id', '=', $transactionID)->orderBy('date_received', 'desc')->first();
 
 
         if(Input::has('create'))
@@ -92,7 +93,10 @@ class SuperadminController extends Controller
         {
             // Process action 2
 
-            return Redirect::route('superadmin/update_transaction', array('transaction' => $transaction, 'logs' => $logs));
+            return Redirect::route('superadmin/update_transaction')
+                ->with( 'transaction', $transaction )
+                ->with( 'logs', $logs )
+                ->with( 'recentLog', $recentLog );
         }
 
 
@@ -125,7 +129,8 @@ class SuperadminController extends Controller
         //
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');
-        return view('superadmin.update_transaction', array('transaction' => $transaction, 'logs' => $logs));
+        $recentLog = Session::get('recentLog');
+        return view('superadmin.update_transaction', array('transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog));
     }
 
 	public function	out_transaction()
