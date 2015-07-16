@@ -11,10 +11,19 @@ Create New Transaction
 	<div class="row">
 		<div class="panel">
         <div class="panel-body">
+			<!-- missing input fields -->
+            @include('alerts.errors')
+
+            <!-- success -->
+            @include('alerts.sessions')
+
           <div class="col-lg-6">
             <div class="form-group">
-              {!! Form::open(array('action' => 'SuperadminController@store_transaction')) !!}
-              {!! View::make('forms/_new_transaction', array('transactionID' => $transactionID, 'processorName' => 'Jose Palma'))  !!}
+				{!! Form::open([
+                    'route' => 'transaction.store'
+                ]) !!}
+				{!! csrf_field() !!}
+              {!! View::make('forms/_new_transaction', array('transactionID' => $transactionID, 'processorName' => $authuser))  !!}
               <div class="row" >
                 <br/>
                 {!! Form::submit('Create Transaction', ['class' => 'btn btn-primary', 'name' => 'create']) !!}
