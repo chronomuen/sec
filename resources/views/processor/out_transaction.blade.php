@@ -15,7 +15,7 @@ Logout Transaction
 @section('content')
 @if(!empty($transaction))
 	{!! Form::model($transaction, ['method' => 'PATCH', 'route' =>  ['transaction.update', $transaction->transaction_id] ]) !!}
-	{!! View::make('forms/_out_transaction', array('transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog))->render()  !!}
+	{!! View::make('forms/_out_transaction', array('transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users))->render()  !!}
 @else
 	<div style="padding-right:20px; padding-left:20px">
 		<div class="row">

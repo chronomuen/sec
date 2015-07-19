@@ -13,7 +13,6 @@ use App\Log;
 use Auth;
 use DB;
 use App\Transaction;
-use App\Log;
 
 class ProcessorController extends Controller
 {
@@ -30,7 +29,7 @@ class ProcessorController extends Controller
 
 		$logs = Log::where('transaction_id', '=', $transactionID)->get();
         $authuser = Auth::user();
-        return view('superadmin.index', array('authuser' => $authuser, 'logs' => $logs ));
+        return view('processor.index', array('authuser' => $authuser, 'logs' => $logs ));
     }
 
     public function create_transaction()
@@ -107,11 +106,15 @@ class ProcessorController extends Controller
 	public function	out_transaction()
     {
         //
+        //
         $authuser = Auth::user();
+		//$users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'user_id');
+        $users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'fullname');
+		//$users = User::lists(fullname, 'user_id');
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');
         $recentLog = Session::get('recentLog');
-        return view('processor.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog));
+        return view('processor.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users));
     }
 
     public function store_transaction()

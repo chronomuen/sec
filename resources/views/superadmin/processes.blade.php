@@ -51,7 +51,6 @@ Process Transaction
                     @elseif (Session::get('message') === 'success out')
                         Successfully logged out transaction!
                     @endif
-                    {!! Session::flash('message', "none") !!}
                 @endif
 
             </div>
@@ -77,7 +76,6 @@ Process Transaction
           alert("Error!");
         });
     </script>
-    @elseif (Session::get('message') === 'none')
     @else
     <script>
       $(function() {

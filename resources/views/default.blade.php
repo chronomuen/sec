@@ -36,9 +36,11 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <div class="logo">
-          SEC Transaction Tracker
-        </div>
+        <a href="/">
+            <div class="logo">
+              SEC Transaction Tracker
+            </div>
+        </a>
 
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
