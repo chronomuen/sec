@@ -2,7 +2,7 @@
 <!-- user info -->
 <p>{!! $authuser->firstname !!} {!! $authuser->lastname !!}</p>
 <!-- job title -->
-<a href="/processor"><i class="fa fa-circle text-success"></i>{!! $authuser->job_title !!}</a>
+<i class="fa fa-circle text-success"></i>{!! $authuser->job_title !!}
 @stop
 
 @section('sidebar')
