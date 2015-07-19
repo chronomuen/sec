@@ -17,7 +17,7 @@
 						<b>Processor:</b> {!! $recentLog->processor_name !!}
 					</p>
 					<p>
-						<b>Date Submitted:</b> {!! str_replace("00:00:00", "", $transaction->date_submitted) !!}
+						<b>Date Submitted:</b> {!! substr($transaction->date_submitted,0,10) !!}
 					</p>
 					<p>
 						<b>Status:</b> {!! $recentLog->status !!}
@@ -52,8 +52,8 @@
 				<td>{!! $log->status !!}</td>
 				<td>{!! $log->remarks !!}</td>
 				<td>{!! $log->processor_name !!}</td>
-				<td>{!! str_replace("00:00:00", "", $log->date_received) !!}</td>
-				<td>@if($log->date_released != "0000-00-00 00:00:00"){!! str_replace("00:00:00", "", $log->date_released) !!}@endif</td>
+				<td>{!! substr($log->date_received,0,10) !!}</td>
+				<td>@if($log->date_released != "0000-00-00 00:00:00"){!! substr($log->date_released,0,10) !!}@endif</td>
 				<td>{!! $log->next_processor !!}</td>
 			</tr>
 			@endforeach
@@ -67,12 +67,12 @@
 			<tr>
 				<td>
                     <!-- form open is on user's corresponding out transaction page -->
-					{!! Form::label('forward', 'Forward to', ['class' => 'control-label']) !!}
+					{!! Form::label('next_processor', 'Forward to', ['class' => 'control-label']) !!}
 					<form action="#" method="get">
 						<div class="input-group" style="width:290px">
-							
-							{!! Form::select('forward', $users, null, ['class' => 'form-control', 'required' => 'required']) !!}	
-							
+
+							{!! Form::select('next_processor', $users, null, ['class' => 'form-control', 'required' => 'required']) !!}
+
 							<span class="input-group-btn">
 								<button type="submit" class="btn btn-default" ><i class="glyphicon glyphicon-search"></i></button>
 							</span>
@@ -80,9 +80,9 @@
 					</form>
 					<br>
 
-					{!! Form::label('data', 'Remarks', ['class' => 'control-label']) !!}
+					{!! Form::label('remarks', 'Remarks', ['class' => 'control-label']) !!}
 					<br>
-					{!! Form::textarea('data', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80]) !!}
+					{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80]) !!}
 					<br><br>
 					{!! Form::submit('Logout Transaction', ['id' => 'submit', 'class' => 'btn btn-primary btn-md', 'name' => 'out']) !!}
 				</td>

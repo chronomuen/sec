@@ -144,7 +144,8 @@ class SuperadminController extends Controller
     {
         //
         $authuser = Auth::user();
-		$users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'user_id');
+		//$users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'user_id');
+        $users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'fullname');
 		//$users = User::lists(fullname, 'user_id');
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');

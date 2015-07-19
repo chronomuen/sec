@@ -12,6 +12,7 @@ use App\Log;
 use Auth;
 use DateTime;
 use Input;
+use App\User;
 
 class TransactionController extends Controller
 {
@@ -149,7 +150,7 @@ class TransactionController extends Controller
                 ]);
             }
 
-            if($authuser->user_type = "Processor")
+            if($authuser->user_type == "Processor")
             {
                 return redirect('processor/process_transactions')->withMessage('success update');
             }
@@ -161,7 +162,47 @@ class TransactionController extends Controller
         //Log out transaction
         if(Input::has('out'))
         {
+            //Log
+            //if processor of recent log is the auth user, update log
+            $recentLog = Log::where('transaction_id', '=', $transaction->transaction_id)->orderBy('date_received', 'desc')->first();
 
+            $firstname = $authuser->firstname;
+            $lastname = $authuser->lastname;
+
+            //get name of next processor
+            //$nextprocessor = User::where('user_id', '=', $request['next_processor'])->get();
+            //$nextname = $nextprocessor->firstname.' '.$nextprocessor->lastname;
+
+            if($recentLog->processor_name == $firstname.' '.$lastname)
+            {
+                //add date_released
+                $date = new DateTime();
+                $recentLog->date_released = $date;
+                $recentLog->remarks = $request['remarks'];
+                $recentLog->next_processor = $request['next_processor'];
+                $recentLog->save();
+            }
+            else {
+                //create log
+                $date = new DateTime();
+                Log::create([
+                    'transaction_id' => $transaction->transaction_id,
+                    'processor_name' => $authuser->firstname.' '.$authuser->lastname,
+                    'status' => $recentLog->status,
+                    'remarks' => $request['remarks'],
+                    'date_received' => $date,
+                    'date_released' => $date,
+                    'next_processor' => $request['next_processor']
+                ]);
+            }
+
+            if($authuser->user_type == "Processor")
+            {
+                return redirect('processor/process_transactions')->withMessage('success out');
+            }
+            else{
+                return redirect('superadmin/process_transactions')->withMessage('success out');
+            }
         }
 
     }

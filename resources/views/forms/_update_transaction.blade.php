@@ -17,7 +17,7 @@
 						<b>Processor:</b> {!! $recentLog->processor_name !!}
 					</p>
 					<p>
-						<b>Date Submitted:</b> {!! str_replace("00:00:00", "", $transaction->date_submitted) !!}
+						<b>Date Submitted:</b> {!! substr($transaction->date_submitted,0,10) !!}
 					</p>
 					<p>
 						<b>Status:</b> {!! $recentLog->status !!}
@@ -52,8 +52,8 @@
 				<td>{!! $log->status !!}</td>
 				<td>{!! $log->remarks !!}</td>
 				<td>{!! $log->processor_name !!}</td>
-				<td>{!! str_replace("00:00:00", "", $log->date_received) !!}</td>
-				<td>@if($log->date_released != "0000-00-00 00:00:00"){!! str_replace("00:00:00", "", $log->date_released) !!}@endif</td>
+				<td>{!! substr($log->date_received,0,10) !!}</td>
+				<td>@if($log->date_released != "0000-00-00 00:00:00"){!! substr($log->date_released,0,10) !!}@endif</td>
 				<td>{!! $log->next_processor !!}</td>
 			</tr>
 			@endforeach
