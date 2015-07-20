@@ -67,5 +67,35 @@
 	</div>
 </div>
 
+<div id="deactivateModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
+	<div class="modal-content">
+	  <div class="modal-header alert-info">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title">Activate/Deactivate User</h4>
+	  </div>
+	  <div class="modal-body">
+		  {{ Session::get('flash_message') }}
+	  </div>
+	  <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	  </div>
+	</div>
+
+  </div>
+</div>
+@stop
+
+@section('javascript')
+	<script src="/js/department.js" type="text/javascript"></script>
+	<script src="/js/match.js" type="text/javascript"></script>
+
+	@if (Session::has('flash_message'))
+	      <script>
+	        $(function() {
+	            $('#deactivateModal').modal('show');
+	          });
+	      </script>
+    @endif
 @stop
