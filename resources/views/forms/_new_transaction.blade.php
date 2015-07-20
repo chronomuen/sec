@@ -29,9 +29,9 @@
 
   <div class="form-group">
       {!! Form::label('status', 'Status', ['class' => 'control-label']) !!}<br/>
-      {!! Form::radio('status', 'new', ['required' => 'required']) !!} New<br/>
-      {!! Form::radio('status', 'inprocess') !!} In Process<br/>
-      {!! Form::radio('status', 'completed') !!} Completed<br/>
+      {!! Form::radio('status', 'New', ['required' => 'required']) !!} New<br/>
+      {!! Form::radio('status', 'In process') !!} In Process<br/>
+      {!! Form::radio('status', 'Completed') !!} Completed<br/>
   </div>
 
   <div class="form-group">
@@ -44,7 +44,7 @@
 
   <div class="form-group">
     {!! Form::label('password', 'Transaction Password', ['class' => 'control-label']) !!}<br/>
-    {!! Form::text('password', null, array('id' => 'password', 'class' => 'form-control', 'required' => 'required', 'disabled' => 'true')) !!}
+    {!! Form::text('password', null, array('id' => 'password', 'class' => 'form-control', 'required' => 'required', 'readonly' => 'readonly')) !!}
   </div>
 
 </div>
