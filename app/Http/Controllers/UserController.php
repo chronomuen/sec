@@ -42,8 +42,8 @@ class UserController extends Controller
     {
         //
         $this->validate($request, [
-            'user_id' => 'required',
-            'username' => 'required',
+            'user_id' => 'required|unique:users',
+            'username' => 'required|unique:users',
             'email' => 'required',
             'firstname' => 'required',
             'lastname' => 'required',
@@ -105,25 +105,39 @@ class UserController extends Controller
 
         if(Input::has('edit'))
         {
-
-            $this->validate($request, [
-                'email' => 'required',
-                'firstname' => 'required',
-                'lastname' => 'required',
-                'department' => 'required',
-                'job_title' => 'required',
-            ]);
+            if ($user->username != $request['username']){
+                $this->validate($request, [
+                    'username' => 'required|unique:users',
+                    'email' => 'required',
+                    'firstname' => 'required',
+                    'lastname' => 'required',
+                    'department' => 'required',
+                    'job_title' => 'required',
+                ]);
+            }
+            else{
+                $this->validate($request, [
+                    'email' => 'required',
+                    'firstname' => 'required',
+                    'lastname' => 'required',
+                    'department' => 'required',
+                    'job_title' => 'required',
+                ]);
+            }
 
             $input = $request->all();
 
             $user->fill($input)->save();
 
-            Session::flash('message', 'User successfully edited!');
+            Session::flash('flash_message', 'User successfully edited!');
         }
         else{
+            # code...
             $input = $request->all();
 
             $user->fill($input)->save();
+
+            Session::flash('flash_message', 'User successfully activated/deactivated!');
         }
 
 

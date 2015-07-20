@@ -3,7 +3,7 @@
 
     <div class="form-group">
       {!! Form::label('username', 'Username', ['class' => 'control-label']) !!}
-      {!! Form::text('username', null, array('id' => 'username', 'class' => 'form-control', 'required' => 'required', 'disabled' => 'true')) !!}
+      {!! Form::text('username', null, array('id' => 'username', 'class' => 'form-control', 'required' => 'required')) !!}
     </div>
 
     <div class="form-group">
@@ -17,7 +17,7 @@
     </div>
 
     <div class="form-group">
-      {!! Form::label('lastname', 'Lastname', ['class' => 'control-label']) !!}
+      {!! Form::label('lastname', 'Last Name', ['class' => 'control-label']) !!}
       {!! Form::text('lastname', null, array('id' => 'lastname', 'class' => 'form-control', 'required' => 'required')) !!}
     </div>
 
