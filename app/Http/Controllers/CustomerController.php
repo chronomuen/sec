@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Session;
 use App\Transaction;
 use DB;
+use View;
 
 class CustomerController extends Controller
 {
@@ -21,9 +22,13 @@ class CustomerController extends Controller
      */
     public function index()
     {
-		$transactionID = Input::get('transactionID');
-		$transaction = Transaction::where('transaction_id', '=', $transactionID)->get();
-		if (Auth::attempt([
+        $transaction = Session::get('transaction');
+        $message = Session::get('message');
+         return view('customer.index', array( 'transaction' => $transaction, 'message' => $message));
+		//$transactionID = Input::get('transactionID');
+		//$transaction = Transaction::where('transaction_id', '=', $transactionID)->get();
+
+	/*	if (Auth::attempt([
             'transaction_id' => Input::get('transactionID'),
             'password' =>  Input::get('transactionPass')
         ]))
@@ -31,7 +36,7 @@ class CustomerController extends Controller
             // Authentication passed...
 			return Redirect::back()->withMessage(' ', array('transaction' => $transaction));
         }
-        return Redirect::back()->withMessage('Invalid credentials');
+        return Redirect::back()->withMessage('Invalid credentials');*/
     }
 
     /**
@@ -63,8 +68,30 @@ class CustomerController extends Controller
 
     public function showTransaction(){
       //  $transaction = Transaction::find($id);
-        $transactionID = Input::get('transactionID');
-         return Redirect::route('customer')->with('transactionID', $transactionID);
+          $id = Input::get('transaction_id');
+          $pw =  Input::get('password');
+        //  $transaction = Transaction::find($id);
+          $transaction = Transaction::where('transaction_id', '=', $id)->first();
+
+          if ($transaction == null) {
+              return Redirect::route('customer')
+                  ->with( 'transaction', $transaction )
+                  ->with( 'message', 'Invalid Transaction ID or Password' );
+          }
+          else{
+              $transpas = $transaction->password;
+             if($transpas == $pw){
+                 return Redirect::route('customer')
+                     ->with( 'transaction', $transaction )
+                     ->with( 'message', 'Transaction found' );
+            }
+             else{
+                 return Redirect::route('customer')
+                     ->with( 'transaction', $transaction )
+                     ->with( 'message', 'Invalid Transaction ID or Password' );
+             }
+        }
+
     }
 
     public function show($id)
