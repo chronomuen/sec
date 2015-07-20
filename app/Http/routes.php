@@ -49,8 +49,10 @@ Route::get('processor/out_transaction', array('middleware' => 'auth', 'as' => 'p
 
 Route::post('transaction/process', 'TransactionController@process');
 
-Route::post('customer/showTransaction', array('as' => 'customer/showTransaction', 'uses' => 'CustomerController@showTransaction'));
 Route::get('customer', array('as' => 'customer', 'uses' => 'CustomerController@index'));
+
+Route::post('customer/showTransaction', array('as' => 'customer/showTransaction', 'uses' => 'CustomerController@showTransaction'));
+//Route::get('customer', array('as' => 'customer', 'uses' => 'CustomerController@index'));
 
 Route::resource('superadmin', 'SuperadminController');
 Route::resource('admin', 'AdminController');
