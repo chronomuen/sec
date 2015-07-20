@@ -44,6 +44,14 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'transaction_id' => 'required|unique:transactions',
+            'type' => 'required',
+            'client' => 'required',
+            'password' => 'required',
+            'date_submitted' => 'required'
+        ]);
+
         $user = Auth::user();
         $date = new DateTime($request['date_submitted']);
 
@@ -51,6 +59,7 @@ class TransactionController extends Controller
             'transaction_id' => $request['transaction_id'],
             'type' => $request['type'],
             'client' => $request['client'],
+            'password' => $request['password'],
             'status' => 'New',
             'date_submitted' => $date
         ]);
