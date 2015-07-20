@@ -15,6 +15,7 @@ class Transaction extends Model
         'type',
         'client',
         'status',
+        'password',
         'date_submitted'
     ];
 
