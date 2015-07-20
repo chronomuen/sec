@@ -10,7 +10,7 @@ class UserTableSeeder extends Seeder
         DB::table('users')->delete();
 
         $users = array(
-            ['id' => 1, 'user_id' => '201201030', 'username' => 'superadmin', 'email' => 'jpalma@yahoo.com', 'password' => bcrypt('jpalmapass'), 'firstname' => 'Jose', 'lastname' => 'Palma', 'department' => 00001, 'status' => 'Active', 'job_title' => 'Super Administrator', 'user_type' => 'Superadmin'],
+            ['id' => 1, 'user_id' => '201201030', 'username' => 'superadmin', 'email' => 'jpalma@yahoo.com', 'password' => bcrypt('admin1234'), 'firstname' => 'Jose', 'lastname' => 'Palma', 'department' => 00001, 'status' => 'Active', 'job_title' => 'Super Administrator', 'user_type' => 'Superadmin'],
 
             ['id' => 2, 'user_id' => '201201034', 'username' => 'julianfelipe', 'email' => 'jfelipe@yahoo.com', 'password' => bcrypt('jfelipepass'), 'firstname' => 'Julian', 'lastname' => 'Felipe', 'department' => 00002, 'status' => 'Active', 'job_title' => 'Frontliner', 'user_type' => 'Processor'],
 
