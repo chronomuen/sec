@@ -30,70 +30,64 @@
 
 <body>
 
-  <!-- Script to load modal with details -->
-  <!-- to get transaction use something similar to $transaction == 1 -->
-
 	<div class="container">
 
-      <div class="form-group">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="col-lg-4">
+        <form method="POST" action="/customer/showTransaction" class="form-signin">
+            <h2 class="form-signin-heading"><font color="white">Track Transaction</font></h2>
+            {!! csrf_field() !!}
+
+            <div>
+                <font color="white">Transaction ID </font>
+                 {!! Form::text('transaction_id', null, array('id' => 'transaction_id', 'class' => 'form-control', 'required' => 'required')) !!}<br/>
             </div>
-            <div class="col-lg-4" align="center">
-              <h2 ><font color="white">Track Transaction</font></h2>
-              {!! Form::open(array('action' => 'CustomerController@showTransaction')) !!}
-                <font color="white">{!! Form::label('transID', 'Transaction ID', ['class' => 'control-label']) !!}</font>
-                {!! Form::text('transactionID', null, array('id' => 'transactionID', 'class' => 'form-control', 'required' => 'required', 'style' => 'text-align: center')) !!}<br/>
-                <font color="white">{!! Form::label('transPass', 'Password', ['class' => 'control-label']) !!}</font>
-                {!! Form::password('transactionPass', array('id' => 'transactionPass', 'class' => 'form-control', 'required' => 'required', 'style' => 'text-align: center')) !!}<br/>
-              {!! Form::submit('View Transaction', ['class' => 'btn btn-lg btn-primary btn-block']) !!}
-              {!! Form::close() !!}
+
+            <div>
+                <font color="white">Password </font>
+                 {!! Form::password('password', array('id' => 'password', 'class' => 'form-control', 'required' => 'required')) !!}<br/>
             </div>
-            <div class="col-lg-4">
+
+            <div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">View Transaction</button>
             </div>
-          </div>
-        </div>
-      </div>
+        </form>
 
     </div> <!-- /container -->
 
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
     <!-- Modal --> <!-- Just call transaction details here -->
-    <div id="viewModal" class="modal fade" role="dialog">
+    <div id="transactionModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
 
         <div class="modal-content">
-          <div class="modal-header">
+            @if ($message == 'Invalid Transaction ID or Password')
+                <div class="modal-header alert-danger">
+            @else
+                <div class="modal-header alert-info">
+            @endif
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Transaction Details</h4>
+            <h4 class="modal-title">
+                @if ($message == 'Invalid Transaction ID or Password')
+                    Authentication Error
+                @else
+                    Transaction Details
+                @endif
+            </h4>
           </div>
           <div class="modal-body">
-            <b>Transaction ID:</b> {!! $transaction->transaction_id !!}<br/>
-            <b>Transaction Type: </b> {!! $transaction->type !!}<br/>
-            <b>Transaction Start Date:</b> {!! $transaction->date_submitted !!}<br/>
-            <b>Customer's Name:</b> {!! $transaction->client !!}<br/>
-            <b>Status:</b> {!! $transaction->status !!}<br/>
-			{{ Session::get('message') }}
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-	
-	<!-- Modal --> <!-- Just call transaction details here -->
-    <div id="loginErrorModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-
-        <div class="modal-content">
-          <div class="modal-header alert-danger">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Authentication Error</h4>
-          </div>
-          <div class="modal-body">
-              {{ Session::get('message') }}
+              @if ($message == 'Invalid Transaction ID or Password')
+                {!! $message !!}
+              @else
+                @if ($message == 'Transaction found')
+                  <b>Transaction ID:</b> {!! $transaction->transaction_id !!}<br/>
+                  <b>Transaction Type: </b> {!! $transaction->type !!}<br/>
+                  <b>Transaction Start Date:</b> {!! substr($transaction->date_submitted,0,10) !!}<br/>
+                  <b>Customer's Name:</b> {!! $transaction->client !!}<br/>
+                  <b>Status:</b> {!! $transaction->status !!}<br/>
+                @endif
+              @endif
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -109,19 +103,14 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    @if Session::has('message' = 'Invalid credentials'))
+    @if ($message != null)
       <script>
         $(function() {
-            $('#loginErrorModal').modal('show');
-          });
-      </script>
-	@else
-		<script>
-        $(function() {
-            $('#viewModal').modal('show');
+            $('#transactionModal').modal('show');
           });
       </script>
     @endif
+
 
 </body>
 
