@@ -16,11 +16,6 @@
 </div>
 @stop
 
-@section('javascript')
-	<script src="/js/department.js" type="text/javascript"></script>
-	<script src="/js/match.js" type="text/javascript"></script>
-@stop
-
 @section('content')
 <div id="users" style="padding-right:20px; padding-left:20px">
     <div class="row">
@@ -71,7 +66,7 @@
   <div class="modal-dialog">
 
 	<div class="modal-content">
-	  <div class="modal-header alert-info">
+	  <div class="modal-header alert-success">
 		<button type="button" class="close" data-dismiss="modal">&times;</button>
 		<h4 class="modal-title">Activate/Deactivate User</h4>
 	  </div>
@@ -91,11 +86,12 @@
 	<script src="/js/department.js" type="text/javascript"></script>
 	<script src="/js/match.js" type="text/javascript"></script>
 
-	@if (Session::has('flash_message'))
-	      <script>
-	        $(function() {
-	            $('#deactivateModal').modal('show');
-	          });
-	      </script>
-    @endif
+	@if(Session::has('flash_message'))
+		<script>
+			$(function() {
+				$('#deactivateModal').modal('show');
+				//alert('ahuhu');
+			});
+		</script>
+	@endif
 @stop
