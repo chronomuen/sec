@@ -113,6 +113,7 @@ class UserController extends Controller
                     'lastname' => 'required',
                     'department' => 'required',
                     'job_title' => 'required',
+                    'password' => 'required',
                 ]);
             }
             else{
@@ -122,6 +123,7 @@ class UserController extends Controller
                     'lastname' => 'required',
                     'department' => 'required',
                     'job_title' => 'required',
+                    'password' => 'required',
                 ]);
             }
 
