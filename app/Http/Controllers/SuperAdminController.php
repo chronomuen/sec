@@ -144,10 +144,10 @@ class SuperadminController extends Controller
 
 		$recentLog->next_processor;
 
-		if($recentLog->next_processor != $firstname.' '.$lastname && $recentLog->processor_name != $firstname.' '.$lastname ) {
-			$flag = "no";
-		} else {
+		if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name != $firstname.' '.$lastname && $recentLog->next_processor == '-')) {
 			$flag = "yes";
+		} else {
+			$flag = "no";
 		}
 		
         return view('superadmin.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag));
@@ -156,7 +156,10 @@ class SuperadminController extends Controller
 	public function	out_transaction()
     {
         $authuser = Auth::user();
+		$emptyLabel = array('');
         $users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'fullname');
+		//$users = $emptyLabel + $fin;
+		
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');
         $recentLog = Session::get('recentLog');
@@ -166,10 +169,10 @@ class SuperadminController extends Controller
 
 		$recentLog->next_processor;
 
-		if($recentLog->next_processor != $firstname.' '.$lastname && $recentLog->processor_name != $firstname.' '.$lastname ) {
-			$flag = "no";
-		} else {
+		if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name != $firstname.' '.$lastname && $recentLog->next_processor == '-')) {
 			$flag = "yes";
+		} else {
+			$flag = "no";
 		}
 		
         return view('superadmin.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users, 'flag' => $flag));

@@ -106,10 +106,10 @@ class ProcessorController extends Controller
 
 		$recentLog->next_processor;
 
-		if($recentLog->next_processor != $firstname.' '.$lastname && $recentLog->processor_name != $firstname.' '.$lastname ) {
-			$flag = "no";
-		} else {
+		if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name != $firstname.' '.$lastname && $recentLog->next_processor == '-')) {
 			$flag = "yes";
+		} else {
+			$flag = "no";
 		}
 		
         return view('superadmin.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag));
@@ -128,10 +128,10 @@ class ProcessorController extends Controller
 
 		$recentLog->next_processor;
 
-		if($recentLog->next_processor != $firstname.' '.$lastname && $recentLog->processor_name != $firstname.' '.$lastname ) {
-			$flag = "no";
-		} else {
+		if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name != $firstname.' '.$lastname && $recentLog->next_processor == '-')) {
 			$flag = "yes";
+		} else {
+			$flag = "no";
 		}
 		
         return view('processor.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users, 'flag' => $flag));
