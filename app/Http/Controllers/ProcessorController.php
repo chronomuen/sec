@@ -114,6 +114,7 @@ class ProcessorController extends Controller
         }
 
         return view('processor.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag));
+
     }
 
 	public function	out_transaction()

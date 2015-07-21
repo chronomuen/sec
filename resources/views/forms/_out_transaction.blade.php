@@ -72,7 +72,7 @@
 						<form action="#" method="get">
 							<div class="input-group" style="width:290px">
 
-								{!! Form::select('next_processor', $users, null, ['class' => 'form-control', 'required' => 'required']) !!}
+								{!! Form::select('next_processor',(['-' => '-'] + $users->toArray()), null, ['class' => 'form-control', 'required' => 'required']) !!}
 
 							</div>
 						</form>
