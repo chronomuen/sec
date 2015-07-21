@@ -109,6 +109,7 @@ class SuperadminController extends Controller
             return Redirect::route('superadmin/out_transaction')
                 ->with( 'transaction', $transaction )
                 ->with( 'logs', $logs )
+				->with('users','')
                 ->with( 'recentLog', $recentLog );
         }
     }
@@ -132,26 +133,46 @@ class SuperadminController extends Controller
 
 	public function	update_transaction()
     {
-        //
         $authuser = Auth::user();
-        $transaction = Session::get('transaction');
+		$transaction = Session::get('transaction');
         $logs = Session::get('logs');
+		
         $recentLog = Session::get('recentLog');
-        return view('superadmin.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog));
+		
+		$firstname = $authuser->firstname;
+		$lastname = $authuser->lastname;
+
+		$recentLog->next_processor;
+
+		if($recentLog->next_processor != $firstname.' '.$lastname && $recentLog->processor_name != $firstname.' '.$lastname ) {
+			$flag = "no";
+		} else {
+			$flag = "yes";
+		}
+		
+        return view('superadmin.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag));
     }
 
 	public function	out_transaction()
     {
-        //
         $authuser = Auth::user();
-		//$users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'user_id');
         $users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'fullname');
-		//$users = User::lists(fullname, 'user_id');
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');
         $recentLog = Session::get('recentLog');
-        return view('superadmin.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users));
+		
+		$firstname = $authuser->firstname;
+		$lastname = $authuser->lastname;
 
+		$recentLog->next_processor;
+
+		if($recentLog->next_processor != $firstname.' '.$lastname && $recentLog->processor_name != $firstname.' '.$lastname ) {
+			$flag = "no";
+		} else {
+			$flag = "yes";
+		}
+		
+        return view('superadmin.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users, 'flag' => $flag));
     }
 
     public function store_transaction()
