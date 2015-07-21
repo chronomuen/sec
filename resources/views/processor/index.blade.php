@@ -51,8 +51,8 @@ Transaction List
 						<td>{!! $log->status !!}</td>
 						<td>{!! $log->remarks !!}</td>
 						<td>{!! $log->processor_name !!}</td>
-						<td>{!! $log->date_received !!}</td>
-						<td>{!! $log->date_released !!}</td>
+						<td>{!! substr($log->date_received,0,10) !!}</td>
+						<td>{!! substr($log->date_released,0,10) !!}</td>
 						<td>{!! $log->next_processor !!}</td>
 					</tr>
 				    @endforeach
