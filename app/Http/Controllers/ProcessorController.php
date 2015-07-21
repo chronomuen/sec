@@ -98,21 +98,23 @@ class ProcessorController extends Controller
         $authuser = Auth::user();
 		$transaction = Session::get('transaction');
         $logs = Session::get('logs');
-		
+
         $recentLog = Session::get('recentLog');
-		
+
 		$firstname = $authuser->firstname;
 		$lastname = $authuser->lastname;
 
-		$recentLog->next_processor;
+        $flag = "no";
+        if($recentLog != null){
+            if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && $recentLog->next_processor == '-')) {
+    			$flag = "yes";
+    		} else {
+    			$flag = "no";
+    		}
+        }
 
-		if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name != $firstname.' '.$lastname && $recentLog->next_processor == '-')) {
-			$flag = "yes";
-		} else {
-			$flag = "no";
-		}
-		
-        return view('superadmin.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag));
+        return view('processor.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag));
+
     }
 
 	public function	out_transaction()
@@ -122,18 +124,19 @@ class ProcessorController extends Controller
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');
         $recentLog = Session::get('recentLog');
-		
+
 		$firstname = $authuser->firstname;
 		$lastname = $authuser->lastname;
 
-		$recentLog->next_processor;
+        $flag = "no";
+        if($recentLog != null){
+            if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && $recentLog->next_processor == '-')) {
+    			$flag = "yes";
+    		} else {
+    			$flag = "no";
+    		}
+        }
 
-		if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name != $firstname.' '.$lastname && $recentLog->next_processor == '-')) {
-			$flag = "yes";
-		} else {
-			$flag = "no";
-		}
-		
         return view('processor.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users, 'flag' => $flag));
     }
 
