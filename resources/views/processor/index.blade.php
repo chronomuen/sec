@@ -52,7 +52,7 @@ Transaction List
 						<td>{!! $log->remarks !!}</td>
 						<td>{!! $log->processor_name !!}</td>
 						<td>{!! substr($log->date_received,0,10) !!}</td>
-						<td>{!! substr($log->date_released,0,10) !!}</td>
+						<td>@if($log->date_released != "0000-00-00 00:00:00"){!! substr($log->date_released,0,10) !!}@endif</td>
 						<td>{!! $log->next_processor !!}</td>
 					</tr>
 				    @endforeach
