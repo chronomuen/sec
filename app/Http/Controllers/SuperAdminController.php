@@ -166,7 +166,7 @@ class SuperadminController extends Controller
 		
 		$firstname = $authuser->firstname;
 		$lastname = $authuser->lastname;
-
+		
 		$recentLog->next_processor;
 
 		if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name != $firstname.' '.$lastname && $recentLog->next_processor == '-')) {
