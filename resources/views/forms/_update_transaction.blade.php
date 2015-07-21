@@ -31,6 +31,7 @@
 	</table>
 </div>
 
+
 <div class="panel">
 	<table class="table table-list-search">
 		<thead>
@@ -61,32 +62,31 @@
 	</table>
 </div>
 
-<div class="panel">
-	<table class="table table-list-search">
-		<tbody>
-			<tr>
-				<td>
-					<form>
-                        <!-- form open is on user's corresponding update transaction page -->
-						{!! Form::label('status', 'Status', ['class' => 'control-label']) !!}
+@if($flag == "yes")
+	<div class="panel">
+		<table class="table table-list-search">
+			<tbody>
+				<tr>
+					<td>
+						<form>
+							<!-- form open is on user's corresponding update transaction page -->
+							{!! Form::label('status', 'Status', ['class' => 'control-label']) !!}
+							<br>
+							{!! Form::radio('status', 'New', false) !!} New
+							<br>
+							{!! Form::radio('status', 'In Process', false) !!} In process
+							<br>
+							{!! Form::radio('status', 'Completed', false) !!} Completed
+							<br><br>
+						</form>
+						{!! Form::label('data', 'Remarks', ['class' => 'control-label']) !!}
 						<br>
-						{!! Form::radio('status', 'New', false) !!} New
-						<br>
-						{!! Form::radio('status', 'In Process', false) !!} In process
-						<br>
-						{!! Form::radio('status', 'Completed', false) !!} Completed
+						{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80]) !!}
 						<br><br>
-					</form>
-					{!! Form::label('data', 'Remarks', ['class' => 'control-label']) !!}
-					<br>
-					{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80]) !!}
-					<br><br>
-					{!! Form::submit('Update Transaction', ['id' => 'submit', 'class' => 'btn btn-primary btn-md', 'name' => 'update']) !!}
-				</td>
-			</tr>
-		</tbody>
-	</table>
-
-
-
-</div>
+						{!! Form::submit('Update Transaction', ['id' => 'submit', 'class' => 'btn btn-primary btn-md', 'name' => 'update']) !!}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+@endif

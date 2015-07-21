@@ -61,34 +61,31 @@
 	</table>
 </div>
 
-<div class="panel">
-	<table class="table table-list-search">
-		<tbody>
-			<tr>
-				<td>
-                    <!-- form open is on user's corresponding out transaction page -->
-					{!! Form::label('next_processor', 'Forward to', ['class' => 'control-label']) !!}
-					<form action="#" method="get">
-						<div class="input-group" style="width:290px">
+@if($flag == "yes")
+	<div class="panel">
+		<table class="table table-list-search">
+			<tbody>
+				<tr>
+					<td>
+						<!-- form open is on user's corresponding out transaction page -->
+						{!! Form::label('next_processor', 'Forward to', ['class' => 'control-label']) !!}
+						<form action="#" method="get">
+							<div class="input-group" style="width:290px">
 
-							{!! Form::select('next_processor', $users, null, ['class' => 'form-control', 'required' => 'required']) !!}
+								{!! Form::select('next_processor', $users, null, ['class' => 'form-control', 'required' => 'required']) !!}
 
-							<span class="input-group-btn">
-								<button type="submit" class="btn btn-default" ><i class="glyphicon glyphicon-search"></i></button>
-							</span>
-						</div>
-					</form>
-					<br>
+							</div>
+						</form>
+						<br>
 
-					{!! Form::label('remarks', 'Remarks', ['class' => 'control-label']) !!}
-					<br>
-					{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80]) !!}
-					<br><br>
-					{!! Form::submit('Logout Transaction', ['id' => 'submit', 'class' => 'btn btn-primary btn-md', 'name' => 'out']) !!}
-				</td>
-			</tr>
-		</tbody>
-	</table>
-
-
-</div>
+						{!! Form::label('remarks', 'Remarks', ['class' => 'control-label']) !!}
+						<br>
+						{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80]) !!}
+						<br><br>
+						{!! Form::submit('Logout Transaction', ['id' => 'submit', 'class' => 'btn btn-primary btn-md', 'name' => 'out']) !!}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+@endif
