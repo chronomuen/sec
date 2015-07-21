@@ -13,7 +13,7 @@
 
     <div class="form-group">
       {!! Form::label('password', 'Password', ['class' => 'control-label']) !!}
-      {!! Form::text('password', null, array('id' => 'password', 'class' => 'form-control', 'required' => 'required')) !!}
+      {!! Form::text('password', null, array('id' => 'password', 'class' => 'form-control')) !!}
     </div>
 
     <div class="form-group">

@@ -113,7 +113,7 @@ class UserController extends Controller
                     'lastname' => 'required',
                     'department' => 'required',
                     'job_title' => 'required',
-                    'password' => 'required',
+                    'password' => 'required|min:6',
                 ]);
             }
             else{
@@ -123,13 +123,24 @@ class UserController extends Controller
                     'lastname' => 'required',
                     'department' => 'required',
                     'job_title' => 'required',
-                    'password' => 'required',
+                    'password' => 'required|min:6',
                 ]);
             }
 
             $input = $request->all();
+            $user->fill($input)->save();
+
+        /*    //if password field is blank, use old password
+            if ($request['password'] == ""){
+                $pass = $user->password;
+            }
+            else{
+                $pass = $request['password'];
+            }
 
             $user->fill($input)->save();
+            $user->password = $pass;
+            $user->save();*/
 
             Session::flash('flash_message', 'User successfully edited!');
         }
