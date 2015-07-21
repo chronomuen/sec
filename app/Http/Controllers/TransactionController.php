@@ -71,7 +71,7 @@ class TransactionController extends Controller
             'remarks' => $request['remarks'],
             'date_received' => $date,
             'date_released' => '',
-            'next_processor' => ''
+            'next_processor' => '-'
         ]);
 
         if($user->user_type = "Processor")
@@ -155,7 +155,7 @@ class TransactionController extends Controller
                     'remarks' => $request['remarks'],
                     'date_received' => $date,
                     'date_released' => '',
-                    'next_processor' => ''
+                    'next_processor' => '-'
                 ]);
             }
 

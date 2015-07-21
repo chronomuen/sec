@@ -27,7 +27,6 @@ class SuperadminController extends Controller
     {
 		//
 		$transactionID =  Input::get('search');
-
 		$logs = Log::where('transaction_id', '=', $transactionID)->get();
         $authuser = Auth::user();
         return view('superadmin.index', array('authuser' => $authuser, 'logs' => $logs ));
@@ -136,20 +135,21 @@ class SuperadminController extends Controller
         $authuser = Auth::user();
 		$transaction = Session::get('transaction');
         $logs = Session::get('logs');
-		
+
         $recentLog = Session::get('recentLog');
-		
+
 		$firstname = $authuser->firstname;
 		$lastname = $authuser->lastname;
 
-		$recentLog->next_processor;
+        $flag = "no";
+        if($recentLog != null){
+            if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && $recentLog->next_processor == '-')) {
+    			$flag = "yes";
+    		} else {
+    			$flag = "no";
+    		}
+        }
 
-		if($recentLog->next_processor != $firstname.' '.$lastname && $recentLog->processor_name != $firstname.' '.$lastname ) {
-			$flag = "no";
-		} else {
-			$flag = "yes";
-		}
-		
         return view('superadmin.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag));
     }
 
@@ -160,18 +160,19 @@ class SuperadminController extends Controller
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');
         $recentLog = Session::get('recentLog');
-		
+
 		$firstname = $authuser->firstname;
 		$lastname = $authuser->lastname;
 
-		$recentLog->next_processor;
+        //$flag = "no";
+    //    if($recentLog != null){
+            if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && $recentLog->next_processor == '-')) {
+    			$flag = "yes";
+    		} else {
+    			$flag = "no";
+    		}
+    //    }
 
-		if($recentLog->next_processor != $firstname.' '.$lastname && $recentLog->processor_name != $firstname.' '.$lastname ) {
-			$flag = "no";
-		} else {
-			$flag = "yes";
-		}
-		
         return view('superadmin.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users, 'flag' => $flag));
     }
 
