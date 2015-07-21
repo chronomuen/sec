@@ -164,14 +164,14 @@ class SuperadminController extends Controller
 		$firstname = $authuser->firstname;
 		$lastname = $authuser->lastname;
 
-        //$flag = "no";
-    //    if($recentLog != null){
+        $flag = "no";
+        if($recentLog != null){
             if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && $recentLog->next_processor == '-')) {
     			$flag = "yes";
     		} else {
     			$flag = "no";
     		}
-    //    }
+        }
 
         return view('superadmin.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users, 'flag' => $flag));
     }
