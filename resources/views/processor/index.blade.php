@@ -10,7 +10,7 @@ Transaction List
 
 @section('content')
 <div align="center">
-	<h3 style="center">Search Transaction</h3>
+	<h3 style="center">Search Transaction --- {!! $tick !!}</h3>
 	<form action="#" method="get" style="width: 300px">
 		<div class="input-group">
 			<div>
@@ -21,11 +21,12 @@ Transaction List
 				<button type="submit" id="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 			</span>
 		</div>
+		{!! Form::radio('choice', 'Transaction') !!}Transaction{!! Form::radio('choice', 'Client') !!}Client<br/>
 	</form>
 </div>
 
-
 <br>
+@if($tick == "Transaction")
 <div style="padding-right:20px; padding-left:20px">
 	<div class="row">
 		@if($logs->isEmpty())
@@ -62,4 +63,7 @@ Transaction List
 		@endif
 	</div>
 </div>
+@elseif($tick == "Client")
+IM A CLIENT!!!!!!!
+@endif
 @stop
