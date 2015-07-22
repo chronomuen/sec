@@ -26,10 +26,13 @@ class SuperadminController extends Controller
     public function index()
     {
 		//
-		$transactionID =  Input::get('search');
-		$logs = Log::where('transaction_id', '=', $transactionID)->get();
+		$input =  Input::get('search');
+		$logs = Log::where('transaction_id', '=', $input)->get();
         $authuser = Auth::user();
-        return view('superadmin.index', array('authuser' => $authuser, 'logs' => $logs ));
+		$transactions = Transaction::where('client', '=', $input)->get();
+		$tick = Input::get('choicer');
+		
+        return view('superadmin.index', array('authuser' => $authuser, 'logs' => $logs, 'transactions' => $transactions, 'tick' => $tick));
     }
 
 
@@ -59,7 +62,6 @@ class SuperadminController extends Controller
 
     public function create_transaction()
     {
-        //
         $authuser = Auth::user();
         $transactionID = Session::get('transactionID');
         return view('superadmin.new_transaction', array('transactionID' => $transactionID, 'authuser' => $authuser));
@@ -67,15 +69,12 @@ class SuperadminController extends Controller
 
     public function process_transactions()
     {
-        //
         $authuser = Auth::user();
         return view('superadmin.processes', array('authuser' => $authuser));
     }
 
     public function process()
     {
-        //
-
         $transactionID =  Input::get('transactionID');
         $transaction = Transaction::where('transaction_id', '=', $transactionID)->first();
         $logs = Log::where('transaction_id', '=', $transactionID)->get();
@@ -94,7 +93,6 @@ class SuperadminController extends Controller
         elseif(Input::has('update'))
         {
             // Process action 2
-
             return Redirect::route('superadmin/update_transaction')
                 ->with( 'transaction', $transaction )
                 ->with( 'logs', $logs )
@@ -117,17 +115,8 @@ class SuperadminController extends Controller
     {
         $authuser = Auth::user();
         $users = User::all();
-        //var_dump(Department::find(1));
-        //var_dump(DB::getQueryLog());
-        //$user = DB::table('users')->where('user_id', '=', 201201034)->first();
+		
         return view('superadmin.view_users', array('users' => $users, 'authuser' => $authuser));
-
-        //$user = Auth::user();
-        //var_dump(Department::find(1));
-        //var_dump(DB::getQueryLog());
-        //$user = DB::table('users')->where('user_id', '=', 201201034)->first();
-
-
     }
 
 	public function	update_transaction()
