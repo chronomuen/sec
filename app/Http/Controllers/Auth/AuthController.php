@@ -79,9 +79,15 @@ class AuthController extends Controller
               // Authentication passed...
               $user = Auth::user();
 
-              return Redirect::to(strtolower($user->user_type).'/');
+              if($user->status == "Active"){
+                  return Redirect::to(strtolower($user->user_type).'/');
+              }
+              else{
+                  Auth::logout();
+                  return redirect('/')->withMessage('Account deactivated.');
+              }
         }
-      return Redirect::back()->withMessage('Invalid credentials');
+      return Redirect::back()->withMessage('Invalid credentials.');
 
     }
 
