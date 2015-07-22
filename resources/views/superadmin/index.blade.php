@@ -9,6 +9,8 @@ Transaction List
 @stop
 
 @section('content')
+
+
 <div align="center">
 	<h3 style="center">Search Transaction</h3>
 	<form action="#" method="get" style="width: 300px">
@@ -17,6 +19,8 @@ Transaction List
 				{!! Form::open(['route' => 'superadmin.index']) !!}
                 {!! Form::text('search', null, array('id' => 'search', 'class' => 'form-control', 'placeholder' => 'Search for')) !!}<br/>
             </div>
+			
+	
             <span class="input-group-btn">
 				<button type="submit" id="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 			</span>
@@ -25,24 +29,21 @@ Transaction List
 </div>
 
 <br>
-
-<div align="center" class="form-group">
-	{!! Form::radio('choice', 'Transaction', array('id' => 'choicer'))!!} Transaction
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	{!! Form::radio('choice', 'Client', array('id' => 'choicer')) !!} Client
-	
-</div>
-
+	<div align="center" class="form-group">
+		{!! Form::radio('choice', 'Transaction')!!} Transaction
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		{!! Form::radio('choice', 'Client') !!} Client
+	</div>
 <br>
-{!! $tick !!}
-@if($tick == 'Client')
+
+@if($tick == "Client")
 	<div style="padding-right:20px; padding-left:20px">
 		<div class="row">
 			@if($transactions->isEmpty())
 			@else
 			<div id="panel" class="panel" >
-				<table  id="transactions" class="table table-list-search">
+				<table id="transactions" class="table table-list-search">
 					<thead>
 							<tr>
 							<th class="col-md-1"><center>Client</center></th>
@@ -70,13 +71,13 @@ Transaction List
 			@endif
 		</div>
 	</div>
-@elseif($tick == 'Transaction')
+@elseif($tick == "Transaction")
 	<div style="padding-right:20px; padding-left:20px">
 		<div class="row">
 			@if($logs->isEmpty())
 			@else
 			<div id="panel" class="panel" >
-				<table  id="logs" class="table table-list-search">
+				<table id="logs" class="table table-list-search">
 					<thead>
 							<tr>
 							<th class="col-md-1"><center>Transaction ID</center></th>

@@ -29,7 +29,8 @@ class ProcessorController extends Controller
 
 		$logs = Log::where('transaction_id', '=', $transactionID)->get();
         $authuser = Auth::user();
-        return view('processor.index', array('authuser' => $authuser, 'logs' => $logs ));
+		$tick = Input::get('choice');
+        return view('processor.index', array('authuser' => $authuser, 'logs' => $logs, 'tick' => $tick ));
     }
 
     public function create_transaction()
