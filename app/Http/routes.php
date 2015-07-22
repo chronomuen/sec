@@ -45,6 +45,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('processor/create_transaction', array( 'as' => 'processor/create_transaction', 'uses' => 'ProcessorController@create_transaction'));
     Route::get('processor/update_transaction', array( 'as' => 'processor/update_transaction', 'uses' => 'ProcessorController@update_transaction'));
     Route::get('processor/out_transaction', array( 'as' => 'processor/out_transaction', 'uses' => 'ProcessorController@out_transaction'));
+
+    Route::resource('superadmin', 'SuperadminController');
+    Route::resource('processor', 'ProcessorController');
 });
 
 Route::post('transaction/process', 'TransactionController@process');
@@ -54,9 +57,8 @@ Route::get('customer', array('as' => 'customer', 'uses' => 'CustomerController@i
 Route::post('customer/showTransaction', array('as' => 'customer/showTransaction', 'uses' => 'CustomerController@showTransaction'));
 //Route::get('customer', array('as' => 'customer', 'uses' => 'CustomerController@index'));
 
-Route::resource('superadmin', 'SuperadminController');
-Route::resource('admin', 'AdminController');
-Route::resource('processor', 'ProcessorController');
+
+//Route::resource('admin', 'AdminController');
 Route::resource('customer', 'CustomerController');
 Route::resource('transaction', 'TransactionController');
 Route::resource('user', 'UserController');
