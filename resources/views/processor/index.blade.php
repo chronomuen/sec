@@ -10,7 +10,7 @@ Transaction List
 
 @section('content')
 <div align="center">
-	<h3 style="center">Search Transaction</h3>
+	<h3 style="center">Search Transaction --- {!! $tick !!}</h3>
 	<form action="#" method="get" style="width: 300px">
 		<div class="input-group">
 			<div>
@@ -23,6 +23,15 @@ Transaction List
 		</div>
 	</form>
 </div>
+
+<br>
+	<div align="center" class="form-group">
+		{!! Form::radio('choice', 'Transaction')!!} Transaction
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		{!! Form::radio('choice', 'Client') !!} Client
+	</div>
+<br>
 
 @if($tick == "Client")
 	<div style="padding-right:20px; padding-left:20px">

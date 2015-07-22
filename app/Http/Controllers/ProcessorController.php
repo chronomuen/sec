@@ -29,8 +29,10 @@ class ProcessorController extends Controller
 
 		$logs = Log::where('transaction_id', '=', $transactionID)->get();
         $authuser = Auth::user();
-		$tick = Input::get('choice');
-        return view('processor.index', array('authuser' => $authuser, 'logs' => $logs, 'tick' => $tick ));
+
+        $tick = Input::get('choice');
+        return view('processor.index', array('authuser' => $authuser, 'logs' => $logs, 'tick' => $tick));
+
     }
 
     public function create_transaction()
@@ -107,13 +109,12 @@ class ProcessorController extends Controller
 
         $flag = "no";
         if($recentLog != null){
-            if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && $recentLog->next_processor == '-')) {
+            if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer'))) {
     			$flag = "yes";
     		} else {
     			$flag = "no";
     		}
         }
-
         return view('processor.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag));
 
     }
@@ -131,13 +132,12 @@ class ProcessorController extends Controller
 
         $flag = "no";
         if($recentLog != null){
-            if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && $recentLog->next_processor == '-')) {
+            if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer'))) {
     			$flag = "yes";
     		} else {
     			$flag = "no";
     		}
         }
-
         return view('processor.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users, 'flag' => $flag));
     }
 

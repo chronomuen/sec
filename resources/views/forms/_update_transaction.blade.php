@@ -12,10 +12,6 @@
 					<p>
 						<b>Customer Name:</b> {!! $transaction->client !!}
 					</p>
-				<!--	<p id="current_processor">-->
-                    <p>
-						<b>Processor:</b> {!! $recentLog->processor_name !!}
-					</p>
 					<p>
 						<b>Date Submitted:</b> {!! substr($transaction->date_submitted,0,10) !!}
 					</p>
@@ -68,20 +64,10 @@
 			<tbody>
 				<tr>
 					<td>
-						<form>
-							<!-- form open is on user's corresponding update transaction page -->
-							{!! Form::label('status', 'Status', ['class' => 'control-label']) !!}
-							<br>
-							{!! Form::radio('status', 'New', false) !!} New
-							<br>
-							{!! Form::radio('status', 'In Process', false) !!} In process
-							<br>
-							{!! Form::radio('status', 'Completed', false) !!} Completed
-							<br><br>
-						</form>
+						<!-- form open is on user's corresponding update transaction page -->
 						{!! Form::label('data', 'Remarks', ['class' => 'control-label']) !!}
 						<br>
-						{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80]) !!}
+						{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80, 'required' => 'required']) !!}
 						<br><br>
 						{!! Form::submit('Update Transaction', ['id' => 'submit', 'class' => 'btn btn-primary btn-md', 'name' => 'update']) !!}
 					</td>

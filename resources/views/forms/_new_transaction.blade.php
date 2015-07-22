@@ -28,13 +28,6 @@
   </div>
 
   <div class="form-group">
-      {!! Form::label('status', 'Status', ['class' => 'control-label']) !!}<br/>
-      {!! Form::radio('status', 'New', ['required' => 'required']) !!} New<br/>
-      {!! Form::radio('status', 'In process') !!} In Process<br/>
-      {!! Form::radio('status', 'Completed') !!} Completed<br/>
-  </div>
-
-  <div class="form-group">
       {!! Form::label('remarks', 'Remarks', ['class' => 'control-label']) !!}
       {!! Form::textarea('remarks', null, array('id' => 'remarks', 'class' => 'form-control', 'required' => 'required', 'rows' => 10, 'cols' => 80)) !!}
   </div>
