@@ -12,10 +12,6 @@
 					<p>
 						<b>Customer Name:</b> {!! $transaction->client !!}
 					</p>
-				<!--	<p id="current_processor">-->
-                    <p>
-						<b>Processor:</b> {!! $recentLog->processor_name !!}
-					</p>
 					<p>
 						<b>Date Submitted:</b> {!! substr($transaction->date_submitted,0,10) !!}
 					</p>
@@ -72,7 +68,7 @@
 						<form action="#" method="get">
 							<div class="input-group" style="width:290px">
 
-								{!! Form::select('next_processor',(['-' => '-'] + $users->toArray()), null, ['class' => 'form-control', 'required' => 'required']) !!}
+								{!! Form::select('next_processor',(['Customer' => 'Customer'] + $users->toArray()), null, ['class' => 'form-control', 'required' => 'required']) !!}
 
 							</div>
 						</form>
@@ -80,7 +76,9 @@
 
 						{!! Form::label('remarks', 'Remarks', ['class' => 'control-label']) !!}
 						<br>
-						{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80]) !!}
+						{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80, 'required' => 'required']) !!}
+						<br>
+						{!! Form::checkbox('completed') !!} &nbsp; {!! Form::label('completed', 'Is the transaction cycle complete?', ['class' => 'control-label']) !!}
 						<br><br>
 						{!! Form::submit('Logout Transaction', ['id' => 'submit', 'class' => 'btn btn-primary btn-md', 'name' => 'out']) !!}
 					</td>

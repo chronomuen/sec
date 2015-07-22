@@ -125,12 +125,13 @@ class TransactionController extends Controller
         if(Input::has('update'))
         {
             $this->validate($request, [
-                'status' => 'required',
                 'remarks' => 'required'
             ]);
 
             $input = $request->all();
             $transaction->fill($input)->save();
+            $transaction->status = "In process";
+            $transaction->save();
 
             //Log
             //if processor of recent log is the auth user, update log
@@ -144,6 +145,9 @@ class TransactionController extends Controller
                 //update log
                 $input = $request->all();
                 $recentLog->fill($input)->save();
+                $recentLog->status = "In process";
+                $recentLog->save();
+
             }
             else {
                 //create log
@@ -151,7 +155,7 @@ class TransactionController extends Controller
                 Log::create([
                     'transaction_id' => $transaction->transaction_id,
                     'processor_name' => $authuser->firstname.' '.$authuser->lastname,
-                    'status' => $request['status'],
+                    'status' => 'In process',
                     'remarks' => $request['remarks'],
                     'date_received' => $date,
                     'date_released' => '',
@@ -178,9 +182,21 @@ class TransactionController extends Controller
             $firstname = $authuser->firstname;
             $lastname = $authuser->lastname;
 
-            //get name of next processor
-            //$nextprocessor = User::where('user_id', '=', $request['next_processor'])->get();
-            //$nextname = $nextprocessor->firstname.' '.$nextprocessor->lastname;
+            $complete = (Input::has('completed')) ? true : false;
+            //completed transaction should only be forwarded to customer or to '-'
+            if($complete){
+                if($request['next_processor'] != "Customer"){
+                    $nextprocessor = "-";
+                }
+                else{
+                    $nextprocessor = $request['next_processor'];
+                }
+                $status = "Completed";
+            }
+            else{
+                $nextprocessor = $request['next_processor'];
+                $status = "In process";
+            }
 
             if($recentLog->processor_name == $firstname.' '.$lastname)
             {
@@ -188,7 +204,8 @@ class TransactionController extends Controller
                 $date = new DateTime();
                 $recentLog->date_released = $date;
                 $recentLog->remarks = $request['remarks'];
-                $recentLog->next_processor = $request['next_processor'];
+                $recentLog->next_processor = $nextprocessor;
+                $recentLog->status = $status;
                 $recentLog->save();
             }
             else {
@@ -197,11 +214,11 @@ class TransactionController extends Controller
                 Log::create([
                     'transaction_id' => $transaction->transaction_id,
                     'processor_name' => $authuser->firstname.' '.$authuser->lastname,
-                    'status' => $recentLog->status,
                     'remarks' => $request['remarks'],
                     'date_received' => $date,
                     'date_released' => $date,
-                    'next_processor' => $request['next_processor']
+                    'status' => $status,
+                    'next_processor' => $nextprocessor
                 ]);
             }
 
