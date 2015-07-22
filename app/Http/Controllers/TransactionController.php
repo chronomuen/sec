@@ -195,7 +195,7 @@ class TransactionController extends Controller
             }
             else{
                 $nextprocessor = $request['next_processor'];
-                $status = "In process";
+                $status = $recentLog->status;
             }
 
             if($recentLog->processor_name == $firstname.' '.$lastname)

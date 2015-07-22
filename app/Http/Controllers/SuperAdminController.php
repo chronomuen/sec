@@ -30,9 +30,10 @@ class SuperadminController extends Controller
 		$logs = Log::where('transaction_id', '=', $input)->get();
         $authuser = Auth::user();
 		$transactions = Transaction::where('client', '=', $input)->get();
+		$transactionPass =  Transaction::where('transaction_id', '=', $input)->get();
 		$tick = Input::get('choice');
 		
-        return view('superadmin.index', array('authuser' => $authuser, 'logs' => $logs, 'transactions' => $transactions, 'tick' => $tick));
+        return view('superadmin.index', array('authuser' => $authuser, 'logs' => $logs, 'transactions' => $transactions, 'tick' => $tick, 'transactionPass' => $transactionPass));
     }
 
 
