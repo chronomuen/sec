@@ -132,7 +132,8 @@ class TransactionController extends Controller
             $transaction->fill($input)->save();
             $transaction->status = "In process";
             $transaction->save();
-
+			
+			
             //Log
             //if processor of recent log is the auth user, update log
             $recentLog = Log::where('transaction_id', '=', $transaction->transaction_id)->orderBy('date_received', 'desc')->first();
@@ -140,28 +141,20 @@ class TransactionController extends Controller
             $firstname = $authuser->firstname;
             $lastname = $authuser->lastname;
 
-            if($recentLog->processor_name == $firstname.' '.$lastname)
-            {
-                //update log
-                $input = $request->all();
-                $recentLog->fill($input)->save();
-                $recentLog->status = "In process";
-                $recentLog->save();
-
-            }
-            else {
-                //create log
-                $date = new DateTime();
-                Log::create([
-                    'transaction_id' => $transaction->transaction_id,
-                    'processor_name' => $authuser->firstname.' '.$authuser->lastname,
-                    'status' => 'In process',
-                    'remarks' => $request['remarks'],
-                    'date_received' => $date,
-                    'date_released' => '',
-                    'next_processor' => '-'
-                ]);
-            }
+			//create log
+			$date = new DateTime();
+			$recentLog->date_released = $date;
+			$recentLog->save();
+			Log::create([
+				'transaction_id' => $transaction->transaction_id,
+				'processor_name' => $authuser->firstname.' '.$authuser->lastname,
+				'status' => 'In process',
+				'remarks' => $request['remarks'],
+				'date_received' => $date,
+				'date_released' => '',
+				'next_processor' => '-'
+			]);
+            //}
 
             if($authuser->user_type == "Processor")
             {
@@ -178,7 +171,6 @@ class TransactionController extends Controller
             //Log
             //if processor of recent log is the auth user, update log
             $recentLog = Log::where('transaction_id', '=', $transaction->transaction_id)->orderBy('date_received', 'desc')->first();
-
             $firstname = $authuser->firstname;
             $lastname = $authuser->lastname;
 
@@ -192,35 +184,38 @@ class TransactionController extends Controller
                     $nextprocessor = $request['next_processor'];
                 }
                 $status = "Completed";
-            }
-            else{
-                $nextprocessor = $request['next_processor'];
-                $status = $recentLog->status;
-            }
-
-            if($recentLog->processor_name == $firstname.' '.$lastname)
-            {
-                //add date_released
+				
+				//create log
                 $date = new DateTime();
-                $recentLog->date_released = $date;
-                $recentLog->remarks = $request['remarks'];
-                $recentLog->next_processor = $nextprocessor;
-                $recentLog->status = $status;
-                $recentLog->save();
-            }
-            else {
-                //create log
-                $date = new DateTime();
+				$recentLog->date_released = $date;
+				$recentLog->save();
                 Log::create([
                     'transaction_id' => $transaction->transaction_id,
                     'processor_name' => $authuser->firstname.' '.$authuser->lastname,
                     'remarks' => $request['remarks'],
-                    'date_received' => $date,
+                    'date_received' => $recentLog->date_released,
                     'date_released' => $date,
                     'status' => $status,
-                    'next_processor' => $nextprocessor
+                    'next_processor' => '-'
                 ]);
             }
+            else{
+                $nextprocessor = $request['next_processor'];
+                $status = $recentLog->status;
+				if($recentLog->processor_name == $firstname.' '.$lastname)
+				{
+					//add date_released
+					$date = new DateTime();
+					$recentLog->date_released = $date;
+					$recentLog->remarks = $request['remarks'];
+					$recentLog->next_processor = $nextprocessor;
+					$recentLog->status = $status;
+					$recentLog->save();
+				}
+            }
+
+            
+             
 
             if($authuser->user_type == "Processor")
             {

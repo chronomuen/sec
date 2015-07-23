@@ -13,6 +13,12 @@ Transaction List
 	<div align="center">
 		<h3 style="center">Search Transaction</h3>
 		<form action="#" method="get" style="width: 300px">
+			<div align="center" class="form-group">
+				{!! Form::radio('choice', 'Transaction', ['required' => 'required'])!!} Transaction
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				{!! Form::radio('choice', 'Client') !!} Client
+			</div>
 			<div class="input-group">
 				<div>
 					{!! Form::open(['route' => 'superadmin.index']) !!}
@@ -21,12 +27,6 @@ Transaction List
 				<span class="input-group-btn">
 					<button type="submit" id="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 				</span>
-			</div>
-			<div align="center" class="form-group">
-				{!! Form::radio('choice', 'Transaction')!!} Transaction
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				{!! Form::radio('choice', 'Client') !!} Client
 			</div>
 		</form>
 	</div>
