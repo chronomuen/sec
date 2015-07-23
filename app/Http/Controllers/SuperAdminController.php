@@ -147,6 +147,12 @@ class SuperadminController extends Controller
     {
         $authuser = Auth::user();
         $users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'fullname');
+		//foreach ($users as $user) {
+		//	if($user->status == 'Inactive'){
+		//		$user->forget();
+		//	}
+		//}
+		//$departments == Department::lists('name', 'department_id');
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');
         $recentLog = Session::get('recentLog');

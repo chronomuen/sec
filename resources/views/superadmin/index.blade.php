@@ -25,7 +25,7 @@ Transaction List
 					{!! Form::open(['route' => 'superadmin.index']) !!}
 					{!! Form::text('search', null, array('id' => 'search', 'class' => 'form-control', 'placeholder' => 'Search for')) !!}<br/>
 				</div>
-		
+
 				<span class="input-group-btn">
 					<button type="submit" id="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 				</span>
@@ -37,6 +37,9 @@ Transaction List
 	@if($tick == "Transaction")
 		<div style="padding-right:20px; padding-left:20px">
 			@if($logs->isEmpty())
+			<div class="alert alert-danger">
+				No transaction found.
+			</div>
 			@else
 				<h4><b>Transaction Password:</b>
 				@foreach ($transactionPass as $tp)
@@ -44,7 +47,6 @@ Transaction List
 				@endforeach
 				</h4>
 				<div class="row">
-					
 					<div id="panel" class="panel" >
 						<table id="logs" class="table table-list-search">
 							<thead>
@@ -81,6 +83,9 @@ Transaction List
 		<div style="padding-right:20px; padding-left:20px">
 			<div class="row">
 				@if($transactions->isEmpty())
+				<div class="alert alert-danger">
+					No client found.
+				</div>
 				@else
 				<div id="panel" class="panel" >
 					<table id="transactions" class="table table-list-search">

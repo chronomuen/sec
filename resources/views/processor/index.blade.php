@@ -36,43 +36,45 @@ Transaction List
 	@if($tick == "Transaction")
 		<div style="padding-right:20px; padding-left:20px">
 			@if($logs->isEmpty())
-			@else
-			<h4><b>Transaction Password:</b>
-			@foreach ($transactionPass as $tp)
-				{!! $tp->password !!}
-			@endforeach
-			</h4>
-			<div class="row">
-				
-				<div id="panel" class="panel" >
-					<table id="logs" class="table table-list-search">
-						<thead>
-								<tr>
-								<th class="col-md-1"><center>Transaction ID</center></th>
-								<th class="col-md-1"><center>Status</center></th>
-								<th class="col-md-2"><center>Remarks</center></th>
-								<th class="col-md-2"><center>Processor</center></th>
-								<th class="col-md-1"><center>Date Received</center></th>
-								<th class="col-md-1"><center>Date Released</center></th>
-								<th class="col-md-2"><center>Next Processor</center></th>
-								</tr>
-						</thead>
-						<tbody>
-							@foreach ($logs as $log)
-							<tr>
-								<td>{!! $log->transaction_id !!}</td>
-								<td>{!! $log->status !!}</td>
-								<td>{!! $log->remarks !!}</td>
-								<td>{!! $log->processor_name !!}</td>
-								<td>{!! substr($log->date_received,0,10) !!}</td>
-								<td>@if($log->date_released != "0000-00-00 00:00:00"){!! substr($log->date_released,0,10) !!}@endif</td>
-								<td>{!! $log->next_processor !!}</td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
-				</div>
+			<div class="alert alert-danger">
+				No transaction found.
 			</div>
+			@else
+				<h4><b>Transaction Password:</b>
+				@foreach ($transactionPass as $tp)
+					{!! $tp->password !!}
+				@endforeach
+				</h4>
+				<div class="row">
+					<div id="panel" class="panel" >
+						<table id="logs" class="table table-list-search">
+							<thead>
+									<tr>
+									<th class="col-md-1"><center>Transaction ID</center></th>
+									<th class="col-md-1"><center>Status</center></th>
+									<th class="col-md-2"><center>Remarks</center></th>
+									<th class="col-md-2"><center>Processor</center></th>
+									<th class="col-md-1"><center>Date Received</center></th>
+									<th class="col-md-1"><center>Date Released</center></th>
+									<th class="col-md-2"><center>Next Processor</center></th>
+									</tr>
+							</thead>
+							<tbody>
+								@foreach ($logs as $log)
+								<tr>
+									<td>{!! $log->transaction_id !!}</td>
+									<td>{!! $log->status !!}</td>
+									<td>{!! $log->remarks !!}</td>
+									<td>{!! $log->processor_name !!}</td>
+									<td>{!! substr($log->date_received,0,10) !!}</td>
+									<td>@if($log->date_released != "0000-00-00 00:00:00"){!! substr($log->date_released,0,10) !!}@endif</td>
+									<td>{!! $log->next_processor !!}</td>
+								</tr>
+								@endforeach
+							</tbody>
+						</table>
+					</div>
+				</div>
 			@endif
 		</div>
 
@@ -80,6 +82,9 @@ Transaction List
 		<div style="padding-right:20px; padding-left:20px">
 			<div class="row">
 				@if($transactions->isEmpty())
+				<div class="alert alert-danger">
+					No client found.
+				</div>
 				@else
 				<div id="panel" class="panel" >
 					<table id="transactions" class="table table-list-search">
