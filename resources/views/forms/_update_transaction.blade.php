@@ -67,7 +67,7 @@
 						<!-- form open is on user's corresponding update transaction page -->
 						{!! Form::label('data', 'Remarks', ['class' => 'control-label']) !!}
 						<br>
-						{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80, 'required' => 'required']) !!}
+						{!! Form::textarea('remarks', $remarks, ['id' => 'area3', 'rows' => 10, 'cols' => 80, 'required' => 'required']) !!}
 						<br><br>
 						{!! Form::submit('Update Transaction', ['id' => 'submit', 'class' => 'btn btn-primary btn-md', 'name' => 'update']) !!}
 					</td>

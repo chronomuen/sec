@@ -31,7 +31,7 @@ class ProcessorController extends Controller
 		$transactions = Transaction::where('client', '=', $input)->get();
 		$transactionPass =  Transaction::where('transaction_id', '=', $input)->get();
         $tick = Input::get('choice');
-		
+
         return view('processor.index', array('authuser' => $authuser, 'logs' => $logs, 'transactions' => $transactions, 'tick' => $tick, 'transactionPass' => $transactionPass));
 
     }
@@ -112,11 +112,21 @@ class ProcessorController extends Controller
         if($recentLog != null){
             if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer'))) {
     			$flag = "yes";
+
+                //if current processor owns recentLog
+                if($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer')){
+                    $remarks = $recentLog->remarks;
+                }
+                else{
+                    $remarks = "";
+                }
     		} else {
     			$flag = "no";
+                $remarks = "";
     		}
         }
-        return view('processor.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag));
+
+        return view('processor..update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag, 'remarks' => $remarks));
 
     }
 
@@ -135,11 +145,21 @@ class ProcessorController extends Controller
         if($recentLog != null){
             if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer'))) {
     			$flag = "yes";
+
+                //if current processor owns recentLog
+                if($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer')){
+                    $remarks = $recentLog->remarks;
+                }
+                else{
+                    $remarks = "";
+                }
     		} else {
     			$flag = "no";
+                $remarks = "";
     		}
         }
-        return view('processor.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users, 'flag' => $flag));
+
+        return view('processor.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users, 'flag' => $flag, 'remarks' => $remarks));
     }
 
     public function store_transaction()
