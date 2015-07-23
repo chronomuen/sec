@@ -42,6 +42,9 @@ Transaction List
 			</h4>
 			<div class="row">
 				@if($logs->isEmpty())
+				<div class="alert alert-danger">
+					No transaction found.
+				</div>
 				@else
 				<div id="panel" class="panel" >
 					<table id="logs" class="table table-list-search">
@@ -79,6 +82,9 @@ Transaction List
 		<div style="padding-right:20px; padding-left:20px">
 			<div class="row">
 				@if($transactions->isEmpty())
+				<div class="alert alert-danger">
+					No client found.
+				</div>
 				@else
 				<div id="panel" class="panel" >
 					<table id="transactions" class="table table-list-search">
