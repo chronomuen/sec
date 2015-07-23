@@ -35,14 +35,15 @@ Transaction List
 
 	@if($tick == "Transaction")
 		<div style="padding-right:20px; padding-left:20px">
+			@if($logs->isEmpty())
+			@else
 			<h4><b>Transaction Password:</b>
 			@foreach ($transactionPass as $tp)
 				{!! $tp->password !!}
 			@endforeach
 			</h4>
 			<div class="row">
-				@if($logs->isEmpty())
-				@else
+				
 				<div id="panel" class="panel" >
 					<table id="logs" class="table table-list-search">
 						<thead>
@@ -71,8 +72,8 @@ Transaction List
 						</tbody>
 					</table>
 				</div>
-				@endif
 			</div>
+			@endif
 		</div>
 
 	@elseif($tick == "Client")

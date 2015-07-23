@@ -26,12 +26,13 @@ class ProcessorController extends Controller
     {
         //
 		$input =  Input::get('search');
-
 		$logs = Log::where('transaction_id', '=', $input)->get();
         $authuser = Auth::user();
+		$transactions = Transaction::where('client', '=', $input)->get();
 		$transactionPass =  Transaction::where('transaction_id', '=', $input)->get();
         $tick = Input::get('choice');
-        return view('processor.index', array('authuser' => $authuser, 'logs' => $logs, 'tick' => $tick, 'transactionPass' => $transactionPass));
+		
+        return view('processor.index', array('authuser' => $authuser, 'logs' => $logs, 'transactions' => $transactions, 'tick' => $tick, 'transactionPass' => $transactionPass));
 
     }
 
