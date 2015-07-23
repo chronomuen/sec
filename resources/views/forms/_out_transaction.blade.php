@@ -76,7 +76,7 @@
 
 						{!! Form::label('remarks', 'Remarks', ['class' => 'control-label']) !!}
 						<br>
-						{!! Form::textarea('remarks', null, ['id' => 'area3', 'rows' => 10, 'cols' => 80, 'required' => 'required']) !!}
+						{!! Form::textarea('remarks', $remarks, ['id' => 'area3', 'rows' => 10, 'cols' => 80, 'required' => 'required']) !!}
 						<br>
 						{!! Form::checkbox('completed') !!} &nbsp; {!! Form::label('completed', 'Is the transaction cycle complete?', ['class' => 'control-label']) !!}
 						<br><br>
