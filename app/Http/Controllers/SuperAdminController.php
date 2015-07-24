@@ -132,6 +132,7 @@ class SuperadminController extends Controller
 		$lastname = $authuser->lastname;
 
         $flag = "no";
+		$remarks = "";
         if($recentLog != null){
             if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer'))) {
     			$flag = "yes";
@@ -170,6 +171,7 @@ class SuperadminController extends Controller
 		$lastname = $authuser->lastname;
 
         $flag = "no";
+		$remarks = "";
         if($recentLog != null){
             if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer'))) {
     			$flag = "yes";
