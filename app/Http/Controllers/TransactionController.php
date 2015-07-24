@@ -173,6 +173,9 @@ class TransactionController extends Controller
             $complete = (Input::has('completed')) ? true : false;
             //completed transaction should only be forwarded to customer or to '-'
             if($complete){
+				$transaction->status = "Completed";
+				$transaction->save();
+
                 if($request['next_processor'] != "Customer"){
                     $nextprocessor = "-";
                 }
@@ -192,18 +195,30 @@ class TransactionController extends Controller
                 ]);
             }
             else {
+				$nextprocessor = $request['next_processor'];
 				if($recentLog->status == 'Completed')
 				{
-					$recentLog->status = 'In process';
+					$transaction->status = "In process";
+					$transaction->save();
+					$date = new DateTime();
+					Log::create([
+						'transaction_id' => $transaction->transaction_id,
+						'processor_name' => $authuser->firstname.' '.$authuser->lastname,
+						'status' => 'In process',
+						'remarks' => $request['remarks'],
+						'date_received' => $recentLog->date_released,
+						'date_released' => $date,
+						'next_processor' => $nextprocessor
+					]);
 				}
-				$nextprocessor = $request['next_processor'];
-				
-				//add date_released
-				$date = new DateTime();
-				$recentLog->date_released = $date;
-				$recentLog->remarks = $request['remarks'];
-				$recentLog->next_processor = $nextprocessor;
-				$recentLog->save();
+				else {
+					//add date_released
+					$date = new DateTime();
+					$recentLog->date_released = $date;
+					$recentLog->remarks = $request['remarks'];
+					$recentLog->next_processor = $nextprocessor;
+					$recentLog->save();
+				}
             }
 
             if($authuser->user_type == "Processor")
