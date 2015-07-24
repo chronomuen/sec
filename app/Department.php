@@ -8,13 +8,14 @@ class Department extends Model
 {
     //
     protected $table = 'departments';
+    protected $primaryKey = 'department_id';
 
     //RELATIONS------------------------------
 
     //department has many users
     public function users()
     {
-        return $this->hasMany('App\User', 'department', 'department_id');
+        return $this->hasMany('App\User', 'department_id', 'department_id');
     }
 
 }

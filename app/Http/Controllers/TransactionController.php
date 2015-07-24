@@ -139,7 +139,7 @@ class TransactionController extends Controller
 
             $firstname = $authuser->firstname;
             $lastname = $authuser->lastname;
-			
+
 			$date = new DateTime();
 			Log::create([
 				'transaction_id' => $transaction->transaction_id,
@@ -150,7 +150,7 @@ class TransactionController extends Controller
 				'date_released' => '',
 				'next_processor' => '-'
 			]);
-			
+
             if($authuser->user_type == "Processor")
             {
                 return redirect('processor/process_transactions')->withMessage('success update');

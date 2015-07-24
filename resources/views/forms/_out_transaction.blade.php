@@ -68,7 +68,13 @@
 						<form action="#" method="get">
 							<div class="input-group" style="width:290px">
 
-								{!! Form::select('next_processor',(['Customer' => 'Customer'] + $users->toArray()), null, ['class' => 'form-control', 'required' => 'required']) !!}
+								<select class="form-control" required="required" id="next_processor" name="next_processor">
+									<option value="Customer">Customer</option>
+									@foreach($users as $user)
+										<option value="{!! $user->firstname.' '.$user->lastname !!}"> {!! $user->department->acronym !!} - {!! $user->firstname !!} {!! $user->lastname !!}</option>
+									@endforeach
+								</select>
+
 
 							</div>
 						</form>

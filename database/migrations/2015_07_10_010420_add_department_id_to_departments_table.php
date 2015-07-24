@@ -14,7 +14,7 @@ class AddDepartmentIdToDepartmentsTable extends Migration
     {
         Schema::table('departments', function (Blueprint $table) {
             //
-            $table->integer('department_id');
+            $table->string('department_id');
         });
     }
 

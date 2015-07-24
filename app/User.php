@@ -31,7 +31,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     //for sti
     // fields common to all User types
-    protected static $persisted = ['id', 'user_id', 'username', 'password', 'email', 'firstname', 'lastname', 'department', 'job_title', 'user_type', 'status'];
+    protected static $persisted = ['id', 'user_id', 'username', 'password', 'email', 'firstname', 'lastname', 'department_id', 'job_title', 'user_type', 'status'];
 
     //The attributes that are mass assignable.
     protected $fillable = [
@@ -40,7 +40,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'email',
         'firstname',
         'lastname',
-        'department',
+        'department_id',
         'job_title',
         'password',
         'status',
@@ -55,7 +55,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     //user belongs to department
     public function department()
     {
-        return $this->belongsTo('App\Department', 'department', 'department_id');
+        //return $this->belongsTo('App\Department', 'department', 'department_id');
+        return $this->belongsTo('App\Department', 'department_id', 'department_id');
     }
 
     //user has many logs

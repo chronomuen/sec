@@ -137,17 +137,10 @@ class SuperadminController extends Controller
             if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer'))) {
     			$flag = "yes";
 
-                //if current processor owns recentLog
-                if($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer')){
-                    $remarks = $recentLog->remarks;
-                }
-                else{
-                    $remarks = "";
-                }
     		} else {
     			$flag = "no";
-                $remarks = "";
     		}
+            $remarks = $recentLog->remarks;
         }
 
         return view('superadmin.update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag, 'remarks' => $remarks));
@@ -156,7 +149,8 @@ class SuperadminController extends Controller
 	public function	out_transaction()
     {
         $authuser = Auth::user();
-        $users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'fullname');
+        //$users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'fullname');
+        $users = User::where('status', '=', 'Active')->get();
 		//foreach ($users as $user) {
 		//	if($user->status == 'Inactive'){
 		//		$user->forget();
@@ -175,18 +169,11 @@ class SuperadminController extends Controller
         if($recentLog != null){
             if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer'))) {
     			$flag = "yes";
-
-                //if current processor owns recentLog
-                if($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer')){
-                    $remarks = $recentLog->remarks;
-                }
-                else{
-                    $remarks = "";
-                }
     		} else {
     			$flag = "no";
-                $remarks = "";
     		}
+
+            $remarks = $recentLog->remarks;
         }
 
         return view('superadmin.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users, 'flag' => $flag, 'remarks' => $remarks));
