@@ -133,7 +133,8 @@ class ProcessorController extends Controller
 	public function	out_transaction()
     {
         $authuser = Auth::user();
-        $users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'fullname');
+        //$users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'fullname');
+        $users = User::where('status', '=', 'Active')->get();
         $transaction = Session::get('transaction');
         $logs = Session::get('logs');
         $recentLog = Session::get('recentLog');

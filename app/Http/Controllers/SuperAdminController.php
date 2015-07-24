@@ -155,7 +155,8 @@ class SuperadminController extends Controller
 	public function	out_transaction()
     {
         $authuser = Auth::user();
-        $users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'fullname');
+        //$users = User::selectRaw('CONCAT(firstname, " ", lastname) as fullname, user_id')->lists('fullname', 'fullname');
+        $users = User::where('status', '=', 'Active')->get();
 		//foreach ($users as $user) {
 		//	if($user->status == 'Inactive'){
 		//		$user->forget();
