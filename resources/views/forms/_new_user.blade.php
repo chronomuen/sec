@@ -32,8 +32,8 @@
     </div>
 
     <div class="form-group">
-      {!! Form::label('department', 'Department', ['class' => 'control-label']) !!}<br/>
-      {!! Form::select('department', $depts, null, ['class' => 'form-control', 'required' => 'required']) !!}
+      {!! Form::label('department_id', 'Department', ['class' => 'control-label']) !!}<br/>
+      {!! Form::select('department_id', $depts, null, ['class' => 'form-control', 'required' => 'required']) !!}
     </div>
 
     <div class="form-group">

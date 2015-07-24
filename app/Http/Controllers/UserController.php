@@ -111,7 +111,7 @@ class UserController extends Controller
                     'email' => 'required',
                     'firstname' => 'required',
                     'lastname' => 'required',
-                    'department' => 'required',
+                    'department_id' => 'required',
                     'job_title' => 'required',
                     'password' => 'required|min:6',
                 ]);
@@ -121,7 +121,7 @@ class UserController extends Controller
                     'email' => 'required',
                     'firstname' => 'required',
                     'lastname' => 'required',
-                    'department' => 'required',
+                    'department_id' => 'required',
                     'job_title' => 'required',
                     'password' => 'required|min:6',
                 ]);
