@@ -114,17 +114,10 @@ class ProcessorController extends Controller
             if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer'))) {
     			$flag = "yes";
 
-                //if current processor owns recentLog
-                if($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer')){
-                    $remarks = $recentLog->remarks;
-                }
-                else{
-                    $remarks = "";
-                }
     		} else {
     			$flag = "no";
-                $remarks = "";
     		}
+            $remarks = $recentLog->remarks;
         }
 
         return view('processor..update_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'flag' => $flag, 'remarks' => $remarks));
@@ -149,17 +142,10 @@ class ProcessorController extends Controller
             if($recentLog->next_processor == $firstname.' '.$lastname || ($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer'))) {
     			$flag = "yes";
 
-                //if current processor owns recentLog
-                if($recentLog->processor_name == $firstname.' '.$lastname  && ($recentLog->next_processor == '-' || $recentLog->next_processor == 'Customer')){
-                    $remarks = $recentLog->remarks;
-                }
-                else{
-                    $remarks = "";
-                }
     		} else {
     			$flag = "no";
-                $remarks = "";
     		}
+            $remarks = $recentLog->remarks;
         }
 
         return view('processor.out_transaction', array('authuser' => $authuser, 'transaction' => $transaction, 'logs' => $logs, 'recentLog' => $recentLog, 'users' => $users, 'flag' => $flag, 'remarks' => $remarks));
