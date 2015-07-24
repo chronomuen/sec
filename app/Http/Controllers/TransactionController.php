@@ -139,30 +139,18 @@ class TransactionController extends Controller
 
             $firstname = $authuser->firstname;
             $lastname = $authuser->lastname;
-
-            if($recentLog->processor_name == $firstname.' '.$lastname)
-            {
-                //update log
-                $input = $request->all();
-                $recentLog->fill($input)->save();
-                $recentLog->status = "In process";
-                $recentLog->save();
-
-            }
-            else {
-                //create log
-                $date = new DateTime();
-                Log::create([
-                    'transaction_id' => $transaction->transaction_id,
-                    'processor_name' => $authuser->firstname.' '.$authuser->lastname,
-                    'status' => 'In process',
-                    'remarks' => $request['remarks'],
-                    'date_received' => $date,
-                    'date_released' => '',
-                    'next_processor' => '-'
-                ]);
-            }
-
+			
+			$date = new DateTime();
+			Log::create([
+				'transaction_id' => $transaction->transaction_id,
+				'processor_name' => $authuser->firstname.' '.$authuser->lastname,
+				'status' => 'In process',
+				'remarks' => $request['remarks'],
+				'date_received' => $date,
+				'date_released' => '',
+				'next_processor' => '-'
+			]);
+			
             if($authuser->user_type == "Processor")
             {
                 return redirect('processor/process_transactions')->withMessage('success update');
@@ -191,25 +179,7 @@ class TransactionController extends Controller
                 else{
                     $nextprocessor = $request['next_processor'];
                 }
-                $status = "Completed";
-            }
-            else{
-                $nextprocessor = $request['next_processor'];
-                $status = $recentLog->status;
-            }
-
-            if($recentLog->processor_name == $firstname.' '.$lastname)
-            {
-                //add date_released
-                $date = new DateTime();
-                $recentLog->date_released = $date;
-                $recentLog->remarks = $request['remarks'];
-                $recentLog->next_processor = $nextprocessor;
-                $recentLog->status = $status;
-                $recentLog->save();
-            }
-            else {
-                //create log
+				//create log
                 $date = new DateTime();
                 Log::create([
                     'transaction_id' => $transaction->transaction_id,
@@ -217,9 +187,23 @@ class TransactionController extends Controller
                     'remarks' => $request['remarks'],
                     'date_received' => $date,
                     'date_released' => $date,
-                    'status' => $status,
+                    'status' => 'Completed',
                     'next_processor' => $nextprocessor
                 ]);
+            }
+            else {
+				if($recentLog->status == 'Completed')
+				{
+					$recentLog->status = 'In process';
+				}
+				$nextprocessor = $request['next_processor'];
+				
+				//add date_released
+				$date = new DateTime();
+				$recentLog->date_released = $date;
+				$recentLog->remarks = $request['remarks'];
+				$recentLog->next_processor = $nextprocessor;
+				$recentLog->save();
             }
 
             if($authuser->user_type == "Processor")
