@@ -51,6 +51,9 @@ class TransactionController extends Controller
             'password' => 'required',
             'date_submitted' => 'required'
         ]);
+		//$input = $request->all();
+		//$transaction->fill($input)->save();
+		//$transaction->save();
 
         $user = Auth::user();
         $date = new DateTime($request['date_submitted']);
@@ -134,7 +137,6 @@ class TransactionController extends Controller
             $transaction->save();
 
             //Log
-            //if processor of recent log is the auth user, update log
             $recentLog = Log::where('transaction_id', '=', $transaction->transaction_id)->orderBy('date_received', 'desc')->first();
 
             $firstname = $authuser->firstname;
