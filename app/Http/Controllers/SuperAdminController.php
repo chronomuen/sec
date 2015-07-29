@@ -79,7 +79,7 @@ class SuperadminController extends Controller
         $transactionID =  Input::get('transactionID');
         $transaction = Transaction::where('transaction_id', '=', $transactionID)->first();
         $logs = Log::where('transaction_id', '=', $transactionID)->get();
-        $recentLog = Log::where('transaction_id', '=', $transactionID)->orderBy('date_received', 'desc')->first();
+        $recentLog = Log::where('transaction_id', '=', $transactionID)->orderBy('created_at', 'desc')->first();
 
 
         if(Input::has('create'))

@@ -64,11 +64,11 @@ class TransactionController extends Controller
             'client' => $request['client'],
             'password' => $request['password'],
             'status' => 'New',
-            'date_submitted' => $request['date_submitted']
+            'date_submitted' => $date
         ]);
-		
+
 		$date = new DateTime();
-		
+
         Log::create([
             'transaction_id' => $request['transaction_id'],
             'processor_name' => $user->firstname.' '.$user->lastname,
@@ -139,7 +139,7 @@ class TransactionController extends Controller
             $transaction->save();
 
             //Log
-            $recentLog = Log::where('transaction_id', '=', $transaction->transaction_id)->orderBy('date_received', 'desc')->first();
+            $recentLog = Log::where('transaction_id', '=', $transaction->transaction_id)->orderBy('created_at', 'desc')->first();
 
             $firstname = $authuser->firstname;
             $lastname = $authuser->lastname;
@@ -169,7 +169,7 @@ class TransactionController extends Controller
         {
             //Log
             //if processor of recent log is the auth user, update log
-            $recentLog = Log::where('transaction_id', '=', $transaction->transaction_id)->orderBy('date_received', 'desc')->first();
+            $recentLog = Log::where('transaction_id', '=', $transaction->transaction_id)->orderBy('created_at', 'desc')->first();
 
             $firstname = $authuser->firstname;
             $lastname = $authuser->lastname;
@@ -188,11 +188,12 @@ class TransactionController extends Controller
                 }
 				//create log
                 $date = new DateTime();
+                $recent_received = $recentLog->date_received;
                 Log::create([
                     'transaction_id' => $transaction->transaction_id,
                     'processor_name' => $authuser->firstname.' '.$authuser->lastname,
                     'remarks' => $request['remarks'],
-                    'date_received' => $date,
+                    'date_received' => $recent_received,
                     'date_released' => $date,
                     'status' => 'Completed',
                     'next_processor' => $nextprocessor
@@ -200,6 +201,7 @@ class TransactionController extends Controller
             }
             else {
 				$nextprocessor = $request['next_processor'];
+                $recent_released = $recentLog->date_released;
 				if($recentLog->status == 'Completed')
 				{
 					$transaction->status = "In process";
@@ -210,7 +212,7 @@ class TransactionController extends Controller
 						'processor_name' => $authuser->firstname.' '.$authuser->lastname,
 						'status' => 'In process',
 						'remarks' => $request['remarks'],
-						'date_received' => $recentLog->date_released,
+						'date_received' => $recent_released,
 						'date_released' => $date,
 						'next_processor' => $nextprocessor
 					]);
