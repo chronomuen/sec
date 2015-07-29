@@ -64,11 +64,11 @@ class TransactionController extends Controller
             'client' => $request['client'],
             'password' => $request['password'],
             'status' => 'New',
-            'date_submitted' => $request['date_submitted']
+            'date_submitted' => $date
         ]);
-		
+
 		$date = new DateTime();
-		
+
         Log::create([
             'transaction_id' => $request['transaction_id'],
             'processor_name' => $user->firstname.' '.$user->lastname,
